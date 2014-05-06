@@ -7,7 +7,7 @@
 // CWebApplication properties can be configured here.
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
-	'name'=>'Мой бухгалтер11111',
+	'name'=>'Мой бухгалтер',
     'language' => 'ru',
 
 	// preloading 'log' component
@@ -60,7 +60,7 @@ return array(
 			'username' => 'root',
 			'password' => '',
 			'charset' => 'utf8',
-            'tablePrefix' => 'buh'
+            'tablePrefix' => 'buh_'
 		),
 
 		'errorHandler'=>array(
