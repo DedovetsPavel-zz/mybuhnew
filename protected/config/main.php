@@ -7,7 +7,7 @@
 // CWebApplication properties can be configured here.
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
-	'name'=>'Мой бухгалтер111111111',
+	'name'=>'Мой бухгалтер',
     'language' => 'ru',
 
 	// preloading 'log' component
