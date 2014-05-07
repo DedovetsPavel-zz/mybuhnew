@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<link rel="stylesheet" href="style.css" type="text/css" />
+		<script src="jquery.min.js" type="text/javascript"></script>
+		<script src="jqueryui.custom.js" type="text/javascript"></script>
+	</head>
+	<body>
+		<div class="blackbg">
+			<form method="post">
+				<div class="close"></div>
+				<ul>
+					<li>
+						<p>Ваше имя</p>
+						<input class="text" type="text">
+					</li>
+					<li>
+						<p>Номер телефона</p>
+						<input class="text" type="text">
+					</li>
+					<li>
+						<div class="button" type="button" >ОТПРАВИТЬ</div>
+					</li>
+				</ul>
+			</form>
+		</div>
+		<div class="header">
+			<div class="center">
+				
+				<div class="logo"></div>
+				<div class="phones">
+					<span><b>8-800-555-28-31</b><br>звонок по России бесплатный</span>
+					<hr>
+					<span><b>8-495-215-18-37</b><br>для Москвы</span>
+				</div>
+				<ul class="mainMenu">
+					<li><a href="#">Главная</a></li>
+					<li><a href="#">Как работает</a></li>
+					<li><a href="#">Вопросы и ответы</a></li>
+					<li><a href="#">Нам доверяют</a></li>
+				</ul>
+				<ul class="logBlock">
+					<li><a href="#"><img src="images/user.png">Иван</a></li>
+					<li class="enter"><a href="#">Выход</a></li>
+				</ul>
+			</div>	
+		</div>
+		<div class="body">
+			<div class="center">
+				<div class="accountBlock">
+					<p class="accHead">Личный кабинет</p>
+					<ul class="accMenu">
+						<li class="active"><a href="#">Бухгалтерия</a></li>
+						<li><a href="#">Отчетность</a></li>
+						<li><a href="#">Прогнозы</a></li>
+						<li><a href="#">Настройки</a></li>
+					</ul>
+					<div class="tableBlock">
+						<div class="buttonAim">Поставить задачу бухгалтеру</div>
+						<div class="mission">
+							<img class="misImg" src="images/accFormTop.png">
+							<div class="accFormBody">
+								<p>Наименование документа </p>
+								<input type="text" class="input">
+								<p>Тип документа</p>
+								<div class="selector">
+									<input type="text">
+									<img src="images/select.png">
+									<ul class="checkme">
+										<li>Вариант1</li>
+										<li>Вариант2</li>
+										<li>Вариант3</li>
+										<li>Вариант4</li>
+										<li>Вариант5</li>
+										<li>Вариант6</li>
+									</ul>
+								</div>
+								<p>Комментарий</p>
+								<textarea class="textarea"></textarea>
+								<p class="little"><span class="left"><img src="images/skrep.png"><span>Загрузить докумет</span><input type="file" class="hidden" name="file"></span><span class="right">+ еще</span></p>
+								<div class="button" type="button" >поставить задачу</div>
+							</div>
+							<img class="misImg" src="images/accFormBottom.png">
+						</div>
+						<div class="controlPanel">
+							<div class="input open">
+								<input type="text" class="choosen">
+								<img src="images/select.png">
+								<ul class="checkme">
+									<li>Вариант1</li>
+									<li>Вариант2</li>
+									<li>Вариант3</li>
+									<li>Вариант4</li>
+									<li>Вариант5</li>
+									<li>Вариант6</li>
+								</ul>
+							</div>
+							<div class="date">
+								<span>Дата изменения с</span>
+								<div class="input">
+									<input type="text">
+									<img src="images/calendar.png">
+								</div>
+								<span>по</span>
+								<div class="input">
+									<input type="text">
+									<img src="images/calendar.png">
+								</div>
+							</div>
+							<div class="searchInput">
+								<input type="text">
+								<img src="images/search.png">
+							</div>
+						</div>
+						<table class="infoTable">
+							<tr>
+								<td class="headerTd" width="38">№</td>
+								<td class="headerTd" width="140">Название документа</td>
+								<td class="headerTd" width="140">Тип</td>
+								<td class="headerTd" width="140">Дата изменения</td>
+								<td class="headerTd" width="140">Комментарий</td>
+								<td class="headerTd" width="140">Файл документа</td>
+							</tr>
+							<tr>
+								<td width="38" height="95">1</td>
+								<td width="140">Счет ООО “Ромашка”</td>
+								<td width="140">Счет</td>
+								<td width="140">12.02.2014</td>
+								<td width="140"><span>Иван:</span> вчера у меня купили партию товара, вот счет, который я выставил</td>
+								<td width="140">ромашvfvfvfvfvfvfvfvfvка.jpg
+									<ul>
+										<li><a class="download" href="#"></a></li>
+										<li><a class="del" href="#"></a></li>
+									</ul>
+									<div class="leftAndRight"><div class="spanRight">Оплачено<div class="checkbox"></div></div></div>
+									<a class="delete" href="#">Удалить запись</a>
+								</td>
+							</tr>
+							<tr>
+								<td width="38" height="95">2</td>
+								<td width="140">Счет ООО “Ромашка”</td>
+								<td width="140">Счет</td>
+								<td width="140">12.02.2014</td>
+								<td width="140"><span>Иван:</span> вчера у меня купили партию товара, вот счет, который я выставил</td>
+								<td width="140">ромашка.jpg
+									<ul>
+										<li><a class="download" href="#"></a></li>
+										<li><a class="del" href="#"></a></li>
+									</ul>
+									<div class="leftAndRight"><div class="spanRight">Ожидает подтверждения</div></div>
+									<a class="delete" href="#">Удалить запись</a>
+								</td>
+							</tr>
+							<tr>
+								<td width="38" height="95">3</td>
+								<td width="140">Счет ООО “Ромашка”</td>
+								<td width="140">Счет</td>
+								<td width="140">12.02.2014</td>
+								<td width="140"><span>Лидия:</span> Иван, нужно чтобы Вы подтвердили декларацию прежде, чем мы ее отправим в налоговую<br><span>Иван:</span> спасибо, Лидия, сейчас посмотрю</td>
+								<td align="center" width="140">__</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="footer">
+			<div class="center">
+				<ul>
+					<li><a href="#">О компании</a></li>
+					<li><a href="#">Контакты</a></li>
+					<li><a href="#">Условия использования</a></li>
+					<li><a href="#">Помощь</a></li>
+					<li><a href="#">Поддержка: 8-800-555-28-31, 8-495-215-18-37</a></li>
+				</ul>
+			</div>
+		</div>
+		<script>
+		
+		$(document).ready(function(){
+		
+			$(".littleBlock .button").click(function(){
+			
+				$(".blackbg").fadeIn(500);
+				$(".enterForm").fadeOut(500);
+				$(".regForm").fadeOut(500);
+				$(".recoverForm").fadeOut(500);	
+			
+			});
+			
+			$(".blackbg .close").click(function(){
+			
+				$(".blackbg").fadeOut(500);
+			
+			});
+			
+			$(".regBlock .enter").click(function(){
+			
+				$(".recoverForm").fadeOut(500);	
+			
+				 if (!$(this).attr("open"))
+				 {
+					$(".enterForm").fadeIn(500);
+					$(this).attr("open","on");
+				 }
+				 else
+				 {
+					$(".enterForm").fadeOut(500);
+					$(this).removeAttr("open");
+				 }	
+			});
+			
+			$(".little .right").click(function(){
+			
+				$(".recoverForm").fadeIn(500);	
+				$(".enterForm").fadeOut(500);
+			
+			});
+			
+			$(".regBlock li:first").click(function(){
+			
+				if (!$(this).attr("open"))
+				 {
+					$(".regForm").fadeIn(500);
+					$(this).attr("open","on");
+				 }
+				 else
+				 {
+					$(".regForm").fadeOut(500);
+					$(this).removeAttr("open");
+				 }	
+				
+			});
+			
+			$(".buttonAim").click(function(){
+			
+				 if (!$(this).attr("open"))
+				 {
+					$(".mission").fadeIn(500);
+					$(this).attr("open","on");
+				 }
+				 else
+				 {
+					$(".mission").fadeOut(500);
+					$(this).removeAttr("open");
+				 }	
+			});
+			
+			$(".controlPanel .open").click(function(){
+			
+				if (!$(this).attr("open"))
+				 {
+					$(".controlPanel .checkme").css("display","block");
+					$(this).attr("open","on");
+				 }
+				 else
+				 {
+					$(".controlPanel .checkme").css("display","none");
+					$(this).removeAttr("open");
+				 }
+			
+			});
+			
+			$(".controlPanel .checkme li").click(function(){
+			
+				var choosen = $(this).html();
+				$(this).closest(".controlPanel").find(".choosen").val(choosen);
+				$(".controlPanel .checkme").css("display","none");
+				
+			});
+			
+		
+			
+				$(".selector img").click(function(){
+			
+				if (!$(this).attr("open"))
+				 {
+					$(".mission .checkme").css("display","block");
+					$(this).attr("open","on");
+				 }
+				 else
+				 {
+					$(".mission .checkme").css("display","none");
+					$(this).removeAttr("open");
+				 }
+			
+			});
+			
+			$(".selector .checkme li").click(function(){
+			
+				var choosen = $(this).html();
+				$(this).closest(".selector").find("input").val(choosen);
+				$(".mission .checkme").css("display","none");
+				$(".selector img").removeAttr("open");
+			});
+			
+			$(".date input").datepicker();
+			
+			$("div.input img").click(function(){
+				
+				$(this).closest(".input").find("input").focus();
+			
+			});
+			
+			
+			$(".date input").datepicker();
+		
+			
+			$("div.input img").click(function(){
+				
+				$(this).closest(".input").find("input").focus();
+			
+			});
+			
+			$.datepicker.regional['ru'] = {
+closeText: 'Закрыть',
+prevText: '&#x3c;Пред',
+nextText: 'След&#x3e;',
+currentText: 'Сегодня',
+monthNames: ['Январь','Февраль','Март','Апрель','Май','Июнь',
+'Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь'],
+monthNamesShort: ['Янв','Фев','Мар','Апр','Май','Июн',
+'Июл','Авг','Сен','Окт','Ноя','Дек'],
+dayNames: ['воскресенье','понедельник','вторник','среда','четверг','пятница','суббота'],
+dayNamesShort: ['вск','пнд','втр','срд','чтв','птн','сбт'],
+dayNamesMin: ['Вс','Пн','Вт','Ср','Чт','Пт','Сб'],
+dateFormat: 'dd.mm.yy',
+firstDay: 1,
+isRTL: false
+};
+$.datepicker.setDefaults($.datepicker.regional['ru']); 
+		
+		
+			$(".mission .little .right").click(function(){
+			
+				$(".mission .little .left:last").after('<span class="left"><img src="images/skrep.png"><span>Загрузить докумет</span><input type="file" class="hidden" name="file"></span>');
+			
+			});
+			
+			$(".mission .little .left span").live("click", function(){
+			
+				$(this).closest(".left").find("input").click();
+			
+			});
+			
+			$(".infoTable .checkbox").click(function(){
+			
+				if (!$(this).attr("open"))
+				 {
+					$(this).css("background-position","0px -11px");
+					$(this).attr("open","on");
+				 }
+				 else
+				 {
+					$(this).css("background-position","0px 0px");
+					$(this).removeAttr("open");
+				 }	
+			
+			});
+		
+		});
+		
+		</script>
+	</body>
+</html>

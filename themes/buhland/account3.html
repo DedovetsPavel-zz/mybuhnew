@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<link rel="stylesheet" href="style.css" type="text/css" />
+		<script src="jquery.min.js" type="text/javascript"></script>
+		<script src="jqueryui.custom.js" type="text/javascript"></script>
+	</head>
+	<body>
+		<div class="blackbg">
+			<form method="post">
+				<div class="close"></div>
+				<ul>
+					<li>
+						<p>Ваше имя</p>
+						<input class="text" type="text">
+					</li>
+					<li>
+						<p>Номер телефона</p>
+						<input class="text" type="text">
+					</li>
+					<li>
+						<div class="button" type="button" >ОТПРАВИТЬ</div>
+					</li>
+				</ul>
+			</form>
+		</div>
+		<div class="header">
+			<div class="center">
+				<div class="logo"></div>
+				<div class="phones">
+					<span><b>8-800-555-28-31</b><br>звонок по России бесплатный</span>
+					<hr>
+					<span><b>8-495-215-18-37</b><br>для Москвы</span>
+				</div>
+				<ul class="mainMenu">
+					<li><a href="#">Главная</a></li>
+					<li><a href="#">Как работает</a></li>
+					<li><a href="#">Вопросы и ответы</a></li>
+					<li><a href="#">Нам доверяют</a></li>
+				</ul>
+				<ul class="logBlock">
+					<li><a href="#"><img src="images/user.png">Иван</a></li>
+					<li class="enter"><a href="#">Выход</a></li>
+				</ul>
+			</div>	
+		</div>
+		<div class="body">
+			<div class="center">
+				<div class="accountBlock">
+					<p class="accHead">Личный кабинет</p>
+					<ul class="accMenu">
+						<li><a href="#">Бухгалтерия</a></li>
+						<li><a href="#">Отчетность</a></li>
+						<li><a href="#">Прогнозы</a></li>
+						<li class="active"><a href="#">Настройки</a></li>
+					</ul>
+					<div class="tableBlock">
+						<div class="load">Загрузить сканы</div>
+						<div class="loadForm">		
+							<img class="imgBlock" src="images/loadFormTop.png">
+							<div class="bodyForm">
+								<p class="little"><span class="left"><img src="images/skrep.png"><span>Загрузить докумет</span><input type="file" class="hidden" name="file"></span><span class="right">+ еще</span></p>
+								<div class="button" type="button" >Загрузить</div>
+							</div>
+							<img class="imgBlock" src="images/loadFormBottom.png">
+						</div>
+						<ul class="secMenu">
+							<li class="active"><a href="#">Данные налогоплательщика</a></li>
+							<li><a href="#">Сотрудники</a></li>
+						</ul>
+						<div class="informationBlock">
+							<div><span>Полное наименование организации</span><input type="text" class="bigInput"></div>
+							<div><span>Краткое наименование организации</span><input type="text" class="bigInput"></div>
+							<div class="shortP"><span>ИНН</span><input type="text" class="bigInput"></div>
+							<div class="shortP"><span>КПП</span><input type="text" class="bigInput"></div>
+							<div class="shortP"><span>ОГРН</span><input type="text" class="bigInput"></div>
+							<div class="shortPSpecial"><span>Дата регистрации юр. лица</span><div class="calendar"><input type="text"><img src="images/calendar.png"></div></div>
+							<div><span class="specialSpan">Адрес, по которому <br>зарегистрирована организация</span><input type="text" class="bigInput"></div>
+							<div class="shortP specialBlock"><span>ОКВЭД</span><input type="text" class="bigInput"></div>
+							<p>Коды статистики (<a href="#">узнать</a>):</p>
+							<div class="shortP"><span>ОКАТО</span><input type="text" class="bigInput"></div>
+							<div class="shortP"><span>ОКТМО</span><input type="text" class="bigInput"></div>
+							<div class="shortP"><span>ОКПО</span><input type="text" class="bigInput"></div>
+							<div class="shortP"><span>ОКОГУ</span><input type="text" class="bigInput"></div>
+							<div class="shortP"><span>ОКФС</span><input type="text" class="bigInput"></div>
+							<div class="shortP"><span>ОКОПФ</span><input type="text" class="bigInput"></div>
+							<div class="specialBlock2"><span class="specialSpan">ИФНС по месту постановки на учет<br>(добавить ИФНС по месту ведения деятельности ЕНВД)</span><input type="text" class="bigInput"></div>
+							<div><span>ПФР</span><input type="text" class="biggestInput"></div>
+							<div class="shortP specialBlock3"><span>Регистрационный номер в ПФР</span><input type="text" class="bigInput"></div>
+							<div><span>ФСС</span><input type="text" class="biggestInput"></div>
+							<div class="shortP specialBlock3"><span>Регистрационный номер в ФСС</span><input type="text" class="bigInput"></div>
+							<div class="smallP"><span>Код подчиненности</span><input type="text" class="bigInput"></div>
+							<div class="shortP specialBlock4"><span>Страховой тарив в ФСС</span><input type="text" class="bigInput"></div>
+							<p>Заработная плата работников</p>
+							<div class="calenBlock"><span>Дата выдачи аванса</span><div class="calendar"><input type="text"><img src="images/calendar.png"></div></div>
+							<div class="calenBlock2"><span>Дата выдачи з/п</span><div class="calendar"><input type="text"><img src="images/calendar.png"></div></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="footer">
+			<div class="center">
+				<ul>
+					<li><a href="#">О компании</a></li>
+					<li><a href="#">Контакты</a></li>
+					<li><a href="#">Условия использования</a></li>
+					<li><a href="#">Помощь</a></li>
+					<li><a href="#">Поддержка: 8-800-555-28-31, 8-495-215-18-37</a></li>
+				</ul>
+			</div>
+		</div>
+		<script>
+		
+		$(document).ready(function(){
+		
+			
+			$(".buttonAim4").click(function(){
+			
+				 if (!$(this).attr("open"))
+				 {
+					$(".scanLoad").fadeIn(500);
+					$(this).attr("open","on");
+				 }
+				 else
+				 {
+					$(".scanLoad").fadeOut(500);
+					$(this).removeAttr("open");
+				 }	
+			});
+			
+			$(".tableBlock .load").click(function(){
+			
+				 if (!$(this).attr("open"))
+				 {
+					$(".loadForm").fadeIn(500);
+					$(this).attr("open","on");
+				 }
+				 else
+				 {
+					$(".loadForm").fadeOut(500);
+					$(this).removeAttr("open");
+				 }	
+			});
+			
+			$(".loadForm .little .right").click(function(){
+			
+				$(".loadForm .little .left:last").after('<span class="left"><img src="images/skrep.png"><span>Загрузить докумет</span><input type="file" class="hidden" name="file"></span>');
+			
+			});
+			
+			$(".loadForm .little .left span").live("click", function(){
+			
+				$(this).closest(".left").find("input").click();
+			
+			});
+			
+			$(".calendar input").datepicker();
+			
+			$(".calendar img").click(function(){
+			
+				$(this).closest(".calendar").find("input").focus();
+			
+			});
+		});
+		
+		$.datepicker.regional['ru'] = {
+closeText: 'Закрыть',
+prevText: '&#x3c;Пред',
+nextText: 'След&#x3e;',
+currentText: 'Сегодня',
+monthNames: ['Январь','Февраль','Март','Апрель','Май','Июнь',
+'Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь'],
+monthNamesShort: ['Янв','Фев','Мар','Апр','Май','Июн',
+'Июл','Авг','Сен','Окт','Ноя','Дек'],
+dayNames: ['воскресенье','понедельник','вторник','среда','четверг','пятница','суббота'],
+dayNamesShort: ['вск','пнд','втр','срд','чтв','птн','сбт'],
+dayNamesMin: ['Вс','Пн','Вт','Ср','Чт','Пт','Сб'],
+dateFormat: 'dd.mm.yy',
+firstDay: 1,
+isRTL: false
+};
+$.datepicker.setDefaults($.datepicker.regional['ru']); 
+		
+		
+		$(".gender div .radio").click(function(){
+		
+			$(".gender div .radio").css("background-position","0px 0px");
+			$(this).css("background-position","0px -11px");
+		
+		
+		});
+		
+		</script>
+	</body>
+</html>

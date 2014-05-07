@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<link rel="stylesheet" href="style.css" type="text/css" />
+		<script src="jquery.min.js" type="text/javascript"></script>
+		<script src="jqueryui.custom.js" type="text/javascript"></script>
+	</head>
+	<body>
+		<div class="blackbg">
+			<form method="post">
+				<div class="close"></div>
+				<ul>
+					<li>
+						<p>Ваше имя</p>
+						<input class="text" type="text">
+					</li>
+					<li>
+						<p>Номер телефона</p>
+						<input class="text" type="text">
+					</li>
+					<li>
+						<div class="button" type="button" >ОТПРАВИТЬ</div>
+					</li>
+				</ul>
+			</form>
+		</div>
+		<div class="header">
+			<div class="center">
+				<div class="logo"></div>
+				<div class="phones">
+					<span><b>8-800-555-28-31</b><br>звонок по России бесплатный</span>
+					<hr>
+					<span><b>8-495-215-18-37</b><br>для Москвы</span>
+				</div>
+				<ul class="mainMenu">
+					<li><a href="#">Главная</a></li>
+					<li><a href="#">Как работает</a></li>
+					<li><a href="#">Вопросы и ответы</a></li>
+					<li><a href="#">Нам доверяют</a></li>
+				</ul>
+				<ul class="logBlock">
+					<li><a href="#"><img src="images/user.png">Иван</a></li>
+					<li class="enter"><a href="#">Выход</a></li>
+				</ul>
+			</div>	
+		</div>
+		<div class="body">
+			<div class="center">
+				<div class="accountBlock">
+					<p class="accHead">Личный кабинет</p>
+					<ul class="accMenu">
+						<li><a href="#">Бухгалтерия</a></li>
+						<li><a href="#">Отчетность</a></li>
+						<li><a href="#">Прогнозы</a></li>
+						<li class="active"><a href="#">Настройки</a></li>
+					</ul>
+					<div class="tableBlock">
+						<div class="buttonAim4">Добавить сотрудника</div>
+						<div class="scanLoad">
+							<img class="misImg" src="images/accFormTop.png">
+							<div class="accFormBody">
+								<p>Ф.И.О.</p>
+								<input type="text" class="input">
+								<p>Должность</p>
+								<input type="text" class="input">
+								<p>Дата рождения</p>
+								<div class="input calendar">
+									<input type="text">
+									<img src="images/calendar.png">
+								</div>
+								<p>ПОЛ</p>
+								<div class="gender">
+									<div class="man">М.<div class="radio"></div></div>
+									<div class="woman">Ж.<div class="radio"></div></div>
+								</div>
+								<p>ИНН</p>
+								<input type="text" class="input">
+								<p>СНИЛС</p>
+								<input type="text" class="input">
+								<p>Дата приема на работу</p>
+								<div class="input calendar">
+									<input type="text">
+									<img src="images/calendar.png">
+								</div>
+								<p>Дата увольнения</p>
+								<div class="input calendar">
+									<input type="text">
+									<img src="images/calendar.png">
+								</div>
+								<p>Заработная плата</p>
+								<input type="text" class="input">
+								<div class="button" type="button" >Добавить сотрудника</div>
+							</div>
+							<img class="misImg" src="images/accFormBottom.png">
+						</div>
+						<ul class="secMenu">
+							<li><a href="#">Данные налогоплательщика</a></li>
+							<li class="active"><a href="#">Сотрудники</a></li>
+						</ul>
+						<div class="informationBlock">
+							<table class="mansTable">
+								<tr>
+									<td class="headerTd" width="38">№</td>
+									<td class="headerTd">ФИО</td>
+									<td class="headerTd">Должность</td>
+									<td class="headerTd">Дата рождения</td>
+									<td class="headerTd">Пол</td>
+									<td class="headerTd">ИНН</td>
+									<td class="headerTd">СНИЛС</td>
+									<td class="headerTd">Дата приема на работу / Дата увольнения</td>
+									<td class="headerTd">Заработная плата, руб</td>
+									<td class="headerTd">Удалить запись</td>
+								</tr>
+								<tr>
+									<td width="38" height="95">1</td>
+									<td >Иванов Иван<br> Иванович</td>
+									<td >Директор</td>
+									<td >12.02.2014</td>
+									<td >муж</td>
+									<td >236546575656</td>
+									<td >123-123-123 4</td>
+									<td >05.09.2013</td>
+									<td >150 000</td>
+									<td ><a href="#">Удалить запись</a></td>
+								</tr>
+								<tr>
+									<td width="38" height="95">1</td>
+									<td >Иванов Иван<br> Иванович</td>
+									<td >Директор</td>
+									<td >12.02.2014</td>
+									<td >муж</td>
+									<td >236546575656</td>
+									<td >123-123-123 4</td>
+									<td >05.09.2013</td>
+									<td >150 000</td>
+									<td ><a href="#">Удалить запись</a></td>
+								</tr>
+								<tr>
+									<td width="38" height="95">1</td>
+									<td >Иванов Иван<br> Иванович</td>
+									<td >Директор</td>
+									<td >12.02.2014</td>
+									<td >муж</td>
+									<td >236546575656</td>
+									<td >123-123-123 4</td>
+									<td >05.09.2013</td>
+									<td >150 000</td>
+									<td ><a href="#">Удалить запись</a></td>
+								</tr>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="footer">
+			<div class="center">
+				<ul>
+					<li><a href="#">О компании</a></li>
+					<li><a href="#">Контакты</a></li>
+					<li><a href="#">Условия использования</a></li>
+					<li><a href="#">Помощь</a></li>
+					<li><a href="#">Поддержка: 8-800-555-28-31, 8-495-215-18-37</a></li>
+				</ul>
+			</div>
+		</div>
+		<script>
+		
+		$(document).ready(function(){
+		
+			
+			$(".buttonAim3").click(function(){
+			
+				 if (!$(this).attr("open"))
+				 {
+					$(".mission3").fadeIn(500);
+					$(this).attr("open","on");
+				 }
+				 else
+				 {
+					$(".mission3").fadeOut(500);
+					$(this).removeAttr("open");
+				 }	
+			});
+			
+			$(".tableBlock .load").click(function(){
+			
+				 if (!$(this).attr("open"))
+				 {
+					$(".loadForm").fadeIn(500);
+					$(this).attr("open","on");
+				 }
+				 else
+				 {
+					$(".loadForm").fadeOut(500);
+					$(this).removeAttr("open");
+				 }	
+			});
+			
+			$(".loadForm .little .right").click(function(){
+			
+				$(".loadForm .little .left:last").after('<span class="left"><img src="images/skrep.png"><span>Загрузить докумет</span><input type="file" class="hidden" name="file"></span>');
+			
+			});
+			
+			$(".loadForm .little .left span").live("click", function(){
+			
+				$(this).closest(".left").find("input").click();
+			
+			});
+			
+			$(".calendar input").datepicker();
+			$.datepicker.regional['ru'] = {
+closeText: 'Закрыть',
+prevText: '&#x3c;Пред',
+nextText: 'След&#x3e;',
+currentText: 'Сегодня',
+monthNames: ['Январь','Февраль','Март','Апрель','Май','Июнь',
+'Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь'],
+monthNamesShort: ['Янв','Фев','Мар','Апр','Май','Июн',
+'Июл','Авг','Сен','Окт','Ноя','Дек'],
+dayNames: ['воскресенье','понедельник','вторник','среда','четверг','пятница','суббота'],
+dayNamesShort: ['вск','пнд','втр','срд','чтв','птн','сбт'],
+dayNamesMin: ['Вс','Пн','Вт','Ср','Чт','Пт','Сб'],
+dateFormat: 'dd.mm.yy',
+firstDay: 1,
+isRTL: false
+};
+$.datepicker.setDefaults($.datepicker.regional['ru']); 
+		
+		
+		$(".gender div .radio").click(function(){
+		
+			$(".gender div .radio").css("background-position","0px 0px");
+			$(this).css("background-position","0px -11px");
+		
+		
+		
+		});
+		
+		$(".buttonAim4").click(function(){
+			
+				 if (!$(this).attr("open"))
+				 {
+					$(".scanLoad").fadeIn(500);
+					$(this).attr("open","on");
+				 }
+				 else
+				 {
+					$(".scanLoad").fadeOut(500);
+					$(this).removeAttr("open");
+				 }	
+			});
+			
+		$(".calendar img").click(function(){
+		
+			$(this).closest(".calendar").find("input").focus();
+		
+		});
+		
+		});
+		
+		</script>
+	</body>
+</html>

@@ -1,0 +1,537 @@
+@font-face {
+	font-family: 'Conv_PFDinTextCondPro-Regular';
+	src: url('fonts/PFDinTextCondPro-Regular.eot');
+	src: local('O'), url('fonts/PFDinTextCondPro-Regular.woff') format('woff'), url('fonts/PFDinTextCondPro-Regular.ttf') format('truetype'), url('fonts/PFDinTextCondPro-Regular.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Conv_PFDinTextCondPro-Medium';
+	src: url('fonts/PFDinTextCondPro-Medium.eot');
+	src: local('O'), url('fonts/PFDinTextCondPro-Medium.woff') format('woff'), url('fonts/PFDinTextCondPro-Medium.ttf') format('truetype'), url('fonts/PFDinTextCondPro-Medium.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Conv_PFDinTextCondPro-Bold';
+	src: url('fonts/PFDinTextCondPro-Bold.eot');
+	src: local('O'), url('fonts/PFDinTextCondPro-Bold.woff') format('woff'), url('fonts/PFDinTextCondPro-Bold.ttf') format('truetype'), url('fonts/PFDinTextCondPro-Bold.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Conv_HelveticaNeueLTW1G-Bd';
+	src: url('fonts/HelveticaNeueLTW1G-Bd.eot');
+	src: local('☺'), url('fonts/HelveticaNeueLTW1G-Bd.woff') format('woff'), url('fonts/HelveticaNeueLTW1G-Bd.ttf') format('truetype'), url('fonts/HelveticaNeueLTW1G-Bd.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Conv_PFDinTextCondPro-Light';
+	src: url('fonts/PFDinTextCondPro-Light.eot');
+	src: local('☺'), url('fonts/PFDinTextCondPro-Light.woff') format('woff'), url('fonts/PFDinTextCondPro-Light.ttf') format('truetype'), url('fonts/PFDinTextCondPro-Light.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Conv_HelveticaNeueLTW1G-Cn';
+	src: url('fonts/HelveticaNeueLTW1G-Cn.eot');
+	src: local('☺'), url('fonts/HelveticaNeueLTW1G-Cn.woff') format('woff'), url('fonts/HelveticaNeueLTW1G-Cn.ttf') format('truetype'), url('fonts/HelveticaNeueLTW1G-Cn.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+    font-family: 'ArialNarrow';
+    src: url('fonts/arialn.eot');
+    src: url('fonts/arialn.eot') format('embedded-opentype'),
+         url('fonts/arialn.woff') format('woff'),
+         url('fonts/arialn.ttf') format('truetype'),
+         url('fonts/arialn.svg#ArialNarrow') format('svg');
+}
+
+
+body {color:#616161; font-size:15px; font-family: 'ArialNarrow'; margin:0px; padding:0px; width:100%; height:100%; background:url(images/body.png);}
+p {margin:0px; padding:0px;}
+ul {margin:0px; padding:0px;}
+li {list-style:none;}
+input {outline:none;}
+
+.center {margin:0px auto; width:981px; position:relative;}
+.header { margin-bottom: 10px;}
+.header .center  {}
+.header .center  .logo {width:191px;  margin-left: 31px; height:25px; background:url(images/logo.png);  margin-top: 28px; display:inline-block;}
+.header .center  .phones {float:right; margin-top: 17px;}
+.header .center  .phones span {display:inline-block; margin-top:4px; letter-spacing: -0.5px; font-size:15px; font-family: 'ArialNarrow'; vertical-align:top; margin-left: 14px;}
+.header .center  .phones hr {display:inline-block; height:41px; width:2px; background:#fa6a0a; margin-left:14px; border:0px; vertical-align:top;}
+.header .center  .phones span b {font-size:24px; font-family: 'Conv_PFDinTextCondPro-Bold'; font-weight:normal; letter-spacing: -0.5px; line-height: 28px;}
+.header .center  .mainMenu {display:inline-block;  margin-left: 31px; width:70%; margin-top: 31px;}
+.header .center  .mainMenu li {display:inline-block; font-size:15px; margin-right: 40px;}
+.header .center  .mainMenu li a {text-decoration:none; color:#616161;}
+.header .center  .mainMenu li a:hover {text-decoration:underline; color:#f96909;}
+.header .center  .regBlock {float:right;  margin-top: 22px;}
+.header .center  .regBlock li {display:inline-block; font-size:16px; line-height: 30px;}
+.header .center  .regBlock li a {color:#616161;}
+.header .center  .regBlock li.enter {width:104px; height:38px; font-size:15px; background:url(images/enterButton.png) no-repeat; text-align:center; margin-left: 19px; cursor:pointer;}
+.header .center  .regBlock li.enter:hover {background-position:0px -82px;}
+.header .center  .regBlock li.enter a {color:#ffffff; text-decoration:none;}
+.header .center  .logBlock {float:right;  margin-top: 22px;}
+.header .center  .logBlock li {display:inline-block; font-size:16px; line-height: 30px;}
+.header .center  .logBlock li a {color:#616161;}
+.header .center  .logBlock li a img {position:relative; top:5px; right:5px;}
+.header .center  .logBlock li.enter {width:104px; height:38px; font-size:15px; background:url(images/enterButton.png) no-repeat; text-align:center; margin-left: 19px; cursor:pointer;}
+.header .center  .logBlock li.enter:hover {background-position:0px -82px;}
+.header .center  .logBlock li.enter a {color:#ffffff; text-decoration:none;}
+.body {margin-top: 20px;}
+.body .center { box-shadow: 0 0 7px #F4F2F1; border-radius:5px 5px 0px 0px; background:url(images/whiteBg.png); height:100%;}
+.body .center .bigLines {width:1131px; height:74px; background:url(images/endies.png) no-repeat;  left: -75px; position: absolute; top: 44px;}
+.body .center .bannerBlock {width:100%; height:563px; background:url(images/woman.jpg) no-repeat; background-color:#ffffff; position:relative;}
+.body .center .bannerBlock .line {background:url(images/orLine.png) no-repeat; width:1016px; height:77px; position:relative; right:17px; top:20px; color:#ffffff; font-size:41px; line-height: 75px; text-align:center; font-family: 'Conv_PFDinTextCondPro-Regular'; text-transform:uppercase;}
+.body .center .bannerBlock .littleBlock {position:absolute; top:115px; right:71px; width:298px; font-size:17px; font-family: 'Conv_PFDinTextCondPro-Regular'; text-transform:uppercase; padding-top:31px; height:360px; background:url(images/fiftBg.png) no-repeat;}
+.body .center .bannerBlock ul li {padding-left:73px; margin-bottom:8px; height:27px; background:url(images/icons.png) no-repeat;}
+.body .center .bannerBlock ul li.fli {background-position:41px 3px;}
+.body .center .bannerBlock ul li.tli {background-position:41px -32px;}
+.body .center .bannerBlock ul li.thli {background-position:41px -67px;}
+.body .center .bannerBlock ul li.foli {background-position:41px -102px;}
+.body .center .bannerBlock ul li.fili {background-position:41px -137px;}
+.body .center .bannerBlock ul li.sili {background-position:41px -172px;}
+.body .center .bannerBlock .fift {width:95px; height:48px; background:url(images/fift.png) no-repeat; margin-left: 37px; margin-top: 17px; display:inline-block;}
+.body .center .bannerBlock p {display: inline-block; font-size: 13px; line-height: 15px; margin-left: 15px; margin-top: 18px; vertical-align: top;}
+.body .center .bannerBlock .button {width:224px; height:49px; background:url(images/sendMess.png) no-repeat; color:#ffffff; text-align:center; margin:0px auto; margin-top:19px; font-size:18px; line-height: 43px; cursor:pointer;}
+.body .center .bannerBlock .button:hover {background-position:0px -103px;}
+.body .center .forBlock { min-height: 499px;}
+.body .center .forBlock .blockHead {font-size: 36px; margin-top: 51px; font-family:'Conv_PFDinTextCondPro-Medium'; text-align:center; text-transform:uppercase;}
+.body .center .forBlock  ul { margin-top: 51px;}
+.body .center .forBlock  ul li {display:inline-block;  margin-left: 41px; vertical-align:top; width:278px; text-align:center;}
+.body .center .forBlock  ul li.sli {margin-left:30px;}
+.body .center .forBlock  ul li.tli {margin-left:25px;}
+.body .center .forBlock  ul li.tli img {position:relative; right: 18px;}
+.body .center .forBlock  ul li .headerLi {color:#7fb708; text-transform:uppercase;   margin-top: 31px; font-size:20px; font-family: 'Conv_PFDinTextCondPro-Medium'; text-align:center;}
+.body .center .forBlock  ul li .bodyLi { line-height: 17px;  margin-top: 7px; }
+.body .center .forBlock  ul li.tli .headerLi {margin-top:20px;}
+
+.body .center .whyBlock {display: inline-block; min-height: 484px; background:url(images/b1.png) no-repeat;  width: 100%;}
+.body .center .whyBlock .blockHead {font-size: 39px; color:#ffffff; margin-top: 86px; font-family:'Conv_PFDinTextCondPro-Medium'; text-align:center; text-transform:uppercase;}
+.body .center .whyBlock  ul { margin-top: 46px;}
+.body .center .whyBlock  ul li {display:inline-block;  margin-left: 41px; vertical-align:top; width:278px; text-align:center;}
+.body .center .whyBlock  ul li.sli {margin-left:30px;}
+.body .center .whyBlock  ul li.tli {margin-left:25px;}
+.body .center .whyBlock  ul li.tli img {position:relative; right: 2px;}
+.body .center .whyBlock  ul li .headerLi {color:#7fb708; text-transform:uppercase; color:#ffffff;  margin-top: 32px; font-size:20px; font-family: 'Conv_PFDinTextCondPro-Medium'; text-align:center;}
+.body .center .whyBlock  ul li .bodyLi { line-height: 17px;  margin-top: 7px; color:#ffffff;}
+
+.body .center .howBlock { min-height: 303px;}
+.body .center .howBlock .blockHead {font-size: 39px;  margin-top: 37px; font-family:'Conv_PFDinTextCondPro-Medium'; text-align:center; text-transform:uppercase;}
+.body .center .howBlock .macs {width:242px; height:127px;  margin-left: 80px; margin-top: 73px; background:url(images/apple.png) no-repeat; display:inline-block; vertical-align:top;}
+.body .center .howBlock  ul { margin-left: 66px; margin-top: 81px; display:inline-block; vertical-align:top; }
+.body .center .howBlock  ul li {display:inline-block; vertical-align:top; text-align:center;}
+.body .center .howBlock  ul li.arrow {width:34px; margin-top: 23px;}
+.body .center .howBlock  ul li .step1 {width:80px; height:80px; background:url(images/steps.png) no-repeat 0px 0px; margin:0 auto 0 20px;}
+.body .center .howBlock  ul li .step2 {width:80px; height:80px; background:url(images/steps.png) no-repeat -137px 0px; margin:0px auto;}
+.body .center .howBlock  ul li .step3 {width:80px; height:80px; background:url(images/steps.png) no-repeat -268px 0px; margin:0 15px 0 auto;}
+.body .center .howBlock  ul li .step4 {width:80px; height:80px; background:url(images/steps.png) no-repeat -413px 0px; margin:0 auto 0 11px;}
+.body .center .howBlock  ul li .headerLi {color:#f88c1a; margin-top: 5px; font-size:15px; font-family: 'ArialNarrow'; text-align:center;}
+.body .center .howBlock  ul li .bodyLi { line-height: 17px;  margin-top: 7px;}
+
+.body .center .tarifBlock {display: inline-block; height: 985px; background:url(images/b2.png) no-repeat;  width: 100%;}
+.body .center .tarifBlock .blockHead {font-size: 39px; color:#ffffff; margin-top: 90px; font-family:'Conv_PFDinTextCondPro-Medium'; text-align:center; text-transform:uppercase;}
+.body .center .tarifBlock  ul.steps { margin-top: 46px;   margin-left: 61px;}
+.body .center .tarifBlock  ul.steps li {display:inline-block;  vertical-align:top; text-align:center; margin-right: 48px; }
+.body .center .tarifBlock  ul.steps li.plus { margin-top: 78px;}
+.body .center .tarifBlock  ul.steps li .step1 {width:180px; height:205px; background:url(images/sprite.png) no-repeat 0px 0px; margin:0 auto 0 20px;}
+.body .center .tarifBlock  ul.steps li .step2 {width:180px; height:205px; background:url(images/sprite.png) no-repeat -319px 0px; margin:0px auto;}
+.body .center .tarifBlock  ul.steps li .step3 {width:195px; height:205px; background:url(images/sprite.png) no-repeat -642px 0px; margin:0 15px 0 auto;}
+.body .center .tarifBlock  ul.steps li .headerLi {color:#ffffff; line-height: 22px; margin-top: 33px; font-size:20px; text-transform:uppercase; font-family: 'Conv_PFDinTextCondPro-Medium'; text-align:center;}
+.body .center .tarifBlock .bigArrow {width:819px; height:77px; background:url(images/ramka.png) no-repeat; margin:0px auto; margin-top:48px;}
+.body .center .tarifBlock .filds {}
+.body .center .tarifBlock .filds ul {margin-left: 81px; margin-top: 75px;}
+.body .center .tarifBlock .filds ul li {display:inline-block; vertical-align:top;   margin-right: 10px;}
+.body .center .tarifBlock .filds ul li p {text-align:center; font-size:14px; color:#ffffff;line-height:13px;    margin-bottom: 22px;}
+.body .center .tarifBlock .filds .selector {width:118px; height:29px; background:url(images/input.png) no-repeat; border:0px; cursor:pointer; position:relative;}
+.body .center .tarifBlock .filds .selector input {border:0px; height:27px; background:none; width: 77px; padding-left:10px;   color: #616161;  font-family: 'ArialNarrow'; font-size:14px;}
+.body .center .tarifBlock .filds .selector .checkme {width:96px; position:absolute; top:28px; left:0px; margin:0px;}
+.body .center .tarifBlock .filds .input {width:108px; height:29px; background:url(images/input.png) no-repeat; border:0px; padding-left:10px;}
+.body .center .tarifBlock .filds .selector img {position:absolute; top:0px; right:0px;}
+.body .center .tarifBlock .filds .specialLi {bottom: 9px; position: relative;}
+.body .center .tarifBlock .filds .specialLi p  {font-size:16px;}
+.body .center .tarifBlock .filds .specialLi p  span {font-size:18px; text-transform:uppercase; font-family: 'Conv_HelveticaNeueLTW1G-Bd';  position: relative; top:9px;}
+.body .center .tarifBlock .filds .specialLi .button {background: url("images/sendMess2.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0); color: #FFFFFF; cursor: pointer; height: 46px; line-height: 15px; padding-top: 4px; text-align: center; width: 164px;}
+.body .center .tarifBlock .filds .specialLi .button:hover {background-position:0px -103px;}
+.body .center .tarifBlock .sendMessage {background:url(images/sendMess.png) no-repeat;  color: #FFFFFF; cursor:pointer; display: inline-block; font-size: 19px; height: 50px; line-height: 44px; margin-left: 81px; margin-top: 43px; text-align: center; vertical-align: top; width: 224px;}
+.body .center .tarifBlock .sendMessage:hover {background-position:0px -103px;}
+.body .center .tarifBlock .messDescript {color: #FFFFFF; display: inline-block; line-height: 19px; margin-left: 39px; margin-top: 49px; vertical-align: top;  word-spacing: 3px; width: 57%;}
+
+.body .center .ourBlock { min-height: 293px;}
+.body .center .ourBlock .blockHead {font-size: 39px;  margin-top: 17px; font-family:'Conv_PFDinTextCondPro-Medium'; text-align:center; text-transform:uppercase;}
+.body .center .ourBlock  ul { margin-left: 92px; margin-top: 35px; display:inline-block; vertical-align:top; float;left;}
+.body .center .ourBlock  ul.nextUl {margin-right:65px; float:right; margin-left:0px;}
+.body .center .ourBlock  ul li {margin-bottom: 25px;}
+.body .center .ourBlock  ul li .step1 {display:inline-block; vertical-align:top; width:41px; height:39px; background:url(images/sprite2.png) no-repeat 0px 4px;  margin-right: 13px;}
+.body .center .ourBlock  ul li .step2 {display:inline-block; vertical-align:top; width:41px; height:39px; background:url(images/sprite2.png) no-repeat 0px -60px;  margin-right: 13px;}
+.body .center .ourBlock  ul li .step3 {display:inline-block; vertical-align:top; width:41px; height:39px; background:url(images/sprite2.png) no-repeat 0px -121px;  margin-right: 13px;}
+.body .center .ourBlock  ul li .step4 {display:inline-block; vertical-align:top; width:41px; height:39px; background:url(images/sprite2.png) no-repeat -62px 4px;  margin-right: 13px;}
+.body .center .ourBlock  ul li .step5 {display:inline-block; vertical-align:top; width:41px; height:39px; background:url(images/sprite2.png) no-repeat -62px -58px;  margin-right: 13px;}
+.body .center .ourBlock  ul li .step6 {display:inline-block; vertical-align:top; width:41px; height:39px; background:url(images/sprite2.png) no-repeat -62px -122px;  margin-right: 13px;}
+.body .center .ourBlock  ul li  p { display: inline-block; font-size: 18px; margin-top: 9px; text-transform: uppercase; vertical-align: top; }
+
+.body .center .faqBlock {display: inline-block; width: 100%;}
+.body .center .faqBlock .blockHead {font-size: 39px; background:url(images/b3Top.png); width:980px; height:91px; color:#ffffff; line-height:188px; font-family:'Conv_PFDinTextCondPro-Medium'; text-align:center; text-transform:uppercase;}
+.body .center .faqBlock .blockBody {width:980px; background:url(images/b3Body.png);}
+.body .center .faqBlock .footerBlock {width:980px; height:41px; background:url(images/b3Bottom.png); margin-bottom:10px;}
+.body .center .faqBlock ul { margin-left: 48px; padding-top: 45px;}
+.body .center .faqBlock ul li {padding-bottom:20px;  margin-bottom: 27px; vertical-align:top; display:inline-block;  margin-right: 36px; width: 420px; border:1px solid #ffffff; border-radius:10px; overflow:hidden;}
+.body .center .faqBlock ul li:nth-child(2n) {margin-right:0px;}
+.body .center .faqBlock ul li .header {   background: #FFFFFF; color: #84BB0C; font-family: 'ArialNarrow'; font-weight:700; font-size: 18px; line-height: 24px; padding-bottom: 13px;  padding-top: 11px;}
+.body .center .faqBlock ul li .header img{margin-right:20px; margin-left:20px; display:inline-block; vertical-align:top;}
+.body .center .faqBlock ul li .header span { display:inline-block; vertical-align:top; width:72%;}
+.body .center .faqBlock ul li .body {color: #FFFFFF; line-height: 19px;  margin-left: 69px; margin-top: 12px; padding-right:15px; font-family: 'ArialNarrow';}
+
+.body .center .clientsBlock { min-height: 731px;}
+.body .center .clientsBlock .blockHead {font-size: 39px;  margin-top: 30px; font-family:'Conv_PFDinTextCondPro-Medium'; text-align:center; text-transform:uppercase;}
+.body .center .clientsBlock ul {margin-left: 47px; margin-top: 37px;}
+.body .center .clientsBlock ul li {width:100%;  margin-bottom: 48px;}
+.body .center .clientsBlock ul li img {display:inline-block; vertical-align:top; margin-right: 19px;}
+.body .center .clientsBlock ul li .textBlock {display:inline-block; vertical-align:top; width:80%;}
+.body .center .clientsBlock ul li .textBlock .name {color:#84bb0c; font-size:20px; font-family:'Conv_PFDinTextCondPro-Medium';}
+.body .center .clientsBlock ul li .textBlock .text {font-size: 16px; line-height: 19px; margin-top: 12px;}
+
+.body .center .helpBlock {display: inline-block; height: 627px; background:url(images/b4.png) no-repeat;  width: 100%;}
+.body .center .helpBlock .blockHead {font-size: 39px; color:#ffffff; margin-top: 87px; font-family:'Conv_PFDinTextCondPro-Medium'; text-align:center; text-transform:uppercase;}
+.body .center .helpBlock .leftBlock {display:inline-block; vertical-align:top; margin-left: 47px; margin-top: 47px;}
+.body .center .helpBlock .leftBlock .whiteContain {width:433px; height:224px; background:url(images/polkabg.png) no-repeat; position:relative;}
+.body .center .helpBlock .leftBlock .whiteContain .book1 {width:116px; height:152px; background:url(images/book6.png); float:left; position:relative; margin-left: 78px; margin-top: 32px; z-index:1;}
+.body .center .helpBlock .leftBlock .whiteContain .book2 {width:28px; height:152px; background:url(images/book5.png); float:left; position:relative; margin-top: 32px; margin-left: 4px; z-index:1;}
+.body .center .helpBlock .leftBlock .whiteContain .book3 {width:32px; height:152px; background:url(images/book4.png); float:left; position:relative; margin-top: 32px;margin-left: 1px; z-index:1;}
+.body .center .helpBlock .leftBlock .whiteContain .book4 {width:32px; height:152px; background:url(images/book3.png); float:left; position:relative; margin-top: 32px; z-index:1;}
+.body .center .helpBlock .leftBlock .whiteContain .book5 {width:21px; height:152px; background:url(images/book2.png); float:left; position:relative; margin-top: 32px; z-index:1;}
+.body .center .helpBlock .leftBlock .whiteContain .book6 {width:60px; height:152px; background:url(images/book1.png); float:left; position:relative; margin-top: 32px; margin-left: -2px; z-index:1;}
+.body .center .helpBlock .leftBlock .whiteContain .polka {width:373px; height:51px; background:url(images/polka.png) no-repeat; position:absolute; bottom:-5px; left:30px;}
+.body .center .helpBlock .leftBlock .miniHead { background: url("images/articles.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0); color: #84BB0C; font-family: 'Conv_PFDinTextCondPro-Medium'; font-size: 28px; height: 48px; padding-top:10px; margin: 58px auto 0; text-align: center; text-transform: uppercase; width: 246px;}
+.body .center .helpBlock .rightBlock {display:inline-block; vertical-align:top; margin-left: 17px; margin-top: 47px;}
+.body .center .helpBlock .rightBlock .whiteContain {width:433px; height:224px; background:url(images/polkabg.png) no-repeat; position:relative;}
+.body .center .helpBlock .rightBlock .whiteContain a { color:#616161;  font-size:14px; letter-spacing: -0.8px;}
+.body .center .helpBlock .rightBlock .whiteContain .pop1 {width:139px; height:28px; background:url(images/pap1.png); position:relative;  z-index:1; margin-left:56px;  padding-left: 12px; padding-top: 10px;}
+.body .center .helpBlock .rightBlock .whiteContain .pop2 {width:139px; height:28px; background:url(images/pap2.png); position:relative; z-index:1; margin-left:56px; padding-left: 12px; padding-top: 10px;}
+.body .center .helpBlock .rightBlock .whiteContain .pop3 {width:139px; height:28px; background:url(images/pap3.png); position:relative; z-index:1; margin-left:56px; padding-left: 12px; padding-top: 10px;}
+.body .center .helpBlock .rightBlock .whiteContain .pop4 {width:139px; height:28px; background:url(images/pap4.png); position:relative; z-index:1; margin-left:56px; padding-left: 12px; padding-top: 10px;}
+.body .center .helpBlock .rightBlock .whiteContain .pop5 {width:139px; height:28px; background:url(images/pap5.png); position:relative; z-index:1; margin-left:8px; padding-left: 12px; padding-top: 10px;}
+.body .center .helpBlock .rightBlock .whiteContain .pop6 {width:139px; height:28px; background:url(images/pap6.png); position:relative; z-index:1; margin-left:8px; padding-left: 12px; padding-top: 10px;}
+.body .center .helpBlock .rightBlock .whiteContain .polka {width:373px; height:51px; background:url(images/polka.png) no-repeat; position:absolute; bottom:-5px; left:30px;}
+.body .center .helpBlock .rightBlock .miniHead { background: url("images/articles.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0); color: #84BB0C; font-family: 'Conv_PFDinTextCondPro-Medium'; font-size: 28px; height: 48px; padding-top:10px; margin: 58px auto 0; text-align: center; text-transform: uppercase; width: 246px;}
+.body .center .helpBlock .rightBlock .whiteContain .inline {display:inline-block; margin-top:32px;}
+
+.body .center .calendarBlock { min-height: 490px;}
+.body .center .calendarBlock .blockHead {font-size: 39px;  margin-top: 32px; font-family:'Conv_PFDinTextCondPro-Medium'; text-align:center; text-transform:uppercase;}
+.body .center .calendarBlock .leftBlock {display:inline-block; vertical-align:top; margin-left: 94px; margin-top: 47px;}
+.body .center .calendarBlock .leftBlock .ooo { height: 34px; padding-left: 4px; padding-top: 2px; width: 146px;background:url(images/ooo.png) no-repeat;}
+.body .center .calendarBlock .leftBlock .ooo li {color: #FFFFFF; cursor:pointer; float: left; font-family: 'Conv_PFDinTextCondPro-Medium'; font-size: 20px; height: 31px; line-height: 32px; text-align: center; width: 72px;}
+.body .center .calendarBlock .leftBlock .ooo li.active {background:url(images/active.png) no-repeat; color:#616161;}
+.body .center .calendarBlock .leftBlock .activity { margin-top: 35px;}
+.body .center .calendarBlock .leftBlock .activity li {font-size:16px; line-height: 19px; margin-bottom: 24px;}
+.body .center .calendarBlock .leftBlock .activity li:last-child {margin-bottom:0px;}
+.body .center .calendarBlock .leftBlock .activity li span {color:#84bb0c; font-size:20px; font-family:'Conv_PFDinTextCondPro-Medium'; text-transform:uppercase;}
+.body .center .calendarBlock .leftBlock .next {color: #F89720; display: inline-block; font-size: 16px; margin-top: 17px;}
+
+
+.body .center .calendarBlock .leftBlock .next img { margin-left: -1px; margin-right: 7px; position: relative; top: 3px;}
+.body .center .calendarBlock .rightBlock {display:inline-block; vertical-align:top; margin-left: 49px; margin-top: 47px;}
+.body .center .calendarBlock .rightBlock .calendarHead {width:345px; height:67px;  line-height: 64px; text-transform:uppercase; padding-left: 20px; background:url(images/calHead.png) no-repeat; font-size:20px; font-family:'Conv_PFDinTextCondPro-Medium'; color:#ffffff;}
+.body .center .calendarBlock .rightBlock .calBg {background: url("images/calenBody.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0); margin-top: 9px; width:367px; height:266px;}
+.body .center .calendarBlock .rightBlock .calBg .calendarBody {font-size: 20px; display:inline-block; height: 223px; margin-left: 21px; margin-top: 20px; width: 321px;}
+.body .center .calendarBlock .rightBlock .calendarBody td {border-collapse:collapse; border:0px; height: 40px; text-align: center; width: 49px;}
+.body .center .calendarBlock .rightBlock .calendarBody td.active {color:#84bb0c; font-weight:bold;}
+
+.body .center .sertBlock {display: inline-block; height: 535px; background:url(images/b5.png) no-repeat;  width: 100%;}
+.body .center .sertBlock .blockHead {font-size: 39px; color:#ffffff; margin-top: 89px; font-family:'Conv_PFDinTextCondPro-Medium'; text-align:center; text-transform:uppercase;}
+.body .center .sertBlock .container {position:relative; margin-top: 40px;}
+.body .center .sertBlock .container .left {width:30px; height:53px; background:url(images/arrows.png) no-repeat; left: 33px; position: absolute; top: 103px; cursor:pointer;}
+.body .center .sertBlock .container .right {width:30px; height:53px; background:url(images/arrows.png) no-repeat -30px 0px; right: 33px; position: absolute; top: 104px; cursor:pointer;}
+.body .center .sertBlock .container .carousel {margin:0px auto; }
+.body .center .sertBlock .container ul {display:inline-block;   margin-left: 131px;}
+.body .center .sertBlock .container ul li {display:inline-block; vertical-align:bottom; text-align: center; margin-right: 5px; position:relative; width:263px; height:263px;}
+.body .center .sertBlock .container ul li:last-child {margin-right:0px;}
+.body .center .sertBlock .container ul li .zoom {width:52px; height:55px; background:url(images/zoom.png) no-repeat; display:none; position:absolute; left:50%; top:50%; margin-left: -28px; margin-top: -31.5px;}
+.body .center .sertBlock .container ul li:hover .zoom {display:block;}
+
+.body .center .messageBlock { min-height: 368px;}
+.body .center .messageBlock .blockHead {font-size: 39px;  margin-top: 41px; font-family:'Conv_PFDinTextCondPro-Medium'; text-align:center; text-transform:uppercase;}
+.body .center .messageBlock .firstString {margin-top: 38px;}
+.body .center .messageBlock .firstString p {display:inline-block; vertical-align:top; width:59%; margin-left:82px;  font-size: 16px;}
+.body .center .messageBlock .firstString .button{width:224px; cursor:pointer; font-size: 18px; height: 48px; line-height: 42px; background:url(images/login.png) no-repeat; display:inline-block; vertical-align:top;  margin-left: 15px; text-align:center; color:#ffffff;}
+.body .center .messageBlock .secondString {font-family: 'Conv_PFDinTextCondPro-Medium'; font-size: 20px; line-height: 25px; margin-top: 39px; padding: 0 108px; text-align: center; text-transform: uppercase;}
+.body .center .messageBlock .thirdString {margin-top: 44px;}
+.body .center .messageBlock .thirdString p {display: inline-block; font-size: 16px; line-height: 19px; margin-left: 46px; margin-top: 4px; vertical-align: top; width: 59%;}
+.body .center .messageBlock .thirdString .button{width:224px; font-size: 18px; height: 48px; cursor:pointer; line-height: 42px; background:url(images/sendMess.png) no-repeat; display:inline-block; vertical-align:top;  margin-left:81px;  text-align:center; color:#ffffff;}
+.body .center .messageBlock .thirdString .button:hover {background-position:0px -103px;}
+
+.body .center .officeBlock {display: inline-block; height: 519px; background:url(images/b6.png) no-repeat; z-index:2;  width: 100%; position:relative;}
+.body .center .officeBlock .blockHead {font-size: 39px; color:#ffffff; margin-top: 94px; font-family:'Conv_PFDinTextCondPro-Medium'; text-align:center; text-transform:uppercase;}
+.body .center .officeBlock ul {display:inline-block; margin-top: 47px; margin-left: 81px;}
+.body .center .officeBlock ul li {display:inline-block; vertical-align:bottom; margin-right: 19px; position:relative;}
+.body .center .officeBlock ul li:last-child {margin-right:0px;}
+
+.body .center .mapBlock {display: inline-block; height: 502px; position:relative; z-index:1; background:url(images/map.png) no-repeat;  width: 100%;  margin-top: -9px;}
+.body .center .mapBlock .form {width:231px; height:293px; background:url(images/mapForm.png) no-repeat; left: 82px; position: absolute; top: 71px; padding-left: 29px; padding-top: 46px;}
+.body .center .mapBlock .form .adress {font-size:20px; font-family:'Conv_PFDinTextCondPro-Medium';line-height:normal; margin-bottom:0px; text-transform:uppercase; margin-top:0px; margin-left:0px;}
+.body .center .mapBlock .form p {font-size:20px;  margin-left: 2px; line-height: 25px;  margin-bottom: 20px; margin-top: 14px;}
+.body .center .mapBlock .form .phone {margin: 1px 0 0; padding-left: 26px; background:url(images/phone.png) no-repeat 4px 7px; margin:0px;}
+
+.body .center .teamBlock { min-height: 510px; text-align:center;}
+.body .center .teamBlock .blockHead {font-size: 39px;  margin-top: 51px; font-family:'Conv_PFDinTextCondPro-Medium'; text-align:center; text-transform:uppercase;}
+.body .center .teamBlock img {margin-top: 47px;}
+
+.footer {height:54px; width:100%; background:#84bc0d; position:relative;}
+.footer  ul { display: inline-block; margin-top: 20px; text-align: center;  width: 100%;}
+.footer  ul li {display: inline-block; font-size: 16px; margin: 0 22px;}
+.footer  ul li a{text-decoration:none; color:#ffffff; text-transform:uppercase;}
+
+.blackbg {width:100%; height:100%; position:fixed; background:url(images/bgBlack.png); z-index:99999999; display:none;}
+.blackbg .close {width:27px; height:27px; background:url(images/close.png) no-repeat; position:absolute; right: 4px; cursor:pointer; top: -4px;}
+.blackbg form {position:absolute; width:669px; height:129px; background:url(images/Accountform.png) no-repeat; left:50%; top:50%; margin-left:-334px; margin-top:-64px; }
+.blackbg form ul {margin-left:39px;  margin-top: 37px; display:inline-block;}
+.blackbg form ul li {display:inline-block; width:208px;  margin-right: 22px; vertical-align:top;}
+.blackbg form ul li:last-child {margin-right:0px; width:124px;}
+.blackbg form ul li p {color:#616161; font-size:14px; font-family: 'ArialNarrow'; margin-bottom:6px;}
+.blackbg form ul li input {border:1px solid #d4d4d4; padding-left:10px; background:#ffffff; width:198px; border-radius:5px; height:25px;}
+.blackbg form ul li .button {width:124px; height:31px; background:url(images/AccountButton.png) no-repeat; line-height: 27px; position:relative; top:22px; border:0px; cursor:pointer; color:#ffffff; font-size:16px; font-family: 'Conv_PFDinTextCondPro-Regular'; text-align:center; border-radius:0px;}
+.blackbg form ul li .button:hover {background-position:0px -31px;}
+.enterForm {width:292px; height:225px; background:url(images/loginForm.png) no-repeat; display:none; position:absolute; padding-top:41px; z-index:99999999; right:-3px; text-align:center; top:130px;}
+.enterForm input {width:198px; height:25px; border:1px solid #d4d4d4; padding-left:10px; margin-bottom:7px; border-radius:5px; background:#ffffff;}
+.enterForm p {text-align:left; padding-left: 41px; margin-bottom:2px; font-size:14px;}
+.enterForm .little {font-size:11px; width:72%;}
+.enterForm .little span {text-decoration:underline; color:#616161; cursor:pointer;}
+.enterForm .little .left {text-align:left;}
+.enterForm .little .right {float:right;}
+.enterForm .button {width:164px; height:47px; background:url(images/loginButton.png) no-repeat; color:#ffffff; line-height:40px; margin:0px auto; cursor:pointer; margin-top:20px; font-size:16px; }
+.enterForm .button:hover {background-position:0px -47px;}
+.recoverForm {width:292px; height:236px; background:url(images/recoverForm.png) no-repeat; display:none; position:absolute;z-index:99999999; right:-3px; text-align:center; top:130px;}
+.recoverForm input {width:198px; height:25px; border:1px solid #d4d4d4; padding-left:10px; margin-bottom:7px; border-radius:5px; background:#ffffff;}
+.recoverForm p {text-align:left; padding-left: 41px; margin-bottom:2px; font-size:14px;}
+.recoverForm p.specialP {font-size:18px; margin-top:54px; margin-bottom:20px;} 
+.recoverForm .button {width:164px; height:47px; background:url(images/loginButton.png) no-repeat; color:#ffffff; line-height:40px; margin:0px auto; cursor:pointer; margin-top:10px; font-size:16px; }
+.recoverForm .button:hover {background-position:0px -47px;}
+.regForm {width:292px; height:305px; background:url(images/regForm.png) no-repeat; display:none; position:absolute; padding-top:41px; z-index:99999999; right:-3px; text-align:center; top:130px;}
+.regForm input {width:198px; height:25px; border:1px solid #d4d4d4; padding-left:10px; margin-bottom:7px; border-radius:5px; background:#ffffff;}
+.regForm p {text-align:left; padding-left: 41px; margin-bottom:2px; font-size:14px;}
+.regForm .button {width:164px; height:47px; background:url(images/loginButton.png) no-repeat; font-family: 'ArialNarrow'; color:#ffffff; line-height:42px; margin:0px auto; cursor:pointer; margin-top:10px; font-size:14px; }
+.regForm .button:hover {background-position:0px -47px;}
+
+
+.body .center .accountBlock {padding:31px 49px; background:url(images/accBg.jpg); box-shadow: 0 0 7px #F4F2F1; border-radius:15px 15px 0px 0px;}
+.body .center .accountBlock .accHead {font-size:24px; letter-spacing: -0.5px;}
+.body .center .accountBlock .accMenu {   margin-top: 21px; position:relative; z-index:99999999;}
+.body .center .accountBlock .accMenu li {display:inline-block; width:102px; vertical-align:top;  line-height: 32px; height:32px; margin-right: 5px; text-align:center; border-radius:5px 5px 0px 0px; background:#fd6d0d;}
+.body .center .accountBlock .accMenu li a {text-decoration:none; color:#ffffff;}
+.body .center .accountBlock .accMenu li.active {background:#ffffff;  box-shadow:4px -4px 6px -1px #F4F2F1,-4px -4px 6px -1px #F4F2F1; }
+.body .center .accountBlock .accMenu li.active a {color:#616161;}
+.body .center .accountBlock .tableBlock {background:#ffffff; box-shadow: 0 0 7px #F4F2F1;   min-height: 650px; width: 880px; border-radius:0px 15px 15px 15px; position: relative; padding-bottom:29px;}
+.body .center .accountBlock .tableBlock .buttonAim {width:194px; height:34px; background:url(images/aim.png) no-repeat; color:#ffffff; position:relative; text-align:center; line-height:30px; margin-left: 662px; letter-spacing: -0.2px; cursor:pointer; margin-top: 26px; display:inline-block;}
+.body .center .accountBlock .tableBlock .buttonAim:hover {background-position:0px -34px;}
+.body .center .accountBlock .tableBlock .buttonAim2 {width:168px; height:34px; background:url(images/aim2.png) no-repeat; color:#ffffff; position:relative; text-align:center; line-height:30px; margin-left: 662px; letter-spacing: -0.2px; cursor:pointer; margin-top: 26px; display:inline-block;}
+.body .center .accountBlock .tableBlock .buttonAim2:hover {background-position:0px -34px;}
+.body .center .accountBlock .tableBlock .buttonAim4 {width:168px; height:34px; background:url(images/aim2.png) no-repeat; color:#ffffff; position:relative; text-align:center; line-height:30px; margin-left: 662px; letter-spacing: -0.2px; cursor:pointer; margin-top: 26px; display:inline-block;}
+.body .center .accountBlock .tableBlock .buttonAim4:hover {background-position:0px -34px;}
+.body .center .accountBlock .tableBlock .buttonAim3 {width:168px; height:34px; background:url(images/aim2.png) no-repeat; color:#ffffff; position:relative; text-align:center; line-height:30px; margin-left: 662px; letter-spacing: -0.2px; cursor:pointer; margin-top: 26px; display:inline-block;}
+.body .center .accountBlock .tableBlock .buttonAim3:hover {background-position:0px -34px;}
+.body .center .accountBlock .tableBlock .controlPanel {width:829px; position:relative; margin:22px auto 0px; height:53px; background:#84bc0d; border-bottom:3px solid #e5e5e5;}
+.body .center .accountBlock .tableBlock .controlPanel .input {display:inline-block; background:#ffffff; border:1px solid #d4d4d4; border-radius:5px; height: 27px; margin-left: 12px; margin-top: 12px; width: 167px; position:relative;}
+.body .center .accountBlock .tableBlock .controlPanel .input img {right:-1px; position:absolute; top:-1px; cursor:pointer;}
+.body .center .accountBlock .tableBlock .controlPanel .input input {border:0px; height: 27px;  padding: 0 0 0 8px; font-size:14px; color: #616161; font-family: 'ArialNarrow'; }
+.body .center .accountBlock .tableBlock .controlPanel .date {display:inline-block; color:#ffffff;  margin-left: 15px;}
+.body .center .accountBlock .tableBlock .controlPanel .date span {letter-spacing:-0.2px;}
+.body .center .accountBlock .tableBlock .controlPanel .date .input {width:98px;   margin-right: 12px;} 
+.body .center .accountBlock .tableBlock .controlPanel .date .input input {width:66px; font-size:14px; color: #616161; font-family: 'ArialNarrow'; }
+.body .center .accountBlock .tableBlock .controlPanel .date .input img {right:3px; position:absolute; top:3px; cursor:pointer;}
+.body .center .accountBlock .tableBlock .controlPanel .searchInput {display:inline-block; background:#ffffff; border:1px solid #d4d4d4; border-radius:5px; height: 27px; margin-right: 12px; float:right; margin-top: 12px; width: 167px; position:relative;}
+.body .center .accountBlock .tableBlock .controlPanel .searchInput img {right:3px; position:absolute; top:3px; cursor:pointer;}
+.body .center .accountBlock .tableBlock .controlPanel .searchInput input {border:0px; font-size:14px; color: #616161; font-family: 'ArialNarrow';  height: 27px;  padding: 0 0 0 8px;}
+.body .center .accountBlock .tableBlock .infoTable {width:829px; margin:24px auto 0px;  border-collapse:collapse; font-size:16px;}
+.body .center .accountBlock .tableBlock .infoTable .headerTd { height: 54px;}
+.body .center .accountBlock .tableBlock .infoTable td {border:1px solid #d4d4d4;  padding:10px 13px; position:relative;}
+.body .center .accountBlock .tableBlock .infoTable td a {color:#f96909;}
+.body .center .accountBlock .tableBlock .infoTable td span {color:#f96909;}
+.body .center .accountBlock .tableBlock .infoTable td ul {float:right;}
+.body .center .accountBlock .tableBlock .infoTable td ul li {float:left;}
+.body .center .accountBlock .tableBlock .infoTable td ul li a.download {width:20px; display:block; height:21px; background:url(images/accIcons.png) no-repeat;}
+.body .center .accountBlock .tableBlock .infoTable td ul li a.success {width:20px; display:block; height:21px; background:url(images/accIcons.png) no-repeat -19px 0px;}
+.body .center .accountBlock .tableBlock .infoTable td ul li a.del {width:20px; display:block; height:21px; background:url(images/accIcons.png) no-repeat -38px 0px;}
+.body .center .accountBlock .tableBlock .infoTable td a.delete {display:inline-block; margin-top:20px;}
+.body .center .accountBlock .tableBlock .mission { display:none;  position:absolute; z-index:99999999; right:-35px; text-align:center; top:58px;}
+.body .center .accountBlock .tableBlock .mission .accFormBody {width:298px;  position: relative; right: 1px; background:url(images/accFormBody.png); padding-top:20px;}
+.body .center .accountBlock .tableBlock .mission .misImg {display:block;}
+.body .center .accountBlock .tableBlock .mission input {width:198px; height:25px; font-size:14px; color: #616161; font-family: 'ArialNarrow';  border:1px solid #d4d4d4; padding-left:10px; margin-bottom:7px; border-radius:5px; background:#ffffff;}
+.body .center .accountBlock .tableBlock .mission p {text-align:left; padding-left: 45px; margin-bottom:2px; font-size:14px;}
+.body .center .accountBlock .tableBlock .mission textarea {border: 1px solid #D4D4D4; font-size:14px; color: #616161; font-family: 'ArialNarrow';  width:197px; resize:none; padding-left:10px; padding-top:10px; border-radius:5px; height:72px;}
+.body .center .accountBlock .tableBlock .mission .selector {width:208px; position:relative; height:27px; border:1px solid #d4d4d4; text-align:left; margin:0px auto; margin-bottom:7px; border-radius:5px; background:#ffffff;}
+.body .center .accountBlock .tableBlock .mission .selector input { display: inline-block; font-size:14px; border: 0 none; height: 25px; padding-left: 10px; vertical-align: top; width: 160px;  color: #616161;   font-family: 'ArialNarrow';}
+.body .center .accountBlock .tableBlock .mission .selector img {position:absolute; top:-1px; right:-1px; cursor:pointer;}
+.body .center .accountBlock .tableBlock .mission .little {font-size:11px; width:62%;  overflow: hidden; margin-top: 12px;}
+.body .center .accountBlock .tableBlock .mission .little span {text-decoration:underline; color:#616161; cursor:pointer;}
+.body .center .accountBlock .tableBlock .mission .little .left span {color:#F96909;}
+.body .center .accountBlock .tableBlock .mission .little .left {text-align:left; margin-left: 22px; letter-spacing: -0.5px; width:66%; float:left; color:#fa6a0a; font-size:14px;}
+.body .center .accountBlock .tableBlock .mission .little .left img {position:relative; top:3px; margin-right: 8px;}
+.body .center .accountBlock .tableBlock .mission .little .right {float:right; width:39px; height:17px; color:#ffffff; font-size:14px; background:#83ba0b; border-radius:3px; text-decoration:none; text-align:center; margin-top: 2px;}
+.body .center .accountBlock .tableBlock .mission .button {width:164px; height:47px; text-transform:uppercase; background:url(images/loginButton.png) no-repeat; color:#ffffff; line-height:42px; margin:0px auto; cursor:pointer; margin-top:15px; font-size:14px; }
+.body .center .accountBlock .tableBlock .mission .button:hover {background-position:0px -47px;}
+
+
+.body .center .accountBlock .tableBlock .mission2 { display:none;  position:absolute; z-index:99999999; right:-35px; text-align:center; top:58px;}
+.body .center .accountBlock .tableBlock .mission2 .accFormBody {width:298px;  position: relative; right: 1px; background:url(images/accFormBody.png); padding-top:20px;}
+.body .center .accountBlock .tableBlock .mission2 .misImg {display:block;}
+.body .center .accountBlock .tableBlock .mission2 input {width:198px; height:25px; font-size:14px; color: #616161; font-family: 'ArialNarrow';  border:1px solid #d4d4d4; padding-left:10px; margin-bottom:7px; border-radius:5px; background:#ffffff;}
+.body .center .accountBlock .tableBlock .mission2 p {text-align:left; padding-left: 45px; margin-bottom:2px; font-size:14px;}
+.body .center .accountBlock .tableBlock .mission2 textarea {border: 1px solid #D4D4D4; font-size:14px; color: #616161; font-family: 'ArialNarrow';  margin-bottom:7px; width:197px; resize:none; padding-left:10px; padding-top:10px; border-radius:5px; height:72px;}
+.body .center .accountBlock .tableBlock .mission2 .selector {width:208px; height:27px; position:relative; border:1px solid #d4d4d4; text-align:left; margin:0px auto; margin-bottom:7px; border-radius:5px; background:#ffffff;}
+.body .center .accountBlock .tableBlock .mission2 .selector input { display: inline-block; font-size:14px; color: #616161; font-family: 'ArialNarrow';  border: 0 none; height: 25px; padding-left: 10px; vertical-align: top; width: 160px;}
+.body .center .accountBlock .tableBlock .mission2 .selector img {position: absolute; cursor:pointer; right: -1px; top: -1px;}
+.body .center .accountBlock .tableBlock .mission2 .little {font-size:11px; width:63%;  overflow: hidden; margin-top: 12px;}
+.body .center .accountBlock .tableBlock .mission2 .little span {text-decoration:underline; color:#616161; cursor:pointer;}
+.body .center .accountBlock .tableBlock .mission2 .little .left {text-align:left; width:66%; margin-left: 22px; letter-spacing: -0.5px; float:left; color:#fa6a0a; font-size:14px;}
+.body .center .accountBlock .tableBlock .mission2 .little .left span {color:#F96909;}
+.body .center .accountBlock .tableBlock .mission2 .little .left img {position:relative; top:3px; margin-right: 8px;}
+.body .center .accountBlock .tableBlock .mission2 .little .right {float:right; width:39px; height:17px; color:#ffffff; font-size:14px; background:#83ba0b; border-radius:3px; text-decoration:none; text-align:center; margin-top: 2px;}
+.body .center .accountBlock .tableBlock .mission2 .button {width:164px; height:47px; text-transform:uppercase; background:url(images/loginButton.png) no-repeat; color:#ffffff; line-height:42px; margin:0px auto; cursor:pointer; margin-top:15px; font-size:14px; }
+.body .center .accountBlock .tableBlock .mission2 .button:hover {background-position:0px -47px;}
+.body .center .accountBlock .tableBlock .mission2 .spanRight {display:inline-block; margin-left: 79px;}
+.body .center .accountBlock .tableBlock .mission2 .leftAndRight {text-align:left;}
+.body .center .accountBlock .tableBlock .mission2 .leftAndRight p {display:inline-block; }
+.body .center .accountBlock .tableBlock .mission2 .leftAndRight .checkbox { width:12px; height:11px; cursor:pointer; background:url(images/checkbox.png) no-repeat; display:inline-block; left: 3px; position: relative; top: 1px;}
+.body .center .accountBlock .tableBlock .itog {   float: right; font-size: 16px; margin-right: 24px; margin-top: 20px; width: 291px;}
+.body .center .accountBlock .tableBlock .itog .right {float:right;}
+
+.body .center .accountBlock .tableBlock .mission3 {width:298px; height:400px;  display:none; background:url(images/accSubj.png) no-repeat;  position:absolute; padding-top:43px; z-index:99999999; right:-35px; text-align:center; top:58px;}
+.body .center .accountBlock .tableBlock .mission3 input {width:198px; height:25px; font-size:14px; color: #616161; font-family: 'ArialNarrow';  border:1px solid #d4d4d4; padding-left:10px; margin-bottom:7px; border-radius:5px; background:#ffffff;}
+.body .center .accountBlock .tableBlock .mission3 p {text-align:left; padding-left: 45px; margin-bottom:2px; font-size:14px;}
+.body .center .accountBlock .tableBlock .mission3 textarea {border: 1px solid #D4D4D4; font-size:14px; color: #616161; font-family: 'ArialNarrow';  margin-bottom:7px; width:197px; resize:none; padding-left:10px; padding-top:10px; border-radius:5px; height:72px;}
+.body .center .accountBlock .tableBlock .mission3 .selector {width:208px; height:27px; position:relative; border:1px solid #d4d4d4; text-align:left; margin:0px auto; margin-bottom:7px; border-radius:5px; background:#ffffff;}
+.body .center .accountBlock .tableBlock .mission3 .selector input { display: inline-block;  border: 0 none; height: 25px; padding-left: 10px; vertical-align: top; width: 160px;}
+.body .center .accountBlock .tableBlock .mission3 .selector img {position: absolute; right: -1px; top: -1px;}
+.body .center .accountBlock .tableBlock .mission3 .little {font-size:11px; width:72%;  overflow: hidden; margin-top: 12px;}
+.body .center .accountBlock .tableBlock .mission3 .little span {text-decoration:underline; color:#616161; cursor:pointer;}
+.body .center .accountBlock .tableBlock .mission3 .little .left {text-align:left; margin-left: 22px; letter-spacing: -0.5px; float:left; color:#fa6a0a; font-size:14px;}
+.body .center .accountBlock .tableBlock .mission3 .little .left img {position:relative; top:3px; margin-right: 8px;}
+.body .center .accountBlock .tableBlock .mission3 .little .right {float:left; width:39px; height:17px; color:#ffffff; font-size:14px; background:#83ba0b; border-radius:3px; text-decoration:none; text-align:center; margin-left: 12px; margin-top: 2px;}
+.body .center .accountBlock .tableBlock .mission3 .button {width:164px; height:47px; text-transform:uppercase; background:url(images/loginButton.png) no-repeat; color:#ffffff; line-height:42px; margin:0px auto; cursor:pointer; margin-top:8px; font-size:14px; }
+.body .center .accountBlock .tableBlock .mission3 .button:hover {background-position:0px -47px;}
+.body .center .accountBlock .tableBlock .mission3 .spanRight {display:inline-block; margin-left: 56px;}
+.body .center .accountBlock .tableBlock .mission3 .leftAndRight {text-align:left;}
+.body .center .accountBlock .tableBlock .mission3 .leftAndRight p {display:inline-block; }
+.body .center .accountBlock .tableBlock .mission3 .leftAndRight .checkbox { width:12px; height:11px; background:url(images/checkbox.png) no-repeat; display:inline-block; left: 3px; position: relative; top: 1px;}
+.body .center .accountBlock .tableBlock .mission3 div.input {margin: 0 auto;  background:#ffffff; width:208px; position:relative; margin-bottom:7px; border-radius:5px;  border:1px solid #d4d4d4; height:25px; text-align:left;} 
+.body .center .accountBlock .tableBlock .mission3 div.input input {width:165px; background:none; border:0px; font-size:14px; color: #616161; font-family: 'ArialNarrow'; }
+.body .center .accountBlock .tableBlock .mission3 div.input img {right:3px; position:absolute; top:2px; cursor:pointer;}
+
+.body .center .accountBlock .tableBlock .load {width:120px; height:34px; background:url(images/load.png) no-repeat; color:#ffffff; display:inline-block;  margin-left: 716px; margin-top:27px; text-align:center; cursor:pointer; line-height: 27px;}
+.body .center .accountBlock .tableBlock .load:hover {background-position:0px -34px;}
+.body .center .accountBlock .tableBlock .secMenu {display:inline-block; margin-left:25px; position:relative; z-index:99999999;}
+.body .center .accountBlock .tableBlock .secMenu li {display:inline-block; width:190px; vertical-align:top;  line-height: 32px; height:32px; margin-right: 5px; text-align:center; border-radius:5px 5px 0px 0px; background:#fd6d0d;}
+.body .center .accountBlock .tableBlock .secMenu li a {text-decoration:none; color:#ffffff;}
+.body .center .accountBlock .tableBlock .secMenu li.active {background:#ffffff;  box-shadow:4px -4px 6px -1px #F4F2F1,-4px -4px 6px -1px #F4F2F1; }
+.body .center .accountBlock .tableBlock .secMenu li.active a {color:#616161;}
+.body .center .accountBlock .tableBlock .informationBlock {background:#ffffff; box-shadow: 0 0 7px #F4F2F1; padding-top:20px; padding-bottom:20px; min-height: 565px; width: 830px; border-radius:0px 15px 15px 15px; position: relative; margin: 0 auto;}
+.body .center .accountBlock .tableBlock .informationBlock div {padding-left:32px; overflow:hidden; margin-bottom:13px;}
+.body .center .accountBlock .tableBlock .informationBlock div.shortP {width:371px; display:inline-block;  margin-left: 32px;  padding-left: 0;}
+.body .center .accountBlock .tableBlock .informationBlock div.shortP input {width:308px; font-size:14px; color: #616161; font-family: 'ArialNarrow';  float:right; margin-right:0px;}
+.body .center .accountBlock .tableBlock .informationBlock div.smallP {width:258px; display:inline-block;  padding-left: 0;}
+.body .center .accountBlock .tableBlock .informationBlock div.smallP input {width:100px; font-size:14px; color: #616161; font-family: 'ArialNarrow';  float:right; margin-right:0px;}
+.body .center .accountBlock .tableBlock .informationBlock div.smallP span {margin-left:21px;}
+.body .center .accountBlock .tableBlock .informationBlock div.shortPSpecial {width:371px; display:inline-block;}
+.body .center .accountBlock .tableBlock .informationBlock div.shortPSpecial .calendar {width:198px; height:27px; border:1px solid #d4d4d4; border-radius:5px; float:right; margin-bottom:0px; margin-right:0px; position:relative; padding-left:0px;}
+.body .center .accountBlock .tableBlock .informationBlock div.shortPSpecial .calendar input {border:0px; font-size:14px; padding-left:10px; color: #616161; font-family: 'ArialNarrow';  background:none; height:27px; width:160px;}
+.body .center .accountBlock .tableBlock .informationBlock div.shortPSpecial .calendar img {position:absolute; right:3px; top:3px; cursor:pointer;}
+.body .center .accountBlock .tableBlock .informationBlock div span {float:left; margin-top:5px;}
+.body .center .accountBlock .tableBlock .informationBlock div span.specialSpan {float:left; margin-top:-4px;}
+.body .center .accountBlock .tableBlock .informationBlock div .bigInput {width:533px; height:27px; float:right; font-size:14px; color: #616161; font-family: 'ArialNarrow';  margin-right:22px; border:1px solid #d4d4d4; border-radius:5px; padding-left:10px;}
+.body .center .accountBlock .tableBlock .informationBlock div .biggestInput {width:713px; height:27px; font-size:14px; color: #616161; font-family: 'ArialNarrow';  float:right; margin-right:22px; border:1px solid #d4d4d4; border-radius:5px; padding-left:10px;}
+.body .center .accountBlock .tableBlock .informationBlock div.specialBlock {width:500px;}
+.body .center .accountBlock .tableBlock .informationBlock div.specialBlock input {margin-right:128px; font-size:14px; color: #616161; font-family: 'ArialNarrow'; }
+.body .center .accountBlock .tableBlock .informationBlock div.specialBlock2 {width:100%;}
+.body .center .accountBlock .tableBlock .informationBlock div.specialBlock2 input {margin-right: 54px; width: 425px; font-size:14px; color: #616161; font-family: 'ArialNarrow'; }
+.body .center .accountBlock .tableBlock .informationBlock div.specialBlock3 {width:62%;}
+.body .center .accountBlock .tableBlock .informationBlock div.specialBlock3 input { width: 308px; font-size:14px; color: #616161; font-family: 'ArialNarrow'; }
+.body .center .accountBlock .tableBlock .informationBlock div.specialBlock4 {width:62%;}
+.body .center .accountBlock .tableBlock .informationBlock div.specialBlock4 input { width: 350px; font-size:14px; color: #616161; font-family: 'ArialNarrow'; }
+.body .center .accountBlock .tableBlock .informationBlock p {padding-left:32px; font-size:18px;   margin-bottom: 15px;}
+.body .center .accountBlock .tableBlock .informationBlock p a {color:#fd6d0d;}
+.body .center .accountBlock .tableBlock .informationBlock div.calenBlock {width:371px; display:inline-block; margin-bottom:20px;}
+.body .center .accountBlock .tableBlock .informationBlock div.calenBlock .calendar {width:236px; height:27px; border:1px solid #d4d4d4; border-radius:5px; float:right; margin-bottom:0px; margin-right:0px; position:relative; padding-left:0px;}
+.body .center .accountBlock .tableBlock .informationBlock div.calenBlock .calendar input {border:0px; font-size:14px; color: #616161; font-family: 'ArialNarrow';  padding-left:10px; background:none; height:27px; width:195px;}
+.body .center .accountBlock .tableBlock .informationBlock div.calenBlock .calendar img {position:absolute; right:3px; top:3px; cursor:pointer;}
+.body .center .accountBlock .tableBlock .informationBlock div.calenBlock2 {width:371px; display:inline-block; margin-bottom:20px;}
+.body .center .accountBlock .tableBlock .informationBlock div.calenBlock2 .calendar {width:264px; height:27px; border:1px solid #d4d4d4; border-radius:5px; float:right; margin-bottom:0px; margin-right:0px; position:relative; padding-left:0px;}
+.body .center .accountBlock .tableBlock .informationBlock div.calenBlock2 .calendar input {border:0px; font-size:14px; color: #616161; font-family: 'ArialNarrow';  padding-left:10px; background:none; height:27px; width:225px;}
+.body .center .accountBlock .tableBlock .informationBlock div.calenBlock2 .calendar img {position:absolute; right:3px; top:3px; cursor:pointer;}
+
+.body .center .accountBlock .tableBlock .mansTable {width:774px; margin:24px auto 0px; font-size:14px; border-collapse:collapse; box-shadow: 0 0 7px #F4F2F1;}
+.body .center .accountBlock .tableBlock .mansTable td {border:1px solid #d4d4d4;  padding:5px; position:relative;}
+.body .center .accountBlock .tableBlock .mansTable td a {color:#f96909;}
+.body .center .accountBlock .tableBlock .mansTable td ul {}
+.body .center .accountBlock .tableBlock .mansTable td ul li {float:left;}
+.checkme {  left: -1px; padding: 10px; position: absolute; text-align: left; display:none; top: 27px; width: 188px;  z-index: 99999; background:#ffffff; border:1px solid #d4d4d4;  border-radius:5px 5px 0px 0px;}
+.checkme li {margin-bottom:3px; cursor:pointer; font-size:14px;}
+
+.controlPanel .checkme {  left: -1px; padding: 10px; position: absolute; text-align: left; display:none; top: 27px; width: 147px;  z-index: 99999; background:#ffffff; border:1px solid #d4d4d4;  border-radius:5px 5px 0px 0px;}
+.controlPanel .checkme li {margin-bottom:3px; cursor:pointer; font-size:14px;}
+
+
+.body .center .accountBlock .tableBlock .loadForm {   display:none;   position:absolute; z-index:99999999; right:-35px; text-align:center; top:58px;}
+.body .center .accountBlock .tableBlock .loadForm .bodyForm {background:url(images/loadFormBody.png) ; width:292px;}
+.body .center .accountBlock .tableBlock .loadForm .imgBlock {display:block;}
+.body .center .accountBlock .tableBlock .loadForm input {width:198px; height:25px; font-size:14px; color: #616161; font-family: 'ArialNarrow';  border:1px solid #d4d4d4; padding-left:10px; margin-bottom:7px; border-radius:5px; background:#ffffff;}
+.body .center .accountBlock .tableBlock .loadForm p {text-align:left; padding-left: 45px; margin-bottom:2px; font-size:14px;}
+.body .center .accountBlock .tableBlock .loadForm .little {font-size:11px; width:63%;  overflow: hidden;}
+.body .center .accountBlock .tableBlock .loadForm .little span {text-decoration:underline; color:#616161; cursor:pointer;}
+.body .center .accountBlock .tableBlock .loadForm .little .left {text-align:left; width:66%; margin-left: 22px; letter-spacing: -0.5px; float:left; color:#fa6a0a; font-size:14px;}
+.body .center .accountBlock .tableBlock .loadForm .little .left span {color:#fa6a0a;}
+.body .center .accountBlock .tableBlock .loadForm .little .left img {position:relative; top:3px; margin-right: 8px;}
+.body .center .accountBlock .tableBlock .loadForm .little .left .file {width:0px; height:0px; border:0px; margin:0px; padding:0px;}
+
+.body .center .accountBlock .tableBlock .loadForm .little .right {float:right; width:39px; height:17px; color:#ffffff; font-size:14px; background:#83ba0b; border-radius:3px; text-decoration:none; text-align:center; margin-top: 2px;}
+.body .center .accountBlock .tableBlock .loadForm .button {width:164px; height:47px; text-transform:uppercase; background:url(images/loginButton.png) no-repeat; color:#ffffff; line-height:42px; margin:0px auto; cursor:pointer; margin-top:8px; font-size:14px; }
+.body .center .accountBlock .tableBlock .loadForm .button:hover {background-position:0px -47px;}
+.body .center .accountBlock .infoTable .leftAndRight {display: inline-block; text-align: left; width: 100%;}
+.body .center .accountBlock .infoTable .leftAndRight p {display:inline-block; }
+.body .center .accountBlock .infoTable .leftAndRight .checkbox { width:12px; height:11px; cursor:pointer; background:url(images/checkbox.png) no-repeat 0px 0px; display:inline-block; left: 3px; position: relative; top: 1px;}
+.hidden {width:0px !Important; height:0px !Important;  padding:0px !Important; background:0px !Important; border:0px !Important;}
+#ui-datepicker-div {width:296px; height:247px; background:url(images/cabg.png); position:relative; display:none; z-index:999999999999 !Important; margin-top:3px;  margin-left: -120px;}
+#ui-datepicker-div table {width:215px; height:145px; margin:0px auto; border-collapse:collapse;}
+#ui-datepicker-div table td {border:1px solid #fb6b0b; background:#ffffff; text-align:center;}
+#ui-datepicker-div table td a {text-decoration:none; color:#616161; font-size:16px; font-family: 'ArialNarrow';}
+#ui-datepicker-div table th span {color:#ffffff; font-size:10px;font-family: 'ArialNarrow'; text-transform:uppercase;}
+#ui-datepicker-div .ui-datepicker-title {padding-left:42px; margin-top: 35px; color:#ffffff; font-family:arial; font-weight:bold; font-size:14px;}
+#ui-datepicker-div .ui-datepicker-prev {position:absolute; left:20px; top:50%; margin-top:-14px; width:12px; height:28px; background:url(images/caArrow.png) 0px 0px; font-size:0px; cursor:pointer;}
+#ui-datepicker-div .ui-datepicker-next {position:absolute; right:20px; top:50%; margin-top:-14px; width:12px; height:28px; background:url(images/caArrow.png) -12px 0px; font-size:0px; cursor:pointer;}
+#ui-datepicker-div .ui-state-disabled {background:#f4f1ef;}
+
+.body .center .accountBlock .tableBlock .scanLoad { display:none;  position:absolute; z-index:99999999; right:-35px; text-align:center; top:58px;}
+.body .center .accountBlock .tableBlock .scanLoad .accFormBody {width:298px;  position: relative; right: 1px; background:url(images/accFormBody.png); padding-top:20px;}
+.body .center .accountBlock .tableBlock .scanLoad .misImg {display:block;}
+.body .center .accountBlock .tableBlock .scanLoad input {width:198px; height:25px; font-size:14px; color: #616161; font-family: 'ArialNarrow';  border:1px solid #d4d4d4; padding-left:10px; margin-bottom:7px; border-radius:5px; background:#ffffff;}
+.body .center .accountBlock .tableBlock .scanLoad p {text-align:left; padding-left: 45px; margin-bottom:2px; font-size:14px;}
+.body .center .accountBlock .tableBlock .scanLoad .calendar {width:198px; height:27px; font-size:14px; color: #616161; background:#ffffff; position:relative; font-family: 'ArialNarrow';  border:1px solid #d4d4d4; margin:0px auto; padding-left:10px; margin-bottom:7px; border-radius:5px;}
+.body .center .accountBlock .tableBlock .scanLoad .calendar input {background:none; border:0px; height:25px; padding-left:0px; margin:0px;}
+.body .center .accountBlock .tableBlock .scanLoad .calendar img {position:absolute; top:2px; right:3px; cursor:pointer;}
+.body .center .accountBlock .tableBlock .scanLoad textarea {border: 1px solid #D4D4D4; font-size:14px; color: #616161; font-family: 'ArialNarrow';  width:197px; resize:none; padding-left:10px; padding-top:10px; border-radius:5px; height:72px;}
+.body .center .accountBlock .tableBlock .scanLoad .selector {width:208px; position:relative; height:27px; border:1px solid #d4d4d4; text-align:left; margin:0px auto; margin-bottom:7px; border-radius:5px; background:#ffffff;}
+.body .center .accountBlock .tableBlock .scanLoad .selector input { display: inline-block; font-size:14px; border: 0 none; height: 25px; padding-left: 10px; vertical-align: top; width: 160px;  color: #616161;   font-family: 'ArialNarrow';}
+.body .center .accountBlock .tableBlock .scanLoad .selector img {position:absolute; top:-1px; right:-1px; cursor:pointer;}
+.body .center .accountBlock .tableBlock .scanLoad .little {font-size:11px; width:72%;  overflow: hidden; margin-top: 12px;}
+.body .center .accountBlock .tableBlock .scanLoad .little span {text-decoration:underline; color:#616161; cursor:pointer;}
+.body .center .accountBlock .tableBlock .scanLoad .little .left span {color:#F96909;}
+.body .center .accountBlock .tableBlock .scanLoad .little .left {text-align:left; margin-left: 22px; letter-spacing: -0.5px; float:left; color:#fa6a0a; font-size:14px;}
+.body .center .accountBlock .tableBlock .scanLoad .little .left img {position:relative; top:3px; margin-right: 8px;}
+.body .center .accountBlock .tableBlock .scanLoad .little .right {float:left; width:39px; height:17px; color:#ffffff; font-size:14px; background:#83ba0b; border-radius:3px; text-decoration:none; text-align:center; margin-left: 12px; margin-top: 2px;}
+.body .center .accountBlock .tableBlock .scanLoad .button {width:184px; height:47px; text-transform:uppercase; background:url(images/addMan.png) no-repeat; color:#ffffff; line-height:42px; margin:0px auto; cursor:pointer; margin-top:15px; font-size:14px; }
+.body .center .accountBlock .tableBlock .scanLoad .button:hover {background-position:0px -47px;}
+.body .center .accountBlock .tableBlock .scanLoad .gender {text-align:left; padding-left: 58px; margin:5px 0px;}
+.body .center .accountBlock .tableBlock .scanLoad .gender div {display:inline-block;}
+.body .center .accountBlock .tableBlock .scanLoad .gender div .radio {width:12px; height:11px; background:url(images/checkbox.png) no-repeat; margin-left:10px; margin-right:20px; cursor:pointer;}
+
+.body .center .tarifBg {background: url("images/tarifBg.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0); display:none; font-size: 15px; height: 166px; left: 50%; margin-left: -425px; margin-top: -18px; padding-left: 35px; padding-top: 40px;  position: absolute;  width: 816px;}
+.body .center .tarifBg .close {position:absolute; right:19px; top:28px; cursor:pointer; font-size:14px;}
+.body .center .tarifBg p {width:97%;}
