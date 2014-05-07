@@ -14,38 +14,12 @@
 <body>
 <div class="header">
     <div class="center">
-        <div class="enterForm">
-            <p>Имя пользователя</p>
-            <input type="text" class="input">
-            <p>Пароль</p>
-            <input type="text" class="input">
-            <p class="little"><span class="left">Показать символы</span><span class="right">Забыли пароль?</span></p>
-            <div class="button" type="button" >ОТПРАВИТЬ</div>
-        </div>
-        <div class="recoverForm">
-            <p class="specialP">Восстановление пароля</p>
-            <p>Email</p>
-            <input type="text" class="input">
-            <div class="button" type="button" >ВОССТАНОВИТЬ</div>
-        </div>
-        <div class="regForm">
-            <p>Email</p>
-            <input type="text" class="input">
-            <p>Пароль</p>
-            <input type="text" class="input">
-            <p>Повторите пароль</p>
-            <input type="text" class="input">
-            <p>Телефонный номер</p>
-            <input type="text" class="input">
-            <div class="button" type="button" >ЗАРЕГИСТРИРОВАТЬСЯ</div>
-        </div>
         <div class="logo"></div>
         <div class="phones">
             <span><b>8-800-555-28-31</b><br>звонок по России бесплатный</span>
             <hr>
             <span><b>8-495-215-18-37</b><br>для Москвы</span>
         </div>
-
         <?php $this->widget('zii.widgets.CMenu',array(
             'items'=>array(
                 array('label'=>'Главная', 'url'=>array('/')),
@@ -58,17 +32,14 @@
                 'class' => 'mainMenu',
             ),
         )); ?>
-
         <?php $this->widget('zii.widgets.CMenu', array(
             'items' => array(
-                array('label' => 'Регистрация', 'url' => array('/'), 'visible'=>Yii::app()->user->isGuest),
                 array('label' => Yii::app()->user->name, 'url' => array('/booker/')),
-                array('label' => 'Вход', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest, 'itemOptions' => array('class' => 'enter')),
                 array('label' => 'Выход', 'url'=>array('/site/logout'), 'itemOptions' => array('class' => 'enter'),'visible'=>!Yii::app()->user->isGuest)
             ),
             'htmlOptions' => array(
                 'id' => 'enter_links',
-                'class' => 'regBlock'
+                'class' => 'logoutBlock'
             )
         ));
         ?>
@@ -77,13 +48,7 @@
 <div class="body">
     <div class="center">
         <div class="accountBlock">
-            <p class="accHead">Личный кабинет</p>
-            <ul class="accMenu">
-                <li class="active"><a href="#">Бухгалтерия</a></li>
-                <li><a href="#">Отчетность</a></li>
-                <li><a href="#">Прогнозы</a></li>
-                <li><a href="#">Настройки</a></li>
-            </ul>
+            <p class="accHead">Клиенты</p>
             <?php echo $content; ?>
         </div>
     </div>
@@ -100,49 +65,38 @@
     </div>
 </div>
 <script>
-
     $(document).ready(function(){
-
         $(".littleBlock .button").click(function(){
-
             $(".blackbg").fadeIn(500);
             $(".enterForm").fadeOut(500);
             $(".regForm").fadeOut(500);
             $(".recoverForm").fadeOut(500);
-
         });
 
         $(".blackbg .close").click(function(){
-
             $(".blackbg").fadeOut(500);
-
         });
 
-//        $(".regBlock .enter").click(function(){
-//
-//            $(".recoverForm").fadeOut(500);
-//
-//            if (!$(this).attr("open"))
-//            {
-//                $(".enterForm").fadeIn(500);
-//                $(this).attr("open","on");
-//            }
-//            else
-//            {
-//                $(".enterForm").fadeOut(500);
-//                $(this).removeAttr("open");
-//            }
-//        });
+        $(".regBlock .enter").click(function(){
+
+            $(".recoverForm").fadeOut(500);
+            if (!$(this).attr("open"))            {
+                $(".enterForm").fadeIn(500);
+                $(this).attr("open","on");
+            }
+            else
+            {
+                $(".enterForm").fadeOut(500);
+                $(this).removeAttr("open");
+            }
+        });
 
         $(".little .right").click(function(){
-
             $(".recoverForm").fadeIn(500);
             $(".enterForm").fadeOut(500);
-
         });
 
         $(".regBlock li:first").click(function(){
-
             if (!$(this).attr("open"))
             {
                 $(".regForm").fadeIn(500);
@@ -158,7 +112,6 @@
 
 
         $(".tarifBlock .selector").click(function(){
-
             if (!$(this).attr("open"))
             {
                 $(this).find(".checkme").css("display","block");
@@ -173,13 +126,10 @@
         });
 
         $(".tarifBlock .selector .checkme li").click(function(){
-
             var current = $(this).html();
-
             $(this).parents(".selector").find("input").val(current);
             $(this).find(".checkme").css("display","none");
             $(this).removeAttr("open");
-
         });
 
         $(".carousel").jCarouselLite({
@@ -190,19 +140,20 @@
         $(".carousel ul li a").lightbox();
 
         $(".tarifBlock .filds .button").click(function(){
-
             $(".tarifBg").fadeIn(500);
 
         });
 
         $(".tarifBg .close").click(function(){
-
             $(".tarifBg").fadeOut(500);
-
         });
     });
 </script>
 </body>
 </html>
+
+
+
+
 
 

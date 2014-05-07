@@ -80,6 +80,18 @@ input {outline:none;}
 .header .center  .regBlock li.enter {width:104px; height:38px; font-size:15px; background:url(images/enterButton.png) no-repeat; text-align:center; margin-left: 19px; cursor:pointer;}
 .header .center  .regBlock li.enter:hover {background-position:0px -82px;}
 .header .center  .regBlock li.enter a {color:#ffffff; text-decoration:none;}
+
+
+/******logout block start css****/
+.header .center  .logoutBlock {float:right;  margin-top: 22px;}
+.header .center  .logoutBlock li {display:inline-block; font-size:16px; line-height: 30px;}
+.header .center  .logoutBlock li a {color:#616161;}
+.header .center  .logoutBlock li.enter {width:104px; height:38px; font-size:15px; background:url(images/enterButton.png) no-repeat; text-align:center; margin-left: 19px; cursor:pointer;}
+.header .center  .logoutBlock li.enter:hover {background-position:0px -82px;}
+.header .center  .logoutBlock li.enter a {color:#ffffff; text-decoration:none;}
+/******logout block start css****/
+
+
 .header .center  .logBlock {float:right;  margin-top: 22px;}
 .header .center  .logBlock li {display:inline-block; font-size:16px; line-height: 30px;}
 .header .center  .logBlock li a {color:#616161;}
