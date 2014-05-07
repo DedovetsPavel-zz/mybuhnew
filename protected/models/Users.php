@@ -14,6 +14,11 @@
  */
 class Users extends CActiveRecord
 {
+    const ROLE_ADMIN = 'admin';
+    const ROLE_MODER = 'booker';
+    const ROLE_USER = 'user';
+    const ROLE_BANNED = 'entrepreneur';
+
 	/**
 	 * @return string the associated database table name
 	 */
@@ -94,6 +99,7 @@ class Users extends CActiveRecord
 		$criteria->compare('createdon',$this->createdon);
 		$criteria->compare('blocked',$this->blocked);
 		$criteria->compare('role',$this->role);
+        $criteria->addCondition('role != 0');
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

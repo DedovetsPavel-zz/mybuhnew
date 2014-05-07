@@ -33,7 +33,17 @@ return array(
 
 	// application components
 	'components'=>array(
+
+        'authManager' => array(
+            // Будем использовать свой менеджер авторизации
+            'class' => 'PhpAuthManager',
+            // Роль по умолчанию. Все, кто не админы, модераторы и юзеры — гости.
+            'defaultRoles' => array('guest'),
+        ),
+
+
 		'user'=>array(
+            'class' => 'WebUser',
 			// enable cookie-based authentication
 			'allowAutoLogin'=>true,
 		),
