@@ -8,12 +8,12 @@ $this->breadcrumbs=array(
 	'Update',
 );
 
-$this->menu=array(
-	array('label'=>'List Entrepreneurs', 'url'=>array('index')),
-	array('label'=>'Create Entrepreneurs', 'url'=>array('create')),
-	array('label'=>'View Entrepreneurs', 'url'=>array('view', 'id'=>$model->id)),
-	array('label'=>'Manage Entrepreneurs', 'url'=>array('admin')),
-);
+//$this->menu=array(
+//	array('label'=>'List Entrepreneurs', 'url'=>array('index')),
+//	array('label'=>'Create Entrepreneurs', 'url'=>array('create')),
+//	array('label'=>'View Entrepreneurs', 'url'=>array('view', 'id'=>$model->id)),
+//	array('label'=>'Manage Entrepreneurs', 'url'=>array('admin')),
+//);
 ?>
 
 <h1>Update Entrepreneurs <?php echo $model->id; ?></h1>
