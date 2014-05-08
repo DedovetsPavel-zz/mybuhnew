@@ -62,7 +62,7 @@
         <?php $this->widget('zii.widgets.CMenu', array(
             'items' => array(
                 array('label' => 'Регистрация', 'url' => array('/'), 'visible'=>Yii::app()->user->isGuest),
-                array('label' => Yii::app()->user->name, 'url' => array('/booker/')),
+                array('label' => Yii::app()->user->name, 'url' => array('/booker/'),'visible'=>!Yii::app()->user->isGuest),
                 array('label' => 'Вход', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest, 'itemOptions' => array('class' => 'enter')),
                 array('label' => 'Выход', 'url'=>array('/site/logout'), 'itemOptions' => array('class' => 'enter'),'visible'=>!Yii::app()->user->isGuest)
             ),

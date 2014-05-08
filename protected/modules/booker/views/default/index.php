@@ -17,7 +17,7 @@ $this->menu = array(
         </tr>
     <?php
     foreach($model as $item) {
-        echo '<tr><td>' . CHtml::link($item->user_data->name,'#') . '</td></tr>';
+        echo '<tr><td>' . CHtml::link($item->user_data->name, array('/booker/entrepreneurs/update/', 'id' => $item->user_data->id)) . '</td></tr>';
     }
     ?>
     </table>
