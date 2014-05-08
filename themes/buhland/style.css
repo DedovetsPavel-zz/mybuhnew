@@ -555,3 +555,27 @@ input {outline:none;}
 #table_users_wrapper {
     padding-top:20px;
 }
+
+.body .center .accountBlock .tableBlock .informationBlock div label {float:left; margin-top:5px;}
+.body .center .accountBlock .tableBlock .informationBlock div label.specialSpan {float:left; margin-top:-4px;}
+.body .center .accountBlock .tableBlock .informationBlock div.smallP label {margin-left:21px;}
+
+.form_data_enter {
+    padding-left: 0px !important;
+}
+
+.form_save_ent_but {
+    width:104px;
+    height:38px;
+    font-size:15px;
+    background:url(images/enterButton.png) no-repeat;
+    text-align:center;
+    margin-left: 19px;
+    cursor:pointer;
+    color:#ffffff;
+    border: none;
+}
+
+.form_save_ent_but:hover {
+    background-position:0px -82px;
+}

@@ -49,7 +49,8 @@ class Entrepreneurs extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('user_id, registration_date, date_avance, date_pay', 'numerical', 'integerOnly'=>true),
+			array('user_id', 'numerical', 'integerOnly'=>true),
+            array('registration_date, date_avance, date_pay', 'safe'),
 			array('name, organization_name, short_name_organization, inn, kpp, ogrn, organization_address, okved, okato, okpo, okfs, oktmo, okogu, okopf, ifns, prf, registration_number_in_prf, fss, registration_number_in_fss, code_subordination, insurance_tariv_fss', 'length', 'max'=>255),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
@@ -83,7 +84,7 @@ class Entrepreneurs extends CActiveRecord
             'kpp' => 'КПП',
             'ogrn' => 'ОГРН',
             'registration_date' => 'Дата регистрации юр. лица',
-            'organization_address' => 'Адрес, по которому зарегистрирована организация',
+            'organization_address' => 'Адрес, по которому<br>зарегистрирована организация',
             'okved' => 'ОКВЭД',
             'okato' => 'ОКАТО',
             'okpo' => 'ОКПО',
@@ -91,7 +92,7 @@ class Entrepreneurs extends CActiveRecord
             'oktmo' => 'ОКТМО',
             'okogu' => 'ОКОГУ',
             'okopf' => 'ОКОПФ',
-            'ifns' => 'ИФНС по месту постановки на учет (добавить ИФНС по месту ведения деятельности ЕНВД)',
+            'ifns' => 'ИФНС по месту постановки на учет<br> (добавить ИФНС по месту ведения деятельности ЕНВД)',
             'prf' => 'ПФР',
             'registration_number_in_prf' => 'Регистрационный номер в ПФР',
             'fss' => 'ФСС',
@@ -163,4 +164,14 @@ class Entrepreneurs extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+
+    public function beforeSave() {
+        $this->registration_date = strtotime($this->registration_date);
+        $this->date_avance = strtotime($this->date_avance);
+        $this->date_pay = strtotime($this->date_pay);
+        return parent::BeforeSave();
+
+    }
+
+
 }

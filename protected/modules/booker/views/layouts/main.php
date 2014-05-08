@@ -6,10 +6,12 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/themes/buhland/style.css" type="text/css" />
     <link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/themes/buhland/jquery-lightbox.css" type="text/css" />
-    <script src="<?php echo Yii::app()->request->baseUrl; ?>/themes/buhland/scripts/jquery-1.4.2.js" type="text/javascript"></script>
+    <script src="<?php echo Yii::app()->request->baseUrl; ?>/themes/buhland/jquery.min.js" type="text/javascript"></script>
+    <script src="<?php echo Yii::app()->request->baseUrl; ?>/themes/buhland/jqueryui.custom.js" type="text/javascript"></script>
     <script src="<?php echo Yii::app()->request->baseUrl; ?>/themes/buhland/scripts/jquery.lightbox.js" type="text/javascript"></script>
     <script src="<?php echo Yii::app()->request->baseUrl; ?>/themes/buhland/scripts/jquery.color.js" type="text/javascript"></script>
     <script src="<?php echo Yii::app()->request->baseUrl; ?>/themes/buhland/jcarousellite_1.0.1.js" type="text/javascript"></script>
+
 </head>
 <body>
 <div class="header">
@@ -48,7 +50,7 @@
 <div class="body">
     <div class="center">
         <div class="accountBlock">
-            <p class="accHead">Клиенты</p>
+            <p class="accHead">Личный кабинет</p>
             <?php echo $content; ?>
         </div>
     </div>
@@ -147,7 +149,84 @@
         $(".tarifBg .close").click(function(){
             $(".tarifBg").fadeOut(500);
         });
+
+
+        $(".buttonAim4").click(function(){
+
+            if (!$(this).attr("open"))
+            {
+                $(".scanLoad").fadeIn(500);
+                $(this).attr("open","on");
+            }
+            else
+            {
+                $(".scanLoad").fadeOut(500);
+                $(this).removeAttr("open");
+            }
+        });
+
+        $(".tableBlock .load").click(function(){
+
+            if (!$(this).attr("open"))
+            {
+                $(".loadForm").fadeIn(500);
+                $(this).attr("open","on");
+            }
+            else
+            {
+                $(".loadForm").fadeOut(500);
+                $(this).removeAttr("open");
+            }
+        });
+
+        $(".loadForm .little .right").click(function(){
+
+            $(".loadForm .little .left:last").after('<span class="left"><img src="images/skrep.png"><span>Загрузить докумет</span><input type="file" class="hidden" name="file"></span>');
+
+        });
+
+        $(".loadForm .little .left span").live("click", function(){
+
+            $(this).closest(".left").find("input").click();
+
+        });
+
+        $(".calendar input").datepicker();
+
+        $(".calendar img").click(function(){
+
+            $(this).closest(".calendar").find("input").focus();
+
+        });
+
     });
+    $.datepicker.regional['ru'] = {
+        closeText: 'Закрыть',
+        prevText: '&#x3c;Пред',
+        nextText: 'След&#x3e;',
+        currentText: 'Сегодня',
+        monthNames: ['Январь','Февраль','Март','Апрель','Май','Июнь',
+            'Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь'],
+        monthNamesShort: ['Янв','Фев','Мар','Апр','Май','Июн',
+            'Июл','Авг','Сен','Окт','Ноя','Дек'],
+        dayNames: ['воскресенье','понедельник','вторник','среда','четверг','пятница','суббота'],
+        dayNamesShort: ['вск','пнд','втр','срд','чтв','птн','сбт'],
+        dayNamesMin: ['Вс','Пн','Вт','Ср','Чт','Пт','Сб'],
+        dateFormat: 'dd.mm.yy',
+        firstDay: 1,
+        isRTL: false
+    };
+    $.datepicker.setDefaults($.datepicker.regional['ru']);
+
+
+    $(".gender div .radio").click(function(){
+
+        $(".gender div .radio").css("background-position","0px 0px");
+        $(this).css("background-position","0px -11px");
+
+
+    });
+
 </script>
 </body>
 </html>
