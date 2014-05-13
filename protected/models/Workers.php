@@ -120,4 +120,12 @@ class Workers extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+
+    public function beforeSave() {
+        $this->date_of_birth = strtotime($this->date_of_birth);
+        $this->hire_date = strtotime($this->hire_date);
+        $this->termination_date = strtotime($this->termination_date);
+        return parent::BeforeSave();
+    }
+
 }

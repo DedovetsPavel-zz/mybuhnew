@@ -18,7 +18,7 @@ $this->menu = array(
 
 <div class="tableBlock">
     <div class="buttonAim4">Добавить сотрудника</div>
-    <?php $this->renderPartial('_form_create_worker', array('model'=>$workersModel)); ?>
+    <?php $this->renderPartial('_form_create_worker', array('model'=>$workersModel, 'entrepreneur_id' => $entrepreneur_id)); ?>
     <?php $this->widget('zii.widgets.CMenu', array(
         'items' => array(
             array('label' => 'Данные налогоплательщика', 'url' => array('/booker/entrepreneurs/update/', 'id' => $entrepreneur_id)),

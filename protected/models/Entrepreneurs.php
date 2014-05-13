@@ -170,7 +170,6 @@ class Entrepreneurs extends CActiveRecord
         $this->date_avance = strtotime($this->date_avance);
         $this->date_pay = strtotime($this->date_pay);
         return parent::BeforeSave();
-
     }
 
 

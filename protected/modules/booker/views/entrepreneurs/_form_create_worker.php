@@ -18,7 +18,7 @@
         // See class documentation of CActiveForm for details on this.
         'enableAjaxValidation'=>true,
         'action'=>$this->createUrl('/booker/entrepreneurs/createworker/'),
-        //'enableClientValidation'=>true,
+        'enableClientValidation'=>true,
         'clientOptions' => array(
             'validateOnSubmit' => true,
             'afterValidate' => 'js:function(form,data,hasError) {
@@ -30,7 +30,6 @@
                       "success":function(data) {
                           $("#success").html("Сотрудник добавлен");
                           $("#workers-form-create").trigger("reset");
-
                       },
                   });
                 }
@@ -38,18 +37,18 @@
         ),
     )); ?>
     <div id="success"></div>
-    <?php echo $form->errorSummary($model); ?>
+    <?php //echo $form->errorSummary($model); ?>
 
     <div class="row">
         <?php echo $form->labelEx($model,'fullname'); ?>
         <?php echo $form->error($model,'fullname'); ?>
-        <?php echo $form->textField($model,'fullname',array('size'=>60,'maxlength'=>255)); ?>
+        <?php echo $form->textField($model,'fullname',array('size'=>60,'maxlength'=>255, 'class' => 'worker_form_text_input')); ?>
     </div>
 
     <div class="row">
         <?php echo $form->labelEx($model,'post'); ?>
         <?php echo $form->error($model,'post'); ?>
-        <?php echo $form->textField($model,'post',array('size'=>60,'maxlength'=>255)); ?>
+        <?php echo $form->textField($model,'post',array('size'=>60,'maxlength'=>255, 'class' => 'worker_form_text_input')); ?>
 
     </div>
 
@@ -64,7 +63,7 @@
             $date_of_birth = '';
         }
 
-        echo $form->textField($model,'date_of_birth', array('value' => $date_of_birth));
+        echo $form->textField($model,'date_of_birth', array('value' => $date_of_birth, 'class' => 'worker_form_text_input'));
         ?>
         <img src="<?php echo Yii::app()->request->baseUrl; ?>/themes/buhland/images/calendar.png">
         </div>
@@ -73,19 +72,23 @@
     <div class="row">
         <?php echo $form->labelEx($model,'gender'); ?>
         <?php echo $form->error($model,'gender'); ?>
-        <?php echo $form->textField($model,'gender'); ?>
+        <div class="gender">
+        <?php echo $form->radioButtonList($model,'gender', array('1' => 'М.', '2' => 'Ж.'), array('separator' => '', 'template' => '{label}{input}', 'labelOptions' => array('class' => 'form_label_radio'))); ?>
+            <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
     </div>
 
     <div class="row">
         <?php echo $form->labelEx($model,'inn'); ?>
         <?php echo $form->error($model,'inn'); ?>
-        <?php echo $form->textField($model,'inn',array('size'=>60,'maxlength'=>255)); ?>
+        <?php echo $form->textField($model,'inn',array('size'=>60,'maxlength'=>255, 'class' => 'worker_form_text_input')); ?>
     </div>
 
     <div class="row">
         <?php echo $form->labelEx($model,'snils'); ?>
         <?php echo $form->error($model,'snils'); ?>
-        <?php echo $form->textField($model,'snils',array('size'=>60,'maxlength'=>255)); ?>
+        <?php echo $form->textField($model,'snils',array('size'=>60,'maxlength'=>255, 'class' => 'worker_form_text_input')); ?>
     </div>
 
     <div class="row">
@@ -98,7 +101,7 @@
         } else {
             $hire_date = '';
         }
-        echo $form->textField($model,'hire_date', array('value' => $hire_date));
+        echo $form->textField($model,'hire_date', array('value' => $hire_date, 'class' => 'worker_form_text_input'));
         ?>
         <img src="<?php echo Yii::app()->request->baseUrl; ?>/themes/buhland/images/calendar.png">
         </div>
@@ -114,7 +117,7 @@
             } else {
                 $termination_date = '';
             }
-            echo $form->textField($model,'termination_date', array('value' => $termination_date));
+            echo $form->textField($model,'termination_date', array('value' => $termination_date, 'class' => 'worker_form_text_input'));
             ?>
             <img src="<?php echo Yii::app()->request->baseUrl; ?>/themes/buhland/images/calendar.png">
         </div>
@@ -123,13 +126,11 @@
     <div class="row">
         <?php echo $form->labelEx($model,'pay'); ?>
         <?php echo $form->error($model,'pay'); ?>
-        <?php echo $form->textField($model,'pay'); ?>
+        <?php echo $form->textField($model,'pay', array('class' => 'worker_form_text_input')); ?>
     </div>
 
     <div class="row">
-        <?php echo $form->labelEx($model,'parent'); ?>
-        <?php echo $form->textField($model,'parent'); ?>
-        <?php echo $form->error($model,'parent'); ?>
+        <?php echo $form->hiddenField($model,'parent', array('value' => $entrepreneur_id)); ?>
     </div>
 
     <div class="row buttons">

@@ -148,6 +148,7 @@ class EntrepreneursController extends Controller
         $user_id = Yii::app()->user->id;
         $workers = Workers::model()->findAll('parent=:parent', array(':parent' => $id));
         $modelWorkers = new Workers;
+        $modelWorkers->gender = 1;
 
 
         $this->render('workers', array(
@@ -160,12 +161,15 @@ class EntrepreneursController extends Controller
     public function actionCreateworker()
     {
         $model=new Workers;
-
+        //var_dump($_POST['Workers']);die;
         // Uncomment the following line if AJAX validation is needed
         $this->performAjaxValidationWorker($model);
 
+
         if(isset($_POST['Workers']))
         {
+
+
             //die('тут');
             if(Yii::app()->request->isAjaxRequest) {
                 $model->attributes=$_POST['Workers'];
