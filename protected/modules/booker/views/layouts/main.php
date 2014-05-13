@@ -6,11 +6,13 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/themes/buhland/style.css" type="text/css" />
     <link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/themes/buhland/jquery-lightbox.css" type="text/css" />
-    <script src="<?php echo Yii::app()->request->baseUrl; ?>/themes/buhland/jquery.min.js" type="text/javascript"></script>
+<!--    <script src="--><?php //echo Yii::app()->request->baseUrl; ?><!--/themes/buhland/jquery.min.js" type="text/javascript"></script>-->
     <script src="<?php echo Yii::app()->request->baseUrl; ?>/themes/buhland/jqueryui.custom.js" type="text/javascript"></script>
     <script src="<?php echo Yii::app()->request->baseUrl; ?>/themes/buhland/scripts/jquery.lightbox.js" type="text/javascript"></script>
     <script src="<?php echo Yii::app()->request->baseUrl; ?>/themes/buhland/scripts/jquery.color.js" type="text/javascript"></script>
     <script src="<?php echo Yii::app()->request->baseUrl; ?>/themes/buhland/jcarousellite_1.0.1.js" type="text/javascript"></script>
+    <?php Yii::app()->clientScript->registerCoreScript('jquery'); ?>
+    <?php Yii::app()->getClientScript()->registerCoreScript('yii'); ?>
 
 </head>
 <body>

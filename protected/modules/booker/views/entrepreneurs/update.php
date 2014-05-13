@@ -40,7 +40,7 @@ $this->menu = array(
     <?php $this->widget('zii.widgets.CMenu', array(
         'items' => array(
             array('label' => 'Данные налогоплательщика', 'url' => array('/booker/'), 'itemOptions' => array('class' => 'active')),
-            array('label' => 'Сотрудники', 'url'=>array('/booker/'))
+            array('label' => 'Сотрудники', 'url'=>array('/booker/entrepreneurs/workers/', 'id' => $model->id))
         ),
         'htmlOptions' => array(
             'id' => 'secMenu',
