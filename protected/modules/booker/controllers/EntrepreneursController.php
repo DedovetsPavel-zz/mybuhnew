@@ -32,7 +32,7 @@ class EntrepreneursController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update','workers', 'createworker'),
+				'actions'=>array('create','update','workers', 'createworker', 'prognozes'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -149,8 +149,6 @@ class EntrepreneursController extends Controller
         $workers = Workers::model()->findAll('parent=:parent', array(':parent' => $id));
         $modelWorkers = new Workers;
         $modelWorkers->gender = 1;
-
-
         $this->render('workers', array(
             'entrepreneur_id' => $id,
             'workers' => $workers,
@@ -161,31 +159,27 @@ class EntrepreneursController extends Controller
     public function actionCreateworker()
     {
         $model=new Workers;
-        //var_dump($_POST['Workers']);die;
-        // Uncomment the following line if AJAX validation is needed
         $this->performAjaxValidationWorker($model);
-
-
-        if(isset($_POST['Workers']))
-        {
-
-
-            //die('тут');
+        if(isset($_POST['Workers'])) {
             if(Yii::app()->request->isAjaxRequest) {
                 $model->attributes=$_POST['Workers'];
                 if($model->save()) {
                     return 'Работник добавлен';
                 }
-            } else {
-                die('2');
             }
-
-
         }
+    }
 
-//        $this->render('create',array(
-//            'model'=>$model,
-//        ));
+    public function actionPrognozes($id) {
+        $user_id = Yii::app()->user->id;
+        $prognozes = Prognozes::model()->findAll('parent=:parent', array(':parent' => $id));
+        $modelPrognozes = new Prognozes();
+        $this->render('prognozes', array(
+            'entrepreneur_id' => $id,
+            'prognozes' => $prognozes,
+            'prognozesModel' => $modelPrognozes
+        ));
+
     }
 
 

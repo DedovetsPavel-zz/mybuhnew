@@ -20,8 +20,8 @@ $this->menu = array(
     array('label'=>'Клиенты', 'url'=>array('/booker/')),
     array('label'=>'Бухгалтерия', 'url'=>array('/booker/')),
     array('label'=>'Отчетность', 'url'=>array('/booker/')),
-    array('label'=>'Прогнозы', 'url'=>array('/booker/')),
-    array('label'=>'Настройки', 'url'=>'/booker/', 'itemOptions' => array('class' => 'active')),
+    array('label'=>'Прогнозы', 'url'=>array('/booker/entrepreneurs/prognozes/', 'id' => $model->id)),
+    array('label'=>'Настройки', 'url'=>array('/booker/entrepreneurs/update/', 'id' => $model->id), 'itemOptions' => array('class' => 'active')),
 );
 
 

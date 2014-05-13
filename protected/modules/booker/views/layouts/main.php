@@ -201,6 +201,70 @@
 
         });
 
+        /******************
+        скрипты с верстки со страницы account2.html  start
+        *****************/
+
+        $(".buttonAim3").click(function(){
+
+            if (!$(this).attr("open"))
+            {
+                $(".mission3").fadeIn(500);
+                $(this).attr("open","on");
+            }
+            else
+            {
+                $(".mission3").fadeOut(500);
+                $(this).removeAttr("open");
+            }
+        });
+
+        $(".controlPanel .open").click(function(){
+
+            if (!$(this).attr("open"))
+            {
+                $(".controlPanel .checkme").css("display","block");
+                $(this).attr("open","on");
+            }
+            else
+            {
+                $(".controlPanel .checkme").css("display","none");
+                $(this).removeAttr("open");
+            }
+
+        });
+
+        $(".calendar").datepicker();
+
+        $(".mission3 .input img").click(function(){
+
+            $(this).closest(".input").find(".calendar").focus();
+
+        });
+
+        $(".controlPanel .checkme li").click(function(){
+
+            var choosen = $(this).html();
+            $(this).closest(".controlPanel").find(".choosen").val(choosen);
+            $(".controlPanel .checkme").css("display","none");
+
+        });
+
+        $(".date input").datepicker();
+
+        $("div.input img").click(function(){
+
+            $(this).closest(".input").find("input").focus();
+
+        });
+
+        /******************
+         скрипты с верстки со страницы account2.html  end
+         *****************/
+
+
+
+
     });
     $.datepicker.regional['ru'] = {
         closeText: 'Закрыть',
