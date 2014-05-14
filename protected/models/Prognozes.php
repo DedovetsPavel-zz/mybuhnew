@@ -29,9 +29,10 @@ class Prognozes extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('deadline, consumption, parent', 'numerical', 'integerOnly'=>true),
+			array('consumption, parent', 'numerical', 'integerOnly'=>true),
 			array('event', 'length', 'max'=>255),
 			array('comment', 'safe'),
+            array('event,deadline,consumption', 'required'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, event, deadline, consumption, comment, parent', 'safe', 'on'=>'search'),
@@ -104,4 +105,9 @@ class Prognozes extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+
+    public function beforeSave() {
+        $this->deadline = strtotime($this->deadline);
+        return parent::BeforeSave();
+    }
 }

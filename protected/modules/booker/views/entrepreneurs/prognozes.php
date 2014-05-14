@@ -19,18 +19,6 @@ $this->menu = array(
 <div class="tableBlock">
     <div class="buttonAim3">Добавить событие</div>
     <div class="controlPanel">
-        <div class="input open">
-            <input type="text"  class="choosen">
-            <img src="<?php echo Yii::app()->request->baseUrl; ?>/themes/buhland/images/select.png">
-            <ul class="checkme">
-                <li>Вариант1</li>
-                <li>Вариант2</li>
-                <li>Вариант3</li>
-                <li>Вариант4</li>
-                <li>Вариант5</li>
-                <li>Вариант6</li>
-            </ul>
-        </div>
         <div class="date">
             <span>Дата изменения с</span>
             <div class="input">
@@ -48,21 +36,7 @@ $this->menu = array(
             <img src="<?php echo Yii::app()->request->baseUrl; ?>/themes/buhland/images/search.png">
         </div>
     </div>
-    <div class="mission3">
-        <p>Событие</p>
-        <input type="text" class="input">
-        <p>Срок</p>
-        <div class="input">
-            <input type="text"  class="calendar">
-            <img src="<?php echo Yii::app()->request->baseUrl; ?>/themes/buhland/images/calendar.png">
-        </div>
-        <p>Расход</p>
-        <input type="text" class="input">
-        <p>Комментарий</p>
-        <textarea class="textarea"></textarea>
-        <div class="button" type="button" >Добавить событие</div>
-    </div>
-
+    <?php $this->renderPartial('_form_create_event', array('model'=>$prognozesModel, 'entrepreneur_id' => $entrepreneur_id)); ?>
     <table class="infoTable">
         <tr>
             <td class="headerTd" width="38">№</td>

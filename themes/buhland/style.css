@@ -372,7 +372,7 @@ input {outline:none;}
 .body .center .accountBlock .tableBlock .infoTable td ul li a.download {width:20px; display:block; height:21px; background:url(images/accIcons.png) no-repeat;}
 .body .center .accountBlock .tableBlock .infoTable td ul li a.success {width:20px; display:block; height:21px; background:url(images/accIcons.png) no-repeat -19px 0px;}
 .body .center .accountBlock .tableBlock .infoTable td ul li a.del {width:20px; display:block; height:21px; background:url(images/accIcons.png) no-repeat -38px 0px;}
-.body .center .accountBlock .tableBlock .infoTable td a.delete {display:inline-block; margin-top:20px;}
+.body .center .accountBlock .tableBlock .infoTable td a.delete {display:block; margin-top:20px;}
 .body .center .accountBlock .tableBlock .mission { display:none;  position:absolute; z-index:99999999; right:-35px; text-align:center; top:58px;}
 .body .center .accountBlock .tableBlock .mission .accFormBody {width:298px;  position: relative; right: 1px; background:url(images/accFormBody.png); padding-top:20px;}
 .body .center .accountBlock .tableBlock .mission .misImg {display:block;}
@@ -416,7 +416,7 @@ input {outline:none;}
 .body .center .accountBlock .tableBlock .itog {   float: right; font-size: 16px; margin-right: 24px; margin-top: 20px; width: 291px;}
 .body .center .accountBlock .tableBlock .itog .right {float:right;}
 
-.body .center .accountBlock .tableBlock .mission3 {width:298px; height:400px;  display:none; background:url(images/accSubj.png) no-repeat;  position:absolute; padding-top:43px; z-index:99999999; right:-35px; text-align:center; top:58px;}
+.body .center .accountBlock .tableBlock .mission3 {display: none;}
 .body .center .accountBlock .tableBlock .mission3 input {width:198px; height:25px; font-size:14px; color: #616161; font-family: 'ArialNarrow';  border:1px solid #d4d4d4; padding-left:10px; margin-bottom:7px; border-radius:5px; background:#ffffff;}
 .body .center .accountBlock .tableBlock .mission3 p {text-align:left; padding-left: 45px; margin-bottom:2px; font-size:14px;}
 .body .center .accountBlock .tableBlock .mission3 textarea {border: 1px solid #D4D4D4; font-size:14px; color: #616161; font-family: 'ArialNarrow';  margin-bottom:7px; width:197px; resize:none; padding-left:10px; padding-top:10px; border-radius:5px; height:72px;}
@@ -596,6 +596,15 @@ input {outline:none;}
     background-position:0px -47px;
 }
 
+#create_event_submit {
+    width:184px; height:47px; text-transform:uppercase; background:url(images/addMan.png) no-repeat; color:#ffffff; line-height:42px; margin:0px auto; cursor:pointer; margin-top:15px; font-size:14px;
+    border: medium none;
+}
+
+#create_event_submit:hover {
+    background-position:0px -47px;
+}
+
 .form_label_radio {
     float: left;
     padding-left: 10px !important;
@@ -616,3 +625,17 @@ input {outline:none;}
 #Workers_gender {
     clear: both;
 }
+
+.mission3 .row label {
+    text-align:left; padding-left: 45px; margin-bottom:2px; font-size:14px;display: block;
+}
+
+#events-form-create .errorMessage {
+    color:red;
+    padding-left: 5px;
+    padding-bottom: 2px;
+}
+
+.body .center .accountBlock .tableBlock .scanLoad_event {position:absolute; z-index:99999999; right:-35px; text-align:center; top:58px;}
+.body .center .accountBlock .tableBlock .scanLoad_event .accFormBody {width:298px;  position: relative; right: 1px; background:url(images/accFormBody.png); padding-top:20px;}
+.body .center .accountBlock .tableBlock .scanLoad_event .misImg {display:block;}

@@ -32,7 +32,7 @@ class EntrepreneursController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update','workers', 'createworker', 'prognozes'),
+				'actions'=>array('create','update','workers', 'createworker', 'prognozes', 'createevent'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -179,7 +179,19 @@ class EntrepreneursController extends Controller
             'prognozes' => $prognozes,
             'prognozesModel' => $modelPrognozes
         ));
+    }
 
+    public function actionCreateevent() {
+        $model = new Prognozes();
+        $this->performAjaxValidationEvent($model);
+        if(isset($_POST['Prognozes'])) {
+            if(Yii::app()->request->isAjaxRequest) {
+                $model->attributes = $_POST['Prognozes'];
+                if($model->save()) {
+                    return 'Событие добавлено';
+                }
+            }
+        }
     }
 
 
@@ -219,5 +231,14 @@ class EntrepreneursController extends Controller
             Yii::app()->end();
         }
     }
+
+    protected function performAjaxValidationEvent($model)
+    {
+        if(isset($_POST['ajax']) && $_POST['ajax']==='events-form-create'){
+            echo CActiveForm::validate($model);
+            Yii::app()->end();
+        }
+    }
+
 
 }
