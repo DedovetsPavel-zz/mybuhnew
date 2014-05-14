@@ -47,7 +47,7 @@
         <?php echo $form->labelEx($model,'deadline'); ?>
         <?php echo $form->error($model,'deadline'); ?>
         <div class="input">
-            <?php echo $form->textField($model,'deadline',array('class' => 'event_form_text_input calendar')); ?>
+            <?php echo $form->textField($model,'deadline',array('class' => 'event_form_text_input calendar_input')); ?>
             <img src="<?php echo Yii::app()->request->baseUrl; ?>/themes/buhland/images/calendar.png">
         </div>
     </div>

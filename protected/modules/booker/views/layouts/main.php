@@ -82,14 +82,11 @@
         });
 
         $(".regBlock .enter").click(function(){
-
             $(".recoverForm").fadeOut(500);
             if (!$(this).attr("open"))            {
                 $(".enterForm").fadeIn(500);
                 $(this).attr("open","on");
-            }
-            else
-            {
+            } else {
                 $(".enterForm").fadeOut(500);
                 $(this).removeAttr("open");
             }
@@ -101,32 +98,24 @@
         });
 
         $(".regBlock li:first").click(function(){
-            if (!$(this).attr("open"))
-            {
+            if (!$(this).attr("open")) {
                 $(".regForm").fadeIn(500);
                 $(this).attr("open","on");
-            }
-            else
-            {
+            } else {
                 $(".regForm").fadeOut(500);
                 $(this).removeAttr("open");
             }
-
         });
 
 
         $(".tarifBlock .selector").click(function(){
-            if (!$(this).attr("open"))
-            {
+            if (!$(this).attr("open")) {
                 $(this).find(".checkme").css("display","block");
                 $(this).attr("open","on");
-            }
-            else
-            {
+            } else {
                 $(this).find(".checkme").css("display","none");
                 $(this).removeAttr("open");
             }
-
         });
 
         $(".tarifBlock .selector .checkme li").click(function(){
@@ -145,7 +134,6 @@
 
         $(".tarifBlock .filds .button").click(function(){
             $(".tarifBg").fadeIn(500);
-
         });
 
         $(".tarifBg .close").click(function(){
@@ -154,51 +142,37 @@
 
 
         $(".buttonAim4").click(function(){
-
-            if (!$(this).attr("open"))
-            {
+            if (!$(this).attr("open")) {
                 $(".scanLoad").fadeIn(500);
                 $(this).attr("open","on");
-            }
-            else
-            {
+            } else {
                 $(".scanLoad").fadeOut(500);
                 $(this).removeAttr("open");
             }
         });
 
         $(".tableBlock .load").click(function(){
-
-            if (!$(this).attr("open"))
-            {
+            if (!$(this).attr("open")) {
                 $(".loadForm").fadeIn(500);
                 $(this).attr("open","on");
-            }
-            else
-            {
+            } else {
                 $(".loadForm").fadeOut(500);
                 $(this).removeAttr("open");
             }
         });
 
         $(".loadForm .little .right").click(function(){
-
             $(".loadForm .little .left:last").after('<span class="left"><img src="images/skrep.png"><span>Загрузить докумет</span><input type="file" class="hidden" name="file"></span>');
-
         });
 
         $(".loadForm .little .left span").live("click", function(){
-
             $(this).closest(".left").find("input").click();
-
         });
 
         $(".calendar input").datepicker();
 
         $(".calendar img").click(function(){
-
             $(this).closest(".calendar").find("input").focus();
-
         });
 
         /******************
@@ -206,65 +180,46 @@
         *****************/
 
         $(".buttonAim3").click(function(){
-
-            if (!$(this).attr("open"))
-            {
+            if (!$(this).attr("open")) {
                 $(".mission3").fadeIn(500);
                 $(this).attr("open","on");
-            }
-            else
-            {
+            } else {
                 $(".mission3").fadeOut(500);
                 $(this).removeAttr("open");
             }
         });
 
         $(".controlPanel .open").click(function(){
-
-            if (!$(this).attr("open"))
-            {
+            if (!$(this).attr("open")) {
                 $(".controlPanel .checkme").css("display","block");
                 $(this).attr("open","on");
-            }
-            else
-            {
+            } else {
                 $(".controlPanel .checkme").css("display","none");
                 $(this).removeAttr("open");
             }
-
         });
 
-        $(".calendar").datepicker();
+        $(".calendar_input").datepicker();
 
         $(".mission3 .input img").click(function(){
-
             $(this).closest(".input").find(".calendar").focus();
-
         });
 
         $(".controlPanel .checkme li").click(function(){
-
             var choosen = $(this).html();
             $(this).closest(".controlPanel").find(".choosen").val(choosen);
             $(".controlPanel .checkme").css("display","none");
-
         });
 
-        $(".date input").datepicker();
+//        $(".date input").datepicker();
 
         $("div.input img").click(function(){
-
             $(this).closest(".input").find("input").focus();
-
         });
 
         /******************
          скрипты с верстки со страницы account2.html  end
          *****************/
-
-
-
-
     });
     $.datepicker.regional['ru'] = {
         closeText: 'Закрыть',
