@@ -182,9 +182,11 @@
         $(".buttonAim3").click(function(){
             if (!$(this).attr("open")) {
                 $(".mission3").fadeIn(500);
+                $(".scanLoad_event").fadeIn(500);
                 $(this).attr("open","on");
             } else {
                 $(".mission3").fadeOut(500);
+                $(".scanLoad_event").fadeOut(500);
                 $(this).removeAttr("open");
             }
         });
