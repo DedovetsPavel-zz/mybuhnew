@@ -213,7 +213,7 @@
             $(".controlPanel .checkme").css("display","none");
         });
 
-//        $(".date input").datepicker();
+        $(".date input").datepicker();
 
         $("div.input img").click(function(){
             $(this).closest(".input").find("input").focus();
@@ -243,11 +243,8 @@
 
 
     $(".gender div .radio").click(function(){
-
         $(".gender div .radio").css("background-position","0px 0px");
         $(this).css("background-position","0px -11px");
-
-
     });
 
 </script>

@@ -32,7 +32,7 @@ class EntrepreneursController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update','workers', 'createworker', 'prognozes', 'createevent'),
+				'actions'=>array('create','update','workers', 'createworker', 'prognozes', 'createevent', 'deleteprognoz'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -190,6 +190,15 @@ class EntrepreneursController extends Controller
                 if($model->save()) {
                     return 'Событие добавлено';
                 }
+            }
+        }
+    }
+
+    public function actionDeleteprognoz($id, $entrepreneur_id) {
+        $model = Prognozes::model()->findByPk($id);
+        if($model->attributes['parent'] == $entrepreneur_id) {
+            if($model->delete()) {
+                $this->redirect(array('/booker/entrepreneurs/prognozes/','id'=>$entrepreneur_id));
             }
         }
     }

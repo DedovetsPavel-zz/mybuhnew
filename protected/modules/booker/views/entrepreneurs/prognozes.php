@@ -49,14 +49,14 @@ $this->menu = array(
         $key = 1;
         foreach($prognozes as $prognoz) {
             $deadline = date('d.m.Y', $prognoz->deadline);
-            $delete_link = CHtml::link('Удалить запись', array('url'=>'#'), array('submit'=>array('/booker/workers/delete/','id'=>$worker->id),'confirm'=>'Вы уверены, что хотите удалить выбранного сотрудника?'));
+            $delete_link = CHtml::link('Удалить запись',array('/booker/entrepreneurs/deleteprognoz/', 'id' => $prognoz->id,'entrepreneur_id' => $entrepreneur_id),array('class' => 'delete','confirm'=>'Вы уверены, что хотите удалить выбранное событие?'));
             echo '
                 <tr>
                     <td width="38" height="95">'.$key.'</td>
                     <td width="140">'.$prognoz->event.'</td>
                     <td width="140">'.$deadline.'</td>
                     <td width="140">'.$prognoz->consumption.'</td>
-                    <td width="280">'.$prognoz->comment.'<a class="delete" href="#">Удалить запись</a></td>
+                    <td width="280">'.$prognoz->comment.$delete_link.'</td>
                 </tr>
                 ';
             $key++;
@@ -67,4 +67,5 @@ $this->menu = array(
         <span class="left">Итого расходов <br>по состоянию на 05.04.2014г:</span>
         <span class="right">721 000 руб.</span>
     </div>
+    <div class="clear"></div>
 </div>
