@@ -195,10 +195,12 @@ class EntrepreneursController extends Controller
     }
 
     public function actionDeleteprognoz($id, $entrepreneur_id) {
-        $model = Prognozes::model()->findByPk($id);
-        if($model->attributes['parent'] == $entrepreneur_id) {
-            if($model->delete()) {
-                $this->redirect(array('/booker/entrepreneurs/prognozes/','id'=>$entrepreneur_id));
+        if(Yii::app()->request->isAjaxRequest) {
+            $model = Prognozes::model()->findByPk($id);
+            if($model->attributes['parent'] == $entrepreneur_id) {
+                if($model->delete()) {
+                    echo 'Событие удалено';
+                }
             }
         }
     }

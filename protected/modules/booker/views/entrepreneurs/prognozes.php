@@ -49,7 +49,17 @@ $this->menu = array(
         $key = 1;
         foreach($prognozes as $prognoz) {
             $deadline = date('d.m.Y', $prognoz->deadline);
-            $delete_link = CHtml::link('Удалить запись',array('/booker/entrepreneurs/deleteprognoz/', 'id' => $prognoz->id,'entrepreneur_id' => $entrepreneur_id),array('class' => 'delete','confirm'=>'Вы уверены, что хотите удалить выбранное событие?'));
+            $delete_link = CHtml::ajaxLink(
+                'Удалить запись',
+                '/booker/entrepreneurs/deleteprognoz/',
+                array(
+                'type' => 'get',
+                'data' => array(
+                    'id' => $prognoz->id,
+                    'entrepreneur_id' => $entrepreneur_id
+                )
+            ),
+            array('class' => 'delete'));
             echo '
                 <tr>
                     <td width="38" height="95">'.$key.'</td>
