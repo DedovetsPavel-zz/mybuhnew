@@ -164,6 +164,68 @@ $(document).ready(function(){
     /******************
      скрипты с верстки со страницы account2.html  end
      *****************/
+
+    /******скрипты со страницы account1.html start**/
+    $(".buttonAim2").click(function(){
+        if (!$(this).attr("open")) {
+            $(".mission2").fadeIn(500);
+            $(this).attr("open","on");
+        } else {
+            $(".mission2").fadeOut(500);
+            $(this).removeAttr("open");
+        }
+    });
+
+    $(".mission2 .checkbox").click(function(){
+        if (!$(this).attr("open")) {
+            $(".mission2 .checkbox").css("background-position","0px -11px");
+            $(this).attr("open","on");
+        } else {
+            $(".mission2 .checkbox").css("background-position","0px 0px");
+            $(this).removeAttr("open");
+        }
+    });
+
+    $(".selector img").click(function(){
+        if (!$(this).attr("open")) {
+            $(".mission2 .checkme").css("display","block");
+            $(this).attr("open","on");
+        } else {
+            $(".mission2 .checkme").css("display","none");
+            $(this).removeAttr("open");
+        }
+    });
+
+    $(".selector .checkme li").click(function(){
+        var choosen = $(this).html();
+        $(this).closest(".selector").find("input").val(choosen);
+        $(".mission2 .checkme").css("display","none");
+        $(".selector img").removeAttr("open");
+    });
+
+    $("div.input img").click(function(){
+        $(this).closest(".input").find("input").focus();
+    });
+
+    $(".infoTable .checkbox").click(function() {
+        if (!$(this).attr("open")) {
+            $(this).css("background-position","0px -11px");
+            $(this).attr("open","on");
+        } else {
+            $(this).css("background-position","0px 0px");
+            $(this).removeAttr("open");
+        }
+    });
+
+    $(".mission2 .little .right").click(function(){
+        $(".mission2 .little .left:last").after('<span class="left"><img src="images/skrep.png"><span>Загрузить докумет</span><input type="file" class="hidden" name="file"></span>');
+    });
+
+    $(".mission2 .little .left span").live("click", function(){
+        $(this).closest(".left").find("input").click();
+    });
+    /******скрипты со страницы account1.html end**/
+
 });
 $.datepicker.regional['ru'] = {
     closeText: 'Закрыть',

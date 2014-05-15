@@ -33,7 +33,7 @@ class EntrepreneursController extends Controller
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
 				'actions'=>array('create','update','workers', 'createworker', 'prognozes', 'createevent', 'deleteprognoz',
-                'reporting'),
+                'reporting', 'createreport'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -273,9 +273,47 @@ class EntrepreneursController extends Controller
     }
 
     public function actionReporting($id) {
+        $user_id = Yii::app()->user->id;
+        $reports = Reports::model()->findAll('parent=:parent', array(':parent' => $id));
+        $modelReports = new Reports();
+
         $this->render('reporting', array(
-            'entrepreneur_id' => $id
+            'entrepreneur_id' => $id,
+            'reports' => $reports,
+            'reportsModel' => $modelReports
         ));
+    }
+
+    public function actionCreatereport() {
+        $response = array();
+        $response['success'] = 0;
+        $response['error'] = 0;
+        $model = new Reports();
+        $this->performAjaxValidationReport($model);
+        if(isset($_POST['Reports'])) {
+            if(Yii::app()->request->isAjaxRequest) {
+                $model->attributes = $_POST['Reports'];
+                $parent = $model->attributes['parent'];
+
+                if($model->save()) {
+                    $response['success'] = 1;
+                    $this->layout = null;
+                    $reports = Reports::model()->findAll('parent=:parent', array(':parent' => $parent));
+                    $this->renderPartial('_view_new_reports',array(
+                        'reports' =>  $reports,
+                        'entrepreneur_id' => $parent
+                    ));
+
+                } else {
+                    $response['error'] = 1;
+                }
+            } else {
+                $response['error'] = 1;
+            }
+        } else {
+            $response['error'] = 1;
+        }
+
     }
 
 
@@ -322,6 +360,13 @@ class EntrepreneursController extends Controller
     protected function performAjaxValidationEvent($model)
     {
         if(isset($_POST['ajax']) && $_POST['ajax']==='events-form-create'){
+            echo CActiveForm::validate($model);
+            Yii::app()->end();
+        }
+    }
+
+    protected function performAjaxValidationReport($model) {
+        if(isset($_POST['ajax']) && $_POST['ajax']==='report-form-create'){
             echo CActiveForm::validate($model);
             Yii::app()->end();
         }
