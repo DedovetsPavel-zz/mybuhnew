@@ -32,7 +32,8 @@ class EntrepreneursController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update','workers', 'createworker', 'prognozes', 'createevent', 'deleteprognoz'),
+				'actions'=>array('create','update','workers', 'createworker', 'prognozes', 'createevent', 'deleteprognoz',
+                'reporting'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -171,27 +172,88 @@ class EntrepreneursController extends Controller
     }
 
     public function actionPrognozes($id) {
+
+        $criteria = new CDbCriteria;
+        $criteria->condition = 'parent=:parent';
+
+        $filter = $_GET['filter'];
+        $date_start = $_GET['date_start'];
+        $date_end = $_GET['date_end'];
+
+        if($filter) {
+            if($date_start || $date_end) {
+                if($date_start) {
+                    $date_start_time = strtotime($date_start);
+                    $criteria->addCondition("deadline >= $date_start_time");
+                }
+
+                if($date_end) {
+                    $date_end_time = strtotime($date_end);
+                    $criteria->addCondition("deadline <= $date_end_time");
+                }
+            }
+        }
+
+        $search = $_GET['search'];
+
+        if($search) {
+            $search = trim($search);
+            $search = strip_tags($search);
+            $search = htmlspecialchars($search);
+            if(strlen($search)) {
+                $criteria->addCondition("event LIKE '%$search%'");
+            }
+        } else {
+            $search = '';
+        }
+
+        $criteria->params = array(':parent' => $id);
+
+
         $user_id = Yii::app()->user->id;
-        $prognozes = Prognozes::model()->findAll('parent=:parent', array(':parent' => $id));
+        $prognozes = Prognozes::model()->findAll($criteria);
         $modelPrognozes = new Prognozes();
         $this->render('prognozes', array(
             'entrepreneur_id' => $id,
             'prognozes' => $prognozes,
-            'prognozesModel' => $modelPrognozes
+            'prognozesModel' => $modelPrognozes,
+            'date_start' => $date_start,
+            'date_end' => $date_end,
+            'search' => $search
         ));
     }
 
     public function actionCreateevent() {
+        $response = array();
+        $response['success'] = 0;
+        $response['error'] = 0;
         $model = new Prognozes();
         $this->performAjaxValidationEvent($model);
         if(isset($_POST['Prognozes'])) {
             if(Yii::app()->request->isAjaxRequest) {
                 $model->attributes = $_POST['Prognozes'];
+                $parent = $model->attributes['parent'];
+
                 if($model->save()) {
-                    return 'Событие добавлено';
+                    $response['success'] = 1;
+                    $this->layout = null;
+                    $prognozes = Prognozes::model()->findAll('parent=:parent', array(':parent' => $parent));
+                    $this->renderPartial('_view_new_prognozes',array(
+                        'prognozes' =>  $prognozes,
+                        'entrepreneur_id' => $parent
+                    ));
+
+                } else {
+                    $response['error'] = 1;
                 }
+            } else {
+                $response['error'] = 1;
             }
+        } else {
+            $response['error'] = 1;
         }
+
+        //echo json_encode($response);
     }
 
     public function actionDeleteprognoz($id, $entrepreneur_id) {
@@ -199,11 +261,25 @@ class EntrepreneursController extends Controller
             $model = Prognozes::model()->findByPk($id);
             if($model->attributes['parent'] == $entrepreneur_id) {
                 if($model->delete()) {
-                    echo 'Событие удалено';
+                    $prognozes = Prognozes::model()->findAll('parent=:parent', array(':parent' => $entrepreneur_id));
+                    $this->layout = null;
+                    $this->renderPartial('_view_new_prognozes',array(
+                        'prognozes' =>  $prognozes,
+                        'entrepreneur_id' => $entrepreneur_id
+                    ));
                 }
             }
         }
     }
+
+    public function actionReporting($id) {
+        $this->render('reporting', array(
+            'entrepreneur_id' => $id
+        ));
+    }
+
+
+
 
 
 

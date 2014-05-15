@@ -22,18 +22,26 @@
     'clientOptions' => array(
         'validateOnSubmit' => true,
         'afterValidate' => 'js:function(form,data,hasError) {
-                if(!hasError) {
-                  $.ajax({
-                      "type":"POST",
-                      "url":"' . $this->createUrl('/booker/entrepreneurs/createevent/') . '",
-                      "data":form.serialize(),
-                      "success":function(data) {
-                          $("#success").html("Событие добавлено");
-                          $("#events-form-create").trigger("reset");
-                      },
-                  });
-                }
-            }'
+            if(!hasError) {
+                $.ajax({
+                    "type":"POST",
+                    "url":"' . $this->createUrl('/booker/entrepreneurs/createevent/') . '",
+                    "data":form.serialize(),
+                    "success":function(data) {
+                    $("#table_prognozes_wrapper").html(data);
+                    $("#success").html("Событие добавлено");
+                    $("#events-form-create").trigger("reset");
+                    // consolr.log(data);
+                        /*if(data.success == 1) {
+                            $("#success").html("Событие добавлено");
+                            $("#events-form-create").trigger("reset");
+                        } else {
+                            $("#success").html("Событие не добавлено");
+                        }*/
+                    }
+                });
+            }
+        }'
     ),
 )); ?>
     <div id="success"></div>
