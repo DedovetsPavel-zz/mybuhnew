@@ -106,4 +106,26 @@ class SiteController extends Controller
 		Yii::app()->user->logout();
 		$this->redirect(Yii::app()->homeUrl);
 	}
+
+    public function actionUpload()
+    {
+
+        Yii::import("ext.EAjaxUpload.qqFileUploader");
+
+        $folder=Yii::getPathOfAlias('webroot').'/upload/';// folder for uploaded files
+        $allowedExtensions = array("jpg","jpeg","gif","exe","mov","mp4");//array("jpg","jpeg","gif","exe","mov" and etc...
+        $sizeLimit = 100 * 1024 * 1024;// maximum file size in bytes
+        $uploader = new qqFileUploader($allowedExtensions, $sizeLimit);
+        $result = $uploader->handleUpload($folder);
+        $return = htmlspecialchars(json_encode($result), ENT_NOQUOTES);
+
+        $fileSize=filesize($folder.$result['filename']);//GETTING FILE SIZE
+        $fileName=$result['filename'];//GETTING FILE NAME
+        //$img = CUploadedFile::getInstance($model,'image');
+
+        echo $return;// it's array
+    }
+
+
+
 }
