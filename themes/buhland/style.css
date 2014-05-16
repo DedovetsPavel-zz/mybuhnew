@@ -336,7 +336,7 @@ input {outline:none;}
 
 .body .center .accountBlock {padding:31px 49px; background:url(images/accBg.jpg); box-shadow: 0 0 7px #F4F2F1; border-radius:15px 15px 0px 0px;}
 .body .center .accountBlock .accHead {font-size:24px; letter-spacing: -0.5px;}
-.body .center .accountBlock .accMenu {   margin-top: 21px; position:relative; z-index:99999999;}
+.body .center .accountBlock .accMenu {   margin-top: 21px; position:relative; z-index:9999;}
 .body .center .accountBlock .accMenu li {display:inline-block; width:102px; vertical-align:top;  line-height: 32px; height:32px; margin-right: 5px; text-align:center; border-radius:5px 5px 0px 0px; background:#fd6d0d;}
 .body .center .accountBlock .accMenu li a {text-decoration:none; color:#ffffff;}
 .body .center .accountBlock .accMenu li.active {background:#ffffff;  box-shadow:4px -4px 6px -1px #F4F2F1,-4px -4px 6px -1px #F4F2F1; }
@@ -410,7 +410,12 @@ input {outline:none;}
 .body .center .accountBlock .tableBlock .mission2 .button {width:164px; height:47px; text-transform:uppercase; background:url(images/loginButton.png) no-repeat; color:#ffffff; line-height:42px; margin:0px auto; cursor:pointer; margin-top:15px; font-size:14px; }
 .body .center .accountBlock .tableBlock .mission2 .button:hover {background-position:0px -47px;}
 .body .center .accountBlock .tableBlock .mission2 .spanRight {display:inline-block; margin-left: 79px;}
-.body .center .accountBlock .tableBlock .mission2 .leftAndRight {text-align:left;}
+.body .center .accountBlock .tableBlock .mission2 .leftAndRight {
+    float: right;
+    position: absolute;
+    right: 40px;
+    text-align: left;
+}
 .body .center .accountBlock .tableBlock .mission2 .leftAndRight p {display:inline-block; }
 .body .center .accountBlock .tableBlock .mission2 .leftAndRight .checkbox { width:12px; height:11px; cursor:pointer; background:url(images/checkbox.png) no-repeat; display:inline-block; left: 3px; position: relative; top: 1px;}
 .body .center .accountBlock .tableBlock .itog {   float: right; font-size: 16px; margin-right: 24px; margin-top: 20px; width: 291px;}
@@ -425,6 +430,10 @@ input {outline:none;}
     top: 0;
     z-index: 99999999;
 }
+.report_form_radio_wrap {
+    position: relative;
+}
+
 .body .center .accountBlock .tableBlock .mission3 input {width:198px; height:25px; font-size:14px; color: #616161; font-family: 'ArialNarrow';  border:1px solid #d4d4d4; padding-left:10px; margin-bottom:7px; border-radius:5px; background:#ffffff;}
 .body .center .accountBlock .tableBlock .mission3 p {text-align:left; padding-left: 45px; margin-bottom:2px; font-size:14px;}
 .body .center .accountBlock .tableBlock .mission3 textarea {border: 1px solid #D4D4D4; font-size:14px; color: #616161; font-family: 'ArialNarrow';  margin-bottom:7px; width:197px; resize:none; padding-left:10px; padding-top:10px; border-radius:5px; height:72px;}
@@ -677,3 +686,39 @@ input {outline:none;}
     padding-left: 5px;
     padding-bottom: 2px;
 }
+
+#report-form-create .leftAndRight input {
+    float: left;
+    height: 18px;
+    margin-top: 0;
+    padding-top: 0;
+    width: 10px;
+}
+
+.load_files {
+    display: none;
+}
+
+
+/* select & checkboxes 16-05-2014 */
+.controlPanel .search_button { right: 3px; position: absolute; top: 3px; cursor: pointer; background:url(images/search.png) no-repeat 0 0; border:none; outline:none; display:block; width:18px; height:20px;}
+
+.niceCheck { width: 12px; height: 11px; cursor: pointer; background: url(images/checkbox.png) no-repeat 0px 0px; display: inline-block; left: 3px; position: relative; top: 1px; overflow:hidden;}
+.niceChecked { background-position:0 -11px;}
+.niceCheck input { margin-left:-200px; margin-top:100px;}
+
+.controlPanel .select-wrap { display:inline-block; margin-left: 12px; margin-top: 12px;}
+select { width:167px;}
+.selectBox-dropdown { position: relative; border:1px solid #d4d4d4; display:block; text-decoration: none; text-align: left; color: #616161; outline: none; vertical-align: middle; background: #fff; cursor: default; line-height:20px; font-size: 15px; font-family: 'ArialNarrow'; height:27px; border-radius:5px;}
+.selectBox-dropdown:hover { text-decoration:none;}
+.selectBox-label { padding:4px 10px 3px; display: inline-block; white-space: nowrap; overflow: hidden; height:20px;}
+.selectBox-arrow { position: absolute; top:-1px; right:-1px; width:29px; height:29px; background:url(images/select.png) no-repeat 0 0;}
+.selectBox-dropdown-menu { position: absolute; z-index: 99999; max-height:200px; min-height: 1em; border:1px solid #d4d4d4; background: #FFF; overflow: auto; padding:0; border-radius:5px;}
+.selectBox-options li a { display:block; line-height:18px; padding:2px 10px; white-space: nowrap; overflow: hidden; color:#616161; text-decoration:none; font-size:14px; font-family: 'ArialNarrow';}
+.selectBox-options li+li a { border-top:1px solid #d4d4d4;}
+.selectBox-options li.selectBox-hover a { background: #84bc0d; color:#fff;}
+.selectBox-options li.selectBox-disabled a { color: #888; background-color: transparent;}
+.selectBox-options li.selectBox-selected a { background:#d4d4d4; color:#fff;}
+.selectBox.selectBox-disabled {	color: #888 !important;}
+.selectBox-dropdown.selectBox-disabled .selectBox-arrow { opacity: .5; filter: alpha(opacity=50);}
+/* select & checkboxes 16-05-2014 */

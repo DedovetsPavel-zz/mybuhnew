@@ -127,5 +127,42 @@ class SiteController extends Controller
     }
 
 
+    public function actionGetfile($id) {
+        $modelFiles = Files::model()->findByPk($id);
+        $file_url = 'http://mybuhnew.loc/upload/' . $modelFiles->attributes['file'];
+        if(file_exists($file_url)) {
+            echo '1';
+        } else {
+            echo '2';
+        }
+        //var_dump($file_url);die;
+
+        if (is_file($file_url)) {
+            header("Content-Type: application/octet-stream");
+            header("Accept-Ranges: bytes");
+            header("Content-Length: " . filesize($file_url));
+            header("Content-Disposition: attachment; filename=" . $modelFiles->attributes['file']);
+            readfile($file_url);
+        } else {
+            //echo '123';
+        }
+
+
+
+//        header('Content-Description: File Transfer');
+//        header('Content-Type: application/octet-stream');
+//        header('Content-Disposition: attachment; filename='.basename($modelFiles->attributes['file']));
+//        header('Content-Transfer-Encoding: binary');
+//        header('Expires: 0');
+//        header('Cache-Control: must-revalidate');
+//        header('Pragma: public');
+//        header('Content-Length: ' . filesize($file_url));
+//        ob_clean();
+//        flush();
+//        readfile($file_url);
+        exit;
+    }
+
+
 
 }

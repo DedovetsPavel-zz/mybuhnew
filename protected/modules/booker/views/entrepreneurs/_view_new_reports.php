@@ -19,31 +19,51 @@
     <?php
     $key = 1;
     foreach($reports as $report) {
-        $update = date('d.m.Y', $report->update);
+        $update = date('d.m.Y', $report->date_update);
+        $files_str = '';
+        if(count($report->files)) {
+            foreach($report->files as $file) {
+                $files_str .= $file->attributes['file'] . '<br>';
+            }
+        }
+
         switch($report->status) {
             case '1' : $status_text = 'Отправлено на оплату';
                 break;
             case '2' : $status_text = 'Ожидает подтверждения ';
                 break;
         }
+
+        $delete_link = CHtml::ajaxLink(
+            'Удалить запись',
+            '/booker/entrepreneurs/deletereport/',
+            array(
+                'type' => 'get',
+                'data' => array(
+                    'id' => $report->id,
+                    'entrepreneur_id' => $entrepreneur_id,
+                ),
+                'update'=>'#table_reports_wrapper'
+            ),
+            array('class' => 'delete','confirm'=>'Вы уверены, что хотите удалить данный прогноз?')
+        );
+
         echo '
-                    <tr>
-                        <td width="38" height="95">'.$key.'</td>
-                        <td width="140">'.$report->name.'</td>
-                        <td width="140">'.$report->comment.'</td>
-                        <td width="140">'.$report->parent.'ромашка.jpg
-                            <ul>
-                                <li><a class="download" href="#"></a></li>
-                                <li><a class="del" href="#"></a></li>
-                            </ul>
-                        </td>
-                        <td width="140">'.$update.'</td>
-                        <td width="140">
-                            '.$status_text.'
-                            <a class="delete" href="#">Удалить запись</a>
-                        </td>
-                    </tr>
-                    ';
+            <tr>
+                <td width="38" height="95">'.$key.'</td>
+                <td width="140">'.$report->name.'</td>
+                <td width="140">'.$report->comment.'</td>
+                <td width="140">'.$files_str.'
+                    <ul>
+                        <li><a class="download" href="#"></a></li>
+                    </ul>
+                </td>
+                <td width="140">'.$update.'</td>
+                <td width="140">
+                   '.$status_text.$delete_link.'
+                </td>
+            </tr>
+            ';
         $key++;
     }
     ?>

@@ -33,7 +33,7 @@ class EntrepreneursController extends Controller
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
 				'actions'=>array('create','update','workers', 'createworker', 'prognozes', 'createevent', 'deleteprognoz',
-                'reporting', 'createreport'),
+                'reporting', 'createreport', 'deletereport'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -209,7 +209,6 @@ class EntrepreneursController extends Controller
 
         $criteria->params = array(':parent' => $id);
 
-
         $user_id = Yii::app()->user->id;
         $prognozes = Prognozes::model()->findAll($criteria);
         $modelPrognozes = new Prognozes();
@@ -273,14 +272,56 @@ class EntrepreneursController extends Controller
     }
 
     public function actionReporting($id) {
+
+        $criteria = new CDbCriteria;
+        $criteria->condition = 'parent=:parent';
+        $criteria->params = array(':parent' => $id);
+        $filter = $_GET['filter'];
+        $date_start = $_GET['date_start'];
+        $date_end = $_GET['date_end'];
+
+        if($filter) {
+            if($date_start || $date_end) {
+                if($date_start) {
+                    $date_start_time = strtotime($date_start);
+                    $criteria->addCondition("date_update >= $date_start_time");
+                }
+
+                if($date_end) {
+                    $date_end_time = strtotime($date_end);
+                    $criteria->addCondition("date_update <= $date_end_time");
+                }
+            }
+        }
+
+        $search = $_GET['search'];
+
+        if($search) {
+            $search = trim($search);
+            $search = strip_tags($search);
+            $search = htmlspecialchars($search);
+            if(strlen($search)) {
+                $criteria->addCondition("name LIKE '%$search%'");
+            }
+        } else {
+            $search = '';
+        }
+
+
+       // var_dump($criteria);
+
+
         $user_id = Yii::app()->user->id;
-        $reports = Reports::model()->findAll('parent=:parent', array(':parent' => $id));
+        $reports = Reports::model()->findAll($criteria);
         $modelReports = new Reports();
 
         $this->render('reporting', array(
             'entrepreneur_id' => $id,
             'reports' => $reports,
-            'reportsModel' => $modelReports
+            'reportsModel' => $modelReports,
+            'date_start' => $date_start,
+            'date_end' => $date_end,
+            'search' => $search
         ));
     }
 
@@ -294,6 +335,9 @@ class EntrepreneursController extends Controller
             if(Yii::app()->request->isAjaxRequest) {
                 $model->attributes = $_POST['Reports'];
                 $parent = $model->attributes['parent'];
+                $model->file = $_POST['Reports']['file'];
+                $model->entrepreneur_id = $parent;
+                $model->type = 1;
 
                 if($model->save()) {
                     $response['success'] = 1;
@@ -313,12 +357,24 @@ class EntrepreneursController extends Controller
         } else {
             $response['error'] = 1;
         }
-
     }
 
 
-
-
+    public function actionDeletereport($id, $entrepreneur_id) {
+        if(Yii::app()->request->isAjaxRequest) {
+            $model = Reports::model()->findByPk($id);
+            if($model->attributes['parent'] == $entrepreneur_id) {
+                if($model->delete()) {
+                    $reports = Reports::model()->findAll('parent=:parent', array(':parent' => $entrepreneur_id));
+                    $this->layout = null;
+                    $this->renderPartial('_view_new_reports',array(
+                        'reports' =>  $reports,
+                        'entrepreneur_id' => $entrepreneur_id
+                    ));
+                }
+            }
+        }
+    }
 
 
 	/**

@@ -11,6 +11,8 @@
     <script src="<?php echo Yii::app()->request->baseUrl; ?>/themes/buhland/scripts/jquery.lightbox.js" type="text/javascript"></script>
     <script src="<?php echo Yii::app()->request->baseUrl; ?>/themes/buhland/scripts/jquery.color.js" type="text/javascript"></script>
     <script src="<?php echo Yii::app()->request->baseUrl; ?>/themes/buhland/jcarousellite_1.0.1.js" type="text/javascript"></script>
+    <script src="<?php echo Yii::app()->request->baseUrl; ?>/themes/buhland/scripts/jquery.selectBox.js" type="text/javascript"></script>
+    <script src="<?php echo Yii::app()->request->baseUrl; ?>/themes/buhland/scripts/checkbox.js" type="text/javascript"></script>
     <?php Yii::app()->clientScript->registerCoreScript('jquery'); ?>
     <?php Yii::app()->getClientScript()->registerCoreScript('yii'); ?>
     <script src="<?php echo Yii::app()->request->baseUrl; ?>/themes/buhland/scripts.js" type="text/javascript"></script>

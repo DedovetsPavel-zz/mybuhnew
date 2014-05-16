@@ -485,8 +485,8 @@ qq.FileUploader = function(o){
         listElement: null,
 
         template: '<div class="qq-uploader">' +
-                '<div class="qq-upload-drop-area"><span>Drop files here to upload</span></div>' +
-                '<div class="qq-upload-button">Upload a file</div>' +
+                '<div class="qq-upload-drop-area"><span>Перетяните файлы для загрузки</span></div>' +
+                '<div class="qq-upload-button">Загрузить файл</div>' +
                 '<ul class="qq-upload-list"></ul>' +
              '</div>',
 
@@ -495,8 +495,8 @@ qq.FileUploader = function(o){
                 '<span class="qq-upload-file"></span>' +
                 '<span class="qq-upload-spinner"></span>' +
                 '<span class="qq-upload-size"></span>' +
-                '<a class="qq-upload-cancel" href="#">Cancel</a>' +
-                '<span class="qq-upload-failed-text">Failed</span>' +
+                '<a class="qq-upload-cancel" href="#">Отмена</a>' +
+                '<span class="qq-upload-failed-text">Провал</span>' +
             '</li>',
 
         classes: {
@@ -600,7 +600,7 @@ qq.extend(qq.FileUploader.prototype, {
 
         var text;
         if (loaded != total){
-            text = Math.round(loaded / total * 100) + '% from ' + this._formatSize(total);
+            text = Math.round(loaded / total * 100) + '% из ' + this._formatSize(total);
         } else {
             text = this._formatSize(total);
         }

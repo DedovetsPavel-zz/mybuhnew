@@ -1,7 +1,7 @@
 .qq-uploader { position:relative; width: 100%;}
 
 .qq-upload-button {
-    display:block; /* or inline-block */
+    display:none; /* or inline-block */
     width: 105px; padding: 7px 0; text-align:center;    
     background:#880000; border-bottom:1px solid #ddd;color:#fff;
 }

@@ -6,8 +6,15 @@
  * To change this template use File | Settings | File Templates.
  */
 $(document).ready(function(){
+
+    $('select').selectBox();
+
     $('#events-form-filter .input_filter_prognoz').on('change', function() {
         $('#events-form-filter').submit();
+    });
+
+    $('#reports-form-filter .input_filter_report').on('change', function() {
+        $('#reports-form-filter').submit();
     });
 
 
@@ -197,8 +204,10 @@ $(document).ready(function(){
     });
 
     $(".selector .checkme li").click(function(){
-        var choosen = $(this).html();
-        $(this).closest(".selector").find("input").val(choosen);
+        var choosen_val = $(this).data('value');
+        var choosen_text = $(this).html();
+        $(this).closest(".selector").find("input#status_text").val(choosen_text);
+        $(this).closest(".selector").find("input#Reports_status").val(choosen_val);
         $(".mission2 .checkme").css("display","none");
         $(".selector img").removeAttr("open");
     });
@@ -218,11 +227,11 @@ $(document).ready(function(){
     });
 
     $(".mission2 .little .right").click(function(){
-        $(".mission2 .little .left:last").after('<span class="left"><img src="images/skrep.png"><span>Загрузить докумет</span><input type="file" class="hidden" name="file"></span>');
+        $('#uploadFile input[type="file"]').click();
     });
 
     $(".mission2 .little .left span").live("click", function(){
-        $(this).closest(".left").find("input").click();
+        $('#uploadFile input[type="file"]').click();
     });
     /******скрипты со страницы account1.html end**/
 
