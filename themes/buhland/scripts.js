@@ -17,6 +17,20 @@ $(document).ready(function(){
         $('#reports-form-filter').submit();
     });
 
+    $('#Reports_status').on('change', function() {
+        $('#reports-form-filter').submit();
+    });
+
+    $('#accounting-form-filter .input_filter_report').on('change', function() {
+        $('#accounting-form-filter').submit();
+    });
+
+    $('#Accounting_type').on('change', function() {
+        $('#accounting-form-filter').submit();
+    });
+
+
+
 
 
     $(".littleBlock .button").click(function(){
@@ -233,7 +247,34 @@ $(document).ready(function(){
     $(".mission2 .little .left span").live("click", function(){
         $('#uploadFile input[type="file"]').click();
     });
+
+
+    $(".mission .little .right").click(function(){
+        $('#uploadFile input[type="file"]').click();
+    });
+
+    $(".mission .little .left span").live("click", function(){
+        $('#uploadFile input[type="file"]').click();
+    })
     /******скрипты со страницы account1.html end**/
+
+
+    /******скрипты со страницы account.html start**/
+
+    $(".buttonAim").click(function(){
+        if (!$(this).attr("open")) {
+            $(".mission").fadeIn(500);
+            $(this).attr("open","on");
+        } else {
+            $(".mission").fadeOut(500);
+            $(this).removeAttr("open");
+        }
+    });
+
+
+    /******скрипты со страницы account.html end**/
+
+
 
 });
 $.datepicker.regional['ru'] = {

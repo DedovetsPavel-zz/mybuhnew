@@ -33,7 +33,7 @@ class EntrepreneursController extends Controller
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
 				'actions'=>array('create','update','workers', 'createworker', 'prognozes', 'createevent', 'deleteprognoz',
-                'reporting', 'createreport', 'deletereport'),
+                'reporting', 'createreport', 'deletereport', 'accounting', 'createaccount', 'deleteaccount'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -272,13 +272,14 @@ class EntrepreneursController extends Controller
     }
 
     public function actionReporting($id) {
-
+        $modelReports = new Reports();
         $criteria = new CDbCriteria;
         $criteria->condition = 'parent=:parent';
         $criteria->params = array(':parent' => $id);
         $filter = $_GET['filter'];
         $date_start = $_GET['date_start'];
         $date_end = $_GET['date_end'];
+        $status = $_GET['Reports']['status'];
 
         if($filter) {
             if($date_start || $date_end) {
@@ -291,6 +292,14 @@ class EntrepreneursController extends Controller
                     $date_end_time = strtotime($date_end);
                     $criteria->addCondition("date_update <= $date_end_time");
                 }
+            }
+
+            if($status) {
+                $status = htmlspecialchars(strip_tags(trim($status)));
+                $status = (int)$status;
+                //var_dump($status);die;
+                $criteria->addCondition("status = $status");
+                $modelReports->status = $status;
             }
         }
 
@@ -307,13 +316,9 @@ class EntrepreneursController extends Controller
             $search = '';
         }
 
-
-       // var_dump($criteria);
-
-
         $user_id = Yii::app()->user->id;
         $reports = Reports::model()->findAll($criteria);
-        $modelReports = new Reports();
+
 
         $this->render('reporting', array(
             'entrepreneur_id' => $id,
@@ -376,6 +381,118 @@ class EntrepreneursController extends Controller
         }
     }
 
+    public function actionAccounting($id) {
+        $modelAccounting = new Accounting();
+        $criteria = new CDbCriteria;
+        $criteria->condition = 'parent=:parent';
+        $criteria->params = array(':parent' => $id);
+        $filter = $_GET['filter'];
+        $date_start = $_GET['date_start'];
+        $date_end = $_GET['date_end'];
+        $type = $_GET['Accounting']['type'];
+
+        if($filter) {
+            if($date_start || $date_end) {
+                if($date_start) {
+                    $date_start_time = strtotime($date_start);
+                    $criteria->addCondition("date_update >= $date_start_time");
+                }
+
+                if($date_end) {
+                    $date_end_time = strtotime($date_end);
+                    $criteria->addCondition("date_update <= $date_end_time");
+                }
+            }
+
+            if($type) {
+                $type = htmlspecialchars(strip_tags(trim($type)));
+                $type = (int)$type;
+                $criteria->addCondition("type = $type");
+                $modelAccounting->type = $type;
+            }
+        }
+
+        $search = $_GET['search'];
+
+        if($search) {
+            $search = trim($search);
+            $search = strip_tags($search);
+            $search = htmlspecialchars($search);
+            if(strlen($search)) {
+                $criteria->addCondition("name LIKE '%$search%'");
+            }
+        } else {
+            $search = '';
+        }
+
+        $user_id = Yii::app()->user->id;
+        $accounting = Accounting::model()->findAll($criteria);
+        $type = array(''=> '', '1' => 'Счет','2' => 'Счет-фактура','3' => 'Договор','4' => 'Платежное поручение','5' => 'Декларация','6' => 'Отчет','7' => 'Задача бухгалтеру','8' => 'Прочее',);
+
+
+        $this->render('accounting', array(
+            'entrepreneur_id' => $id,
+            'accounting' => $accounting,
+            'accountingModel' => $modelAccounting,
+            'type' => $type,
+            'date_start' => $date_start,
+            'date_end' => $date_end,
+            'search' => $search
+        ));
+    }
+
+
+    public function actionCreateAccount() {
+        $response = array();
+        $response['success'] = 0;
+        $response['error'] = 0;
+        $model = new Accounting();
+        $this->performAjaxValidationAccount($model);
+        if(isset($_POST['Accounting'])) {
+            if(Yii::app()->request->isAjaxRequest) {
+                $model->attributes = $_POST['Accounting'];
+                $parent = $model->attributes['parent'];
+                $model->file = $_POST['Accounting']['file'];
+                $model->entrepreneur_id = $parent;
+                $model->type_file = 2;
+
+                if($model->save()) {
+                    $response['success'] = 1;
+                    $this->layout = null;
+                    $accounts = Accounting::model()->findAll('parent=:parent', array(':parent' => $parent));
+                    $this->renderPartial('_view_new_accounts',array(
+                        'accounting' =>  $accounts,
+                        'entrepreneur_id' => $parent
+                    ));
+
+                } else {
+                    $response['error'] = 1;
+                }
+            } else {
+                $response['error'] = 1;
+            }
+        } else {
+            $response['error'] = 1;
+        }
+    }
+
+    public function actionDeleteaccount($id, $entrepreneur_id) {
+        if(Yii::app()->request->isAjaxRequest) {
+            $model = Accounting::model()->findByPk($id);
+            if($model->attributes['parent'] == $entrepreneur_id) {
+                if($model->delete()) {
+                    $accounts = Accounting::model()->findAll('parent=:parent', array(':parent' => $entrepreneur_id));
+                    $this->layout = null;
+                    $this->renderPartial('_view_new_accounts',array(
+                        'accounting' =>  $accounts,
+                        'entrepreneur_id' => $entrepreneur_id
+                    ));
+                }
+            }
+        }
+    }
+
+
 
 	/**
 	 * Returns the data model based on the primary key given in the GET variable.
@@ -423,6 +540,13 @@ class EntrepreneursController extends Controller
 
     protected function performAjaxValidationReport($model) {
         if(isset($_POST['ajax']) && $_POST['ajax']==='report-form-create'){
+            echo CActiveForm::validate($model);
+            Yii::app()->end();
+        }
+    }
+
+    protected function performAjaxValidationAccount($model) {
+        if(isset($_POST['ajax']) && $_POST['ajax']==='account-form-create'){
             echo CActiveForm::validate($model);
             Yii::app()->end();
         }

@@ -10,7 +10,7 @@
 
 $this->menu = array(
     array('label'=>'Клиенты', 'url'=>array('/booker/')),
-    array('label'=>'Бухгалтерия', 'url'=>array('/booker/')),
+    array('label'=>'Бухгалтерия', 'url'=>array('/booker/entrepreneurs/accounting/', 'id' => $entrepreneur_id)),
     array('label'=>'Отчетность', 'url'=>array('/booker/entrepreneurs/reporting/', 'id' => $entrepreneur_id), 'itemOptions' => array('class' => 'active')),
     array('label'=>'Прогнозы', 'url'=>array('/booker/entrepreneurs/prognozes/', 'id' => $entrepreneur_id)),
     array('label'=>'Настройки', 'url'=>array('/booker/entrepreneurs/update/', 'id' => $entrepreneur_id)),
@@ -30,7 +30,7 @@ $this->menu = array(
         ?>
         <input type="hidden" name="filter" value="1"/>
         <div class="select-wrap">
-            <?php echo $form->dropDownList($reportsModel,'status', array('' => '', '1' => 'Отправлено на оплату', '2' => 'Ожидает подтверждения')); ?>
+                <?php echo $form->dropDownList($reportsModel,'status', array('' => '', '1' => 'Отправлено на оплату', '2' => 'Ожидает подтверждения')); ?>
         </div>
         <div class="date">
             <span>Дата изменения с</span>

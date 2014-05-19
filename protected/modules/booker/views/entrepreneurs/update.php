@@ -18,8 +18,8 @@ $this->breadcrumbs=array(
 
 $this->menu = array(
     array('label'=>'Клиенты', 'url'=>array('/booker/')),
-    array('label'=>'Бухгалтерия', 'url'=>array('/booker/')),
-    array('label'=>'Отчетность', 'url'=>array('/booker/')),
+    array('label'=>'Бухгалтерия', 'url'=>array('/booker/entrepreneurs/accounting/', 'id' => $model->id)),
+    array('label'=>'Отчетность', 'url'=>array('/booker/entrepreneurs/reporting/', 'id' => $model->id)),
     array('label'=>'Прогнозы', 'url'=>array('/booker/entrepreneurs/prognozes/', 'id' => $model->id)),
     array('label'=>'Настройки', 'url'=>array('/booker/entrepreneurs/update/', 'id' => $model->id), 'itemOptions' => array('class' => 'active')),
 );
