@@ -4,6 +4,7 @@ class DefaultController extends Controller
 {
 	public function actionIndex()
 	{
-		$this->render('index');
+        $this->redirect(Yii::app()->createUrl('/admin/users/'));
+		//$this->render('index');
 	}
 }

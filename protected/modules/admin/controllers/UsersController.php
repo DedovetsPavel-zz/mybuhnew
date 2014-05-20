@@ -22,7 +22,7 @@ class UsersController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view', 'create', 'update', 'delete'),
+				'actions'=>array('index','view', 'create', 'update', 'delete', 'password'),
 				'roles'=>array('0'),
 			),
 			array('deny',  // deny all users
@@ -42,16 +42,40 @@ class UsersController extends Controller
 		));
 	}
 
+
+    public function actionPassword($id)
+    {
+        $model = $this->loadModel($id);
+        $model->scenario = 'password';
+        $model->password = $_POST['password'];
+        if($model->save()) {
+            $this->redirect(array('view', 'id' => $model->id));
+        }
+
+        $this->render('password',array(
+            'model'=>$this->loadModel($id),
+        ));
+    }
+
 	/**
 	 * Creates a new model.
 	 * If creation is successful, the browser will be redirected to the 'view' page.
 	 */
-	public function actionCreate()
+	public function actionCreate($role)
 	{
-		$model=new Users;
-
-		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
+		$model = new Users('create');
+        $model->role = $role;
+        if($role == 2) {
+            $model->scenario = 'entrepreneur';
+        }
+        $model->blocked = 0;
+        $bookersModel = Users::model()->findAll('parent=:parent AND role=1', array(':parent' => 0));
+        $bookersArray = array();
+        if(count($bookersModel)) {
+            foreach($bookersModel as $booker) {
+                $bookersArray[$booker->attributes['id']] = $booker->attributes['name'];
+            }
+        }
 
 		if(isset($_POST['Users']))
 		{
@@ -62,6 +86,8 @@ class UsersController extends Controller
 
 		$this->render('create',array(
 			'model'=>$model,
+            'role' => $role,
+            'bookers' => $bookersArray
 		));
 	}
 
@@ -74,10 +100,24 @@ class UsersController extends Controller
 	{
 		$model=$this->loadModel($id);
         $model->password = '';
+
+        //$model->scenario = 'update';
         //var_dump($model);
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
+
+        $bookersModel = Users::model()->findAll('parent=:parent AND role=1', array(':parent' => 0));
+        $bookersArray = array();
+        if(count($bookersModel)) {
+            foreach($bookersModel as $booker) {
+                $bookersArray[$booker->attributes['id']] = $booker->attributes['name'];
+            }
+        }
+
+        if($model->role == 2) {
+            $model->scenario = 'entrepreneur_update';
+        }
 
 		if(isset($_POST['Users']))
 		{
@@ -86,8 +126,14 @@ class UsersController extends Controller
 				$this->redirect(array('view','id'=>$model->id));
 		}
 
+        if($role == 2) {
+            $model->scenario = 'entrepreneur';
+        }
+
 		$this->render('update',array(
 			'model'=>$model,
+            'role' => $model->role,
+            'bookers' => $bookersArray
 		));
 	}
 

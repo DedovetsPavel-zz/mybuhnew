@@ -3,7 +3,7 @@
 /* @var $model Users */
 /* @var $form CActiveForm */
 ?>
-
+<h1>Создать предпринимателя</h1>
 <div class="form">
 
 <?php $form=$this->beginWidget('CActiveForm', array(
@@ -18,6 +18,12 @@
 	<p class="note">Поля с <span class="required">*</span> обязательны.</p>
 
 	<?php echo $form->errorSummary($model); ?>
+
+    <div class="row">
+        <?php echo $form->labelEx($model,'name'); ?>
+        <?php echo $form->textField($model,'name',array('size'=>60,'maxlength'=>255)); ?>
+        <?php echo $form->error($model,'name'); ?>
+    </div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'username'); ?>
@@ -38,16 +44,19 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'role'); ?>
-		<?php echo $form->dropDownList($model,'role', array('1' => 'Бухгалтер', '2' => 'Предприниматель')); ?>
-		<?php echo $form->error($model,'role'); ?>
+		<?php echo $form->hiddenField($model,'role'); ?>
 	</div>
 
     <div class="row">
-        <?php echo $form->labelEx($model,'blocked'); ?>
-        <?php echo $form->dropDownList($model,'blocked',array('0' => 'Нет', '1' => 'Да')); ?>
-        <?php echo $form->error($model,'blocked'); ?>
+        <?php echo $form->hiddenField($model,'blocked'); ?>
     </div>
+
+    <div class="row">
+        <?php echo $form->labelEx($model,'parent'); ?>
+        <?php echo $form->dropDownList($model,'parent',$bookers) ?>
+        <?php echo $form->error($model,'parent'); ?>
+    </div>
+
 
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Создать' : 'Сохранить'); ?>

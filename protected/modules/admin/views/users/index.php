@@ -2,13 +2,9 @@
 /* @var $this UsersController */
 /* @var $model Users */
 
-$this->breadcrumbs=array(
-	'Пользователи'=>array('index'),
-	'Управление',
-);
-
 $this->menu=array(
-	array('label'=>'Создать пользователя', 'url'=>array('create')),
+	array('label'=>'Создать бухгалтера', 'url'=>array('create', 'role' => '1')),
+    array('label'=>'Создать предприниметаля', 'url'=>array('create', 'role' => '2')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -46,13 +42,13 @@ $('.search-form form').submit(function(){
             'name' => 'createdon',
             'value' => 'date("m.d.Y H:i:s", $data->createdon)'
         ),
-        array(
-            'name' => 'blocked',
-            'value' => '($data->blocked == "1")? "Да" : "Нет"'
-        ),
+//        array(
+//            'name' => 'blocked',
+//            'value' => '($data->blocked == "1")? "Да" : "Нет"'
+//        ),
         array(
             'name' => 'role',
-            'value' => '($data->role == "1") ? "Предприниматель" : "Бухгалтер"'
+            'value' => '($data->role == "1") ? "Бухгалтер" : "Предприниматель"'
         ),
 		/*
 		'role',

@@ -2,14 +2,14 @@
 <?php $this->beginContent('/layouts/main'); ?>
 <div id="top_tabs">
     <?php
-//    $this->beginWidget('zii.widgets.CPortlet', array(
-//        'title'=>'Операции',
-//    ));
+    //    $this->beginWidget('zii.widgets.CPortlet', array(
+    //        'title'=>'Операции',
+    //    ));
     $this->widget('zii.widgets.CMenu', array(
-        'items'=>$this->menu,
-        'htmlOptions'=>array('class'=>'accMenu'),
+    'items'=>$this->menu,
+    'htmlOptions'=>array('class'=>'accMenu'),
     ));
-//    $this->endWidget();
+    //    $this->endWidget();
     ?>
 </div><!-- sidebar -->
 <div id="content_cabinet">

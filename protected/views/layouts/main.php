@@ -6,10 +6,15 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/themes/buhland/style.css" type="text/css" />
     <link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/themes/buhland/jquery-lightbox.css" type="text/css" />
-    <script src="<?php echo Yii::app()->request->baseUrl; ?>/themes/buhland/scripts/jquery-1.4.2.js" type="text/javascript"></script>
+    <script src="<?php echo Yii::app()->request->baseUrl; ?>/themes/buhland/jqueryui.custom.js" type="text/javascript"></script>
     <script src="<?php echo Yii::app()->request->baseUrl; ?>/themes/buhland/scripts/jquery.lightbox.js" type="text/javascript"></script>
     <script src="<?php echo Yii::app()->request->baseUrl; ?>/themes/buhland/scripts/jquery.color.js" type="text/javascript"></script>
     <script src="<?php echo Yii::app()->request->baseUrl; ?>/themes/buhland/jcarousellite_1.0.1.js" type="text/javascript"></script>
+    <script src="<?php echo Yii::app()->request->baseUrl; ?>/themes/buhland/scripts/jquery.selectBox.js" type="text/javascript"></script>
+    <script src="<?php echo Yii::app()->request->baseUrl; ?>/themes/buhland/scripts/checkbox.js" type="text/javascript"></script>
+    <?php Yii::app()->clientScript->registerCoreScript('jquery'); ?>
+    <?php Yii::app()->getClientScript()->registerCoreScript('yii'); ?>
+    <script src="<?php echo Yii::app()->request->baseUrl; ?>/themes/buhland/scripts.js" type="text/javascript"></script>
 </head>
 <body>
 <div class="header">
@@ -27,17 +32,6 @@
             <p>Email</p>
             <input type="text" class="input">
             <div class="button" type="button" >ВОССТАНОВИТЬ</div>
-        </div>
-        <div class="regForm">
-            <p>Email</p>
-            <input type="text" class="input">
-            <p>Пароль</p>
-            <input type="text" class="input">
-            <p>Повторите пароль</p>
-            <input type="text" class="input">
-            <p>Телефонный номер</p>
-            <input type="text" class="input">
-            <div class="button" type="button" >ЗАРЕГИСТРИРОВАТЬСЯ</div>
         </div>
         <div class="logo"></div>
         <div class="phones">
@@ -59,11 +53,13 @@
             ),
         )); ?>
 
-        <?php $this->widget('zii.widgets.CMenu', array(
+        <?php
+       // var_dump(UserIdentity::getId());
+        $this->widget('zii.widgets.CMenu', array(
             'items' => array(
-                array('label' => 'Регистрация', 'url' => array('/'), 'visible'=>Yii::app()->user->isGuest),
+                //array('label' => 'Регистрация', 'url' => array('/'), 'visible'=>Yii::app()->user->isGuest),
                 array('label' => Yii::app()->user->name, 'url' => array('/booker/'),'visible'=>!Yii::app()->user->isGuest),
-                array('label' => 'Вход', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest, 'itemOptions' => array('class' => 'enter')),
+                array('label' => 'Вход', 'url'=>array('/site/login/'), 'visible'=>Yii::app()->user->isGuest, 'itemOptions' => array('class' => 'enter')),
                 array('label' => 'Выход', 'url'=>array('/site/logout'), 'itemOptions' => array('class' => 'enter'),'visible'=>!Yii::app()->user->isGuest)
             ),
             'htmlOptions' => array(
@@ -99,109 +95,6 @@
         </ul>
     </div>
 </div>
-<script>
-
-    $(document).ready(function(){
-
-        $(".littleBlock .button").click(function(){
-
-            $(".blackbg").fadeIn(500);
-            $(".enterForm").fadeOut(500);
-            $(".regForm").fadeOut(500);
-            $(".recoverForm").fadeOut(500);
-
-        });
-
-        $(".blackbg .close").click(function(){
-
-            $(".blackbg").fadeOut(500);
-
-        });
-
-//        $(".regBlock .enter").click(function(){
-//
-//            $(".recoverForm").fadeOut(500);
-//
-//            if (!$(this).attr("open"))
-//            {
-//                $(".enterForm").fadeIn(500);
-//                $(this).attr("open","on");
-//            }
-//            else
-//            {
-//                $(".enterForm").fadeOut(500);
-//                $(this).removeAttr("open");
-//            }
-//        });
-
-        $(".little .right").click(function(){
-
-            $(".recoverForm").fadeIn(500);
-            $(".enterForm").fadeOut(500);
-
-        });
-
-        $(".regBlock li:first").click(function(){
-
-            if (!$(this).attr("open"))
-            {
-                $(".regForm").fadeIn(500);
-                $(this).attr("open","on");
-            }
-            else
-            {
-                $(".regForm").fadeOut(500);
-                $(this).removeAttr("open");
-            }
-
-        });
-
-
-        $(".tarifBlock .selector").click(function(){
-
-            if (!$(this).attr("open"))
-            {
-                $(this).find(".checkme").css("display","block");
-                $(this).attr("open","on");
-            }
-            else
-            {
-                $(this).find(".checkme").css("display","none");
-                $(this).removeAttr("open");
-            }
-
-        });
-
-        $(".tarifBlock .selector .checkme li").click(function(){
-
-            var current = $(this).html();
-
-            $(this).parents(".selector").find("input").val(current);
-            $(this).find(".checkme").css("display","none");
-            $(this).removeAttr("open");
-
-        });
-
-        $(".carousel").jCarouselLite({
-            btnNext: ".right",
-            btnPrev: ".left"
-        });
-
-        $(".carousel ul li a").lightbox();
-
-        $(".tarifBlock .filds .button").click(function(){
-
-            $(".tarifBg").fadeIn(500);
-
-        });
-
-        $(".tarifBg .close").click(function(){
-
-            $(".tarifBg").fadeOut(500);
-
-        });
-    });
-</script>
 </body>
 </html>
 

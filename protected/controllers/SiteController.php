@@ -92,7 +92,18 @@ class SiteController extends Controller
 			$model->attributes=$_POST['LoginForm'];
 			// validate user input and redirect to the previous page if valid
 			if($model->validate() && $model->login())
-				$this->redirect(Yii::app()->user->returnUrl);
+                $user_id = Yii::app()->user->id;
+                $user = Users::model()->findByPk($user_id);
+                $role = $user->attributes['role'];
+                if($role == 0) {
+                    $url = Yii::app()->createUrl('/admin/users/');
+                } elseif($role == 1) {
+                    $url = Yii::app()->createUrl('/booker/');
+                } elseif($role == 1) {
+                    $url = Yii::app()->createUrl('/entrepreneur/');
+                }
+
+				$this->redirect($url);
 		}
 		// display the login form
 		$this->render('login',array('model'=>$model));

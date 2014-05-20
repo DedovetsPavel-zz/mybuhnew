@@ -3,9 +3,9 @@
 /* @var $model Entrepreneurs */
 
 $this->breadcrumbs=array(
-	'Entrepreneurs'=>array('index'),
-	$model->name=>array('view','id'=>$model->id),
-	'Update',
+    'Entrepreneurs'=>array('index'),
+    $model->name=>array('view','id'=>$model->id),
+    'Update',
 );
 
 //$this->menu=array(
@@ -52,4 +52,3 @@ $this->menu = array(
         <?php $this->renderPartial('_form', array('model'=>$model)); ?>
     </div>
 </div>
-

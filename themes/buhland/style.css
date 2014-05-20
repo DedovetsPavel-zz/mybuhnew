@@ -746,3 +746,39 @@ select { width:167px;}
 .selectBox.selectBox-disabled {	color: #888 !important;}
 .selectBox-dropdown.selectBox-disabled .selectBox-arrow { opacity: .5; filter: alpha(opacity=50);}
 /* select & checkboxes 16-05-2014 */
+
+#login-form p.note .required {
+    color:red;
+}
+
+
+/*****login form ******/
+#login-form label {
+    text-align:left; margin-bottom:2px; font-size:14px;display: block;
+}
+
+#login_but_submit {
+    width:184px; height:47px; text-transform:uppercase; background:url(images/addMan.png) no-repeat; color:#ffffff; line-height:42px; margin:0px auto; cursor:pointer; margin-top:15px; font-size:14px;
+    border: medium none;
+}
+
+#login_but_submit:hover {
+    background-position:0px -47px;
+}
+
+#login-form input[type="text"] {
+    width:198px; height:25px; border:1px solid #d4d4d4; padding-left:10px; margin-bottom:7px; border-radius:5px; background:#ffffff;
+}
+
+#login-form input[type="password"] {
+    width:198px; height:25px; border:1px solid #d4d4d4; padding-left:10px; margin-bottom:7px; border-radius:5px; background:#ffffff;
+}
+
+#login-form p.note {
+    margin-bottom: 10px;
+}
+
+#login-form .errorMessage {
+    color:red;
+    padding-bottom: 2px;
+}

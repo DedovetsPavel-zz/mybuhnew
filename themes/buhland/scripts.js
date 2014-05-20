@@ -45,16 +45,17 @@ $(document).ready(function(){
         $(".blackbg").fadeOut(500);
     });
 
-    $(".regBlock .enter").click(function(){
-        $(".recoverForm").fadeOut(500);
-        if (!$(this).attr("open"))            {
-            $(".enterForm").fadeIn(500);
-            $(this).attr("open","on");
-        } else {
-            $(".enterForm").fadeOut(500);
-            $(this).removeAttr("open");
-        }
-    });
+//    $(".regBlock .enter").click(function(){
+//        $(".recoverForm").fadeOut(500);
+//        if (!$(this).attr("open"))            {
+//            $(".enterForm").fadeIn(500);
+//            $(this).attr("open","on");
+//        } else {
+//            $(".enterForm").fadeOut(500);
+//            $(this).removeAttr("open");
+//        }
+//        //return false;
+//    });
 
     $(".little .right").click(function(){
         $(".recoverForm").fadeIn(500);

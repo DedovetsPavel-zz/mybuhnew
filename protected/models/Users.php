@@ -11,6 +11,7 @@
  * @property integer $createdon
  * @property integer $blocked
  * @property integer $role
+ * @property integer $parent
  */
 class Users extends CActiveRecord
 {
@@ -35,12 +36,17 @@ class Users extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('username, password, email, role, name', 'required'),
+			array('username, password, email, role, name', 'required', 'on' => 'create'),
+            array('username, email, role, name', 'required', 'on' => 'update'),
+            array('password', 'required', 'on' => 'password'),
 			array('createdon, blocked, role', 'numerical', 'integerOnly'=>true),
 			array('username, password, email', 'length', 'max'=>255),
             array('email', 'email'),
             array('username,email', 'unique'),
             array('username', 'length', 'min' => 4),
+            array('parent,username, password, email, role, name', 'required', 'on' => 'entrepreneur'),
+            array('parent,username, email, role, name', 'required', 'on' => 'entrepreneur_update'),
+
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, username, password, email, createdon, blocked, role', 'safe', 'on'=>'search'),
@@ -72,7 +78,8 @@ class Users extends CActiveRecord
 			'createdon' => 'Дата регистрации',
 			'blocked' => 'Заблокирован',
 			'role' => 'Роль',
-            'name' => 'Имя'
+            'name' => 'Имя',
+            'parent' => 'Бухгалтер'
 		);
 	}
 
@@ -130,4 +137,15 @@ class Users extends CActiveRecord
     }
 
 
+    protected function afterSave() {
+        parent::afterSave();
+        if($this->isNewRecord){
+            if($this->role == 2) {
+                $modelEntrepreneurs = new Entrepreneurs();
+                $modelEntrepreneurs->user_id = $this->id;
+                $modelEntrepreneurs->name = $this->name;
+                $modelEntrepreneurs->save();
+            }
+        }
+    }
 }
