@@ -25,7 +25,8 @@ $(document).ready(function(){
         $('#accounting-form-filter').submit();
     });
 
-    $('#Accounting_type').on('change', function() {
+    $('#accounting-form-filter #Accounting_type').on('change', function() {
+        console.log('12312');
         $('#accounting-form-filter').submit();
     });
 

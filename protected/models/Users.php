@@ -35,7 +35,7 @@ class Users extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('username, password, email, role', 'required'),
+			array('username, password, email, role, name', 'required'),
 			array('createdon, blocked, role', 'numerical', 'integerOnly'=>true),
 			array('username, password, email', 'length', 'max'=>255),
             array('email', 'email'),
@@ -72,6 +72,7 @@ class Users extends CActiveRecord
 			'createdon' => 'Дата регистрации',
 			'blocked' => 'Заблокирован',
 			'role' => 'Роль',
+            'name' => 'Имя'
 		);
 	}
 
@@ -100,6 +101,7 @@ class Users extends CActiveRecord
 		$criteria->compare('createdon',$this->createdon);
 		$criteria->compare('blocked',$this->blocked);
 		$criteria->compare('role',$this->role);
+        $criteria->compare('name',$this->name);
         $criteria->addCondition('role != 0');
 
 		return new CActiveDataProvider($this, array(
@@ -123,11 +125,8 @@ class Users extends CActiveRecord
             $this->blocked = 0;
             $this->createdon = time();
         }
-
         $this->password = md5($this->password);
-
         return parent::BeforeSave();
-
     }
 
 
