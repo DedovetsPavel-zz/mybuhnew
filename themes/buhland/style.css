@@ -782,3 +782,22 @@ select { width:167px;}
     color:red;
     padding-bottom: 2px;
 }
+
+.clear_top_block {
+    height:5px;
+}
+
+.clear_top_block_other {
+    height:35px;
+}
+
+.info_txt {
+    float: left;
+    font-size: 15px !important;
+}
+
+.info_value {
+    float: left;
+    padding-left: 10px;
+    font-size: 15px !important;
+}

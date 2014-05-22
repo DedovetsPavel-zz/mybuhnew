@@ -99,7 +99,7 @@ class SiteController extends Controller
                     $url = Yii::app()->createUrl('/admin/users/');
                 } elseif($role == 1) {
                     $url = Yii::app()->createUrl('/booker/');
-                } elseif($role == 1) {
+                } elseif($role == 2) {
                     $url = Yii::app()->createUrl('/entrepreneur/');
                 }
 
