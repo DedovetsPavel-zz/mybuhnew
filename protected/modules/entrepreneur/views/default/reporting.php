@@ -107,7 +107,7 @@ $this->menu = array(
                         </td>
                         <td width="140">'.$update.'</td>
                         <td width="140">
-                            '.$status_text.$delete_link.'
+                            '.$status_text.'
                         </td>
                     </tr>
                     ';

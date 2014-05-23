@@ -29,6 +29,7 @@
                       "data":form.serialize(),
                       "success":function(data) {
                           $("#success").html("Сотрудник добавлен");
+                          $("#table_workers_wrapper").html(data);
                           $("#workers-form-create").trigger("reset");
                       },
                   });

@@ -30,7 +30,7 @@ $this->menu = array(
         )
     ));
     ?>
-    <div class="informationBlock">
+    <div class="informationBlock" id="table_workers_wrapper">
         <table class="mansTable">
             <tr>
                 <td class="headerTd" width="38">№</td>
@@ -55,7 +55,23 @@ $this->menu = array(
                 } else {
                     $termination_date = '';
                 }
-                $delete_link = CHtml::link('Удалить запись', array('url'=>'#'), array('submit'=>array('/booker/workers/delete/','id'=>$worker->id),'confirm'=>'Вы уверены, что хотите удалить выбранного сотрудника?'));
+
+
+                $delete_link = CHtml::ajaxLink(
+                    'Удалить запись',
+                    '/booker/entrepreneurs/deleteworker/',
+                    array(
+                        'type' => 'get',
+                        'data' => array(
+                            'id' => $worker->id,
+                            'entrepreneur_id' => $entrepreneur_id,
+                        ),
+                        'update'=>'#table_workers_wrapper'
+                    ),
+                    array('class' => 'delete','confirm'=>'Вы уверены, что хотите удалить данного работника?')
+                );
+
+                //$delete_link = CHtml::link('Удалить запись', array('url'=>'#'), array('submit'=>array('/booker/workers/delete/','id'=>$worker->id),'confirm'=>'Вы уверены, что хотите удалить выбранного сотрудника?'));
 
                 echo '
                 <tr>

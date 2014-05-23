@@ -11,7 +11,7 @@ $this->menu = array(
     array('label'=>'Бухгалтерия', 'url'=>array('/entrepreneur/')),
     array('label'=>'Отчетность', 'url'=>array('/entrepreneur/default/reporting/')),
     array('label'=>'Прогнозы', 'url'=>array('/entrepreneur/default/prognozes/'), 'itemOptions' => array('class' => 'active')),
-    array('label'=>'Настройки', 'url'=>array('/booker/entrepreneurs/update/', 'id' => $entrepreneur_id)),
+    array('label'=>'Настройки', 'url'=>array('/entrepreneur/default/entrepreuner/')),
 );
 ?>
 

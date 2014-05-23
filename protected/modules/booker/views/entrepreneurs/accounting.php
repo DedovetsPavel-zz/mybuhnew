@@ -18,8 +18,8 @@ $this->menu = array(
 ?>
 
 <div class="tableBlock">
-    <div class="buttonAim">Поставить задачу бухгалтеру</div>
-    <?php $this->renderPartial('_form_create_account', array('model'=>$accountingModel, 'entrepreneur_id' => $entrepreneur_id, 'type' => $type)); ?>
+    <div class="clear_top_block"></div>
+    <?php //$this->renderPartial('_form_create_account', array('model'=>$accountingModel, 'entrepreneur_id' => $entrepreneur_id, 'type' => $type)); ?>
     <div class="controlPanel">
         <?php $form=$this->beginWidget('CActiveForm', array(
             'id'=>'accounting-form-filter',
@@ -95,8 +95,6 @@ $this->menu = array(
                     <td width="140">'.$update.'</td>
                     <td width="140">'.$account->comment.'</td>
                     <td width="140">'.$files_str.'
-                        <div class="leftAndRight"><div class="spanRight">Оплачено<div class="checkbox"></div></div></div>
-                        '.$delete_link.'
                     </td>
                 </tr>
                 ';

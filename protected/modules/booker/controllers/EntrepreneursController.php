@@ -33,7 +33,7 @@ class EntrepreneursController extends Controller
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
 				'actions'=>array('create','update','workers', 'createworker', 'prognozes', 'createevent', 'deleteprognoz',
-                'reporting', 'createreport', 'deletereport', 'accounting', 'createaccount', 'deleteaccount'),
+                'reporting', 'createreport', 'deletereport', 'accounting', 'createaccount', 'deleteaccount', 'deleteworker'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -101,12 +101,36 @@ class EntrepreneursController extends Controller
         if(isset($_POST['Workers'])) {
             if(Yii::app()->request->isAjaxRequest) {
                 $model->attributes=$_POST['Workers'];
+                $parent = $model->attributes['parent'];
                 if($model->save()) {
-                    return 'Работник добавлен';
+                    $this->layout = null;
+                    $workers = Workers::model()->findAll('parent=:parent', array(':parent' => $parent));
+                    $this->renderPartial('_view_new_workers',array(
+                        'workers' =>  $workers,
+                        'entrepreneur_id' => $parent
+                    ));
                 }
             }
         }
     }
+
+
+    public function actionDeleteworker($id, $entrepreneur_id) {
+        if(Yii::app()->request->isAjaxRequest) {
+            $model = Workers::model()->findByPk($id);
+            if($model->attributes['parent'] == $entrepreneur_id) {
+                if($model->delete()) {
+                    $workers = Workers::model()->findAll('parent=:parent', array(':parent' => $entrepreneur_id));
+                    $this->layout = null;
+                    $this->renderPartial('_view_new_workers',array(
+                        'workers' =>  $workers,
+                        'entrepreneur_id' => $entrepreneur_id
+                    ));
+                }
+            }
+        }
+    }
+
 
     public function actionPrognozes($id) {
 
