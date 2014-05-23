@@ -68,7 +68,7 @@ $this->menu = array(
                         ),
                         'update'=>'#table_workers_wrapper'
                     ),
-                    array('class' => 'delete','confirm'=>'Вы уверены, что хотите удалить данного работника?')
+                    array('class' => 'delete','confirm'=>'Вы уверены, что хотите удалить данного работника?', 'id' => 'worker_' . $worker->id)
                 );
 
                 //$delete_link = CHtml::link('Удалить запись', array('url'=>'#'), array('submit'=>array('/booker/workers/delete/','id'=>$worker->id),'confirm'=>'Вы уверены, что хотите удалить выбранного сотрудника?'));

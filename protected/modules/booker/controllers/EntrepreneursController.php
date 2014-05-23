@@ -125,7 +125,7 @@ class EntrepreneursController extends Controller
                     $this->renderPartial('_view_new_workers',array(
                         'workers' =>  $workers,
                         'entrepreneur_id' => $entrepreneur_id
-                    ));
+                    ), false, true);
                 }
             }
         }
