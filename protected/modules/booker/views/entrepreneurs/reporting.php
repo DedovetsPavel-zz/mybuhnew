@@ -91,7 +91,7 @@ $this->menu = array(
                             ),
                             'update'=>'#table_reports_wrapper'
                         ),
-                        array('class' => 'delete','confirm'=>'Вы уверены, что хотите удалить данный прогноз?')
+                        array('class' => 'delete','confirm'=>'Вы уверены, что хотите удалить данный прогноз?', 'id' => 'report_' . $report->id)
                     );
 
 

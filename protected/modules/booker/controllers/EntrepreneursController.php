@@ -108,7 +108,7 @@ class EntrepreneursController extends Controller
                     $this->renderPartial('_view_new_workers',array(
                         'workers' =>  $workers,
                         'entrepreneur_id' => $parent
-                    ));
+                    ), false, true);
                 }
             }
         }
@@ -201,19 +201,10 @@ class EntrepreneursController extends Controller
                     $this->renderPartial('_view_new_prognozes',array(
                         'prognozes' =>  $prognozes,
                         'entrepreneur_id' => $parent
-                    ));
-
-                } else {
-                    $response['error'] = 1;
+                    ), false, true);
                 }
-            } else {
-                $response['error'] = 1;
             }
-        } else {
-            $response['error'] = 1;
         }
-
-        //echo json_encode($response);
     }
 
     public function actionDeleteprognoz($id, $entrepreneur_id) {
@@ -226,7 +217,7 @@ class EntrepreneursController extends Controller
                     $this->renderPartial('_view_new_prognozes',array(
                         'prognozes' =>  $prognozes,
                         'entrepreneur_id' => $entrepreneur_id
-                    ));
+                    ), false, true);
                 }
             }
         }
@@ -312,16 +303,9 @@ class EntrepreneursController extends Controller
                     $this->renderPartial('_view_new_reports',array(
                         'reports' =>  $reports,
                         'entrepreneur_id' => $parent
-                    ));
-
-                } else {
-                    $response['error'] = 1;
+                    ), false, true);
                 }
-            } else {
-                $response['error'] = 1;
             }
-        } else {
-            $response['error'] = 1;
         }
     }
 
@@ -336,7 +320,7 @@ class EntrepreneursController extends Controller
                     $this->renderPartial('_view_new_reports',array(
                         'reports' =>  $reports,
                         'entrepreneur_id' => $entrepreneur_id
-                    ));
+                    ), false, true);
                 }
             }
         }
@@ -424,16 +408,9 @@ class EntrepreneursController extends Controller
                     $this->renderPartial('_view_new_accounts',array(
                         'accounting' =>  $accounts,
                         'entrepreneur_id' => $parent
-                    ));
-
-                } else {
-                    $response['error'] = 1;
+                    ), false, true);
                 }
-            } else {
-                $response['error'] = 1;
             }
-        } else {
-            $response['error'] = 1;
         }
     }
 
@@ -447,7 +424,7 @@ class EntrepreneursController extends Controller
                     $this->renderPartial('_view_new_accounts',array(
                         'accounting' =>  $accounts,
                         'entrepreneur_id' => $entrepreneur_id
-                    ));
+                    ), false, true);
                 }
             }
         }

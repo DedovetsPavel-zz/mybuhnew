@@ -72,7 +72,7 @@ $this->menu = array(
                     ),
                     'update'=>'#table_prognozes_wrapper'
                 ),
-                array('class' => 'delete','confirm'=>'Вы уверены, что хотите удалить данное событие?')
+                array('class' => 'delete','confirm'=>'Вы уверены, что хотите удалить данное событие?', 'id' => 'prognoz_' . $prognoz->id)
             );
             echo '
                 <tr>

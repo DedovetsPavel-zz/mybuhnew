@@ -31,7 +31,7 @@
                 ),
                 'update'=>'#table_accounting_wrapper'
             ),
-            array('class' => 'delete','confirm'=>'Вы уверены, что хотите удалить данную задачу?')
+            array('class' => 'delete','confirm'=>'Вы уверены, что хотите удалить данную задачу?', 'id' => 'account_' . $account->id)
         );
 
 
