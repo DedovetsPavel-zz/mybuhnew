@@ -24,7 +24,9 @@
         if(count($report->files)) {
             $files_str .= '<ul>';
             foreach($report->files as $file) {
-                $files_str .= '<li>'.CHtml::link($file->attributes['file'], array('/site/getfile/', 'id' => $file->attributes['id']), array('class' => 'download_file')) . '</li>';
+                if($file->type == 1) {
+                    $files_str .= '<li>'.CHtml::link($file->attributes['file'], array('/site/getfile/', 'id' => $file->attributes['id']), array('class' => 'download_file')) . '</li>';
+                }
             }
             $files_str .= '</ul>';
         }
@@ -58,7 +60,7 @@
                 <td width="140">'.$files_str.'</td>
                 <td width="140">'.$update.'</td>
                 <td width="140">
-                   '.$status_text.$delete_link.'
+                   '.$status_text.'
                 </td>
             </tr>
             ';

@@ -54,7 +54,7 @@ $this->menu = array(
             <td class="headerTd" width="140">Событие</td>
             <td class="headerTd" width="140">Срок</td>
             <td class="headerTd" width="140">Расход</td>
-            <td class="headerTd" width="280">Комментарии</td>
+            <td class="headerTd" width="280">Комментарий</td>
         </tr>
         <?php
         $key = 1;

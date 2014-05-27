@@ -21,9 +21,11 @@
     foreach($reports as $report) {
         $files_str = '';
         if(count($report->files)) {
+            $files_str .= '<ul>';
             foreach($report->files as $file) {
-                $files_str .= CHtml::link($file->attributes['file'], array('/site/getfile/', 'id' => $file->attributes['id'])) . '<br>';
+                $files_str .= '<li>' . CHtml::link($file->attributes['file'], array('/site/getfile/', 'id' => $file->attributes['id']), array('class' => 'download_file')) . '</li>';
             }
+            $files_str .= '</ul>';
         }
 
         $update = date('d.m.Y', $report->date_update);
@@ -74,11 +76,7 @@
                 <td width="38" height="95">'.$key.'</td>
                 <td width="140">'.$report->name.'</td>
                 <td width="140">'.$report->comment.'</td>
-                <td width="140">'.$files_str.'
-                    <ul>
-                        <li><a class="download" href="#"></a></li>
-                    </ul>
-                </td>
+                <td width="140">'.$files_str.'</td>
                 <td width="140">'.$update.'</td>
                 <td width="140">
                     '.$status_text.'<br> '.$confirm_status_link.'

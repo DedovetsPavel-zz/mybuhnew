@@ -61,9 +61,13 @@ $this->menu = array(
                 $update = date('d.m.Y', $account->date_update);
                 $files_str = '';
                 if(count($account->files)) {
+                    $files_str .= '<ul>';
                     foreach($account->files as $file) {
-                        $files_str .= CHtml::link($file->attributes['file'], array('/site/getfile/', 'id' => $file->attributes['id'])) . '<br>';
+                        if($file->attributes['type'] == 2) {
+                            $files_str .= '<li>' . CHtml::link($file->attributes['file'], array('/site/getfile/', 'id' => $file->attributes['id']), array('class' => 'download_file')) . '</li>';
+                        }
                     }
+                    $files_str .= '</ul>';
                 }
                 $edit_link = CHtml::link('Редактировать запись', '#', array('class' => 'edit_link_account', 'id' => 'edit_link_account_' . $account->id));
 
