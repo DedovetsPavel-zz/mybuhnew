@@ -763,7 +763,7 @@
 					colorBlend:	'scripts/jquery.color.min.js'
 				},
 				styles: {
-					lightbox:	'themes/buhland/jquery-lightbox.css'
+					lightbox:	'/themes/buhland/jquery-lightbox.css'
 				}
 			},
 			uncompressed: {
@@ -776,10 +776,10 @@
 				}
 			},
 			images: {
-				prev:		'themes/buhland/images/prev.gif',
-				next:		'themes/buhland/images/next.gif',
-				blank:		'themes/buhland/images/blank.gif',
-				loading:	'themes/buhland/images/loading.gif'
+				prev:		'/themes/buhland/images/prev.gif',
+				next:		'/themes/buhland/images/next.gif',
+				blank:		'/themes/buhland/images/blank.gif',
+				loading:	'/themes/buhland/images/loading.gif'
 			}
 		},
 		

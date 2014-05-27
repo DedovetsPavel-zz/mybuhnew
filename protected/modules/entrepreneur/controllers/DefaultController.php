@@ -28,18 +28,10 @@ class DefaultController extends Controller
     public function accessRules()
     {
         return array(
-            array('allow',  // allow all users to perform 'index' and 'view' actions
-                'actions'=>array('view'),
-                'users'=>array('*'),
-            ),
             array('allow', // allow authenticated user to perform 'create' and 'update' actions
                 'actions'=>array('index','create','update','workers', 'createworker', 'prognozes', 'createevent', 'deleteprognoz',
                     'reporting', 'createreport', 'deletereport', 'accounting', 'createaccount', 'deleteaccount', 'entrepreuner', 'updateaccount', 'confirmreport'),
-                'users'=>array('@'),
-            ),
-            array('allow', // allow admin user to perform 'admin' and 'delete' actions
-                'actions'=>array('admin','delete'),
-                'users'=>array('admin'),
+                'roles'=>array('0', '2'),
             ),
             array('deny',  // deny all users
                 'users'=>array('*'),
@@ -58,48 +50,55 @@ class DefaultController extends Controller
         $entrepreuner_booker = Users::model()->findByPk($entrepreuner_user->parent);
         $entrepreuner_booker_name = $entrepreuner_booker->name;
 
+        $date_start = '';
+        $date_end = '';
+        $search = '';
+
         $modelAccounting = new Accounting();
         $criteria = new CDbCriteria;
         $criteria->condition = 'parent=:parent';
         $criteria->params = array(':parent' => $entrepreuner_id);
-        $filter = $_GET['filter'];
-        $date_start = $_GET['date_start'];
-        $date_end = $_GET['date_end'];
-        $type = $_GET['Accounting']['type'];
+        if(isset($_GET['filter'])) {
+            $filter = $_GET['filter'];
+            $date_start = $_GET['date_start'];
+            $date_end = $_GET['date_end'];
+            $type = $_GET['Accounting']['type'];
 
-        if($filter) {
-            if($date_start || $date_end) {
-                if($date_start) {
-                    $date_start_time = strtotime($date_start);
-                    $criteria->addCondition("date_update >= $date_start_time");
+            if($filter) {
+                if($date_start || $date_end) {
+                    if($date_start) {
+                        $date_start_time = strtotime($date_start);
+                        $criteria->addCondition("date_update >= $date_start_time");
+                    }
+
+                    if($date_end) {
+                        $date_end_time = strtotime($date_end);
+                        $criteria->addCondition("date_update <= $date_end_time");
+                    }
                 }
 
-                if($date_end) {
-                    $date_end_time = strtotime($date_end);
-                    $criteria->addCondition("date_update <= $date_end_time");
+                if($type) {
+                    $type = htmlspecialchars(strip_tags(trim($type)));
+                    $type = (int)$type;
+                    $criteria->addCondition("type = $type");
+                    $modelAccounting->type = $type;
                 }
             }
 
-            if($type) {
-                $type = htmlspecialchars(strip_tags(trim($type)));
-                $type = (int)$type;
-                $criteria->addCondition("type = $type");
-                $modelAccounting->type = $type;
+            $search = $_GET['search'];
+
+            if($search) {
+                $search = trim($search);
+                $search = strip_tags($search);
+                $search = htmlspecialchars($search);
+                if(strlen($search)) {
+                    $criteria->addCondition("name LIKE '%$search%'");
+                }
+            } else {
+                $search = '';
             }
         }
 
-        $search = $_GET['search'];
-
-        if($search) {
-            $search = trim($search);
-            $search = strip_tags($search);
-            $search = htmlspecialchars($search);
-            if(strlen($search)) {
-                $criteria->addCondition("name LIKE '%$search%'");
-            }
-        } else {
-            $search = '';
-        }
 
         $type = array(''=> '', '1' => 'Счет','2' => 'Счет-фактура','3' => 'Договор','4' => 'Платежное поручение','5' => 'Декларация','6' => 'Отчет','7' => 'Задача бухгалтеру','8' => 'Прочее',);
 
@@ -156,15 +155,9 @@ class DefaultController extends Controller
                         'type' => $type,
                         'user_name' => $entrepreuner_booker_name,
                         'entrepreuner_name' => $entrepreuner->name
-                    ));
-                } else {
-                    $response['error'] = 1;
+                    ), false, true);
                 }
-            } else {
-                $response['error'] = 1;
             }
-        } else {
-            $response['error'] = 1;
         }
     }
 
@@ -185,9 +178,12 @@ class DefaultController extends Controller
             if(Yii::app()->request->isAjaxRequest) {
                 $model->attributes = $_POST['Accounting'];
                 $parent = $model->attributes['parent'];
-                $model->file = $_POST['Accounting']['file'];
-                $model->entrepreneur_id = $parent;
-                $model->type_file = 2;
+                if(isset($_POST['Accounting']['file'])) {
+                    $model->file = $_POST['Accounting']['file'];
+                    $model->entrepreneur_id = $parent;
+                    $model->type_file = 2;
+                }
+
 
                 if($model->save()) {
                     $user_name = Yii::app()->user->name;
@@ -231,49 +227,55 @@ class DefaultController extends Controller
         $criteria = new CDbCriteria;
         $criteria->condition = 'parent=:parent';
         $criteria->params = array(':parent' => $entrepreuner_id);
-        $filter = $_GET['filter'];
-        $date_start = $_GET['date_start'];
-        $date_end = $_GET['date_end'];
-        $status = $_GET['Reports']['status'];
 
-        if($filter) {
-            if($date_start || $date_end) {
-                if($date_start) {
-                    $date_start_time = strtotime($date_start);
-                    $criteria->addCondition("date_update >= $date_start_time");
+        $date_start = '';
+        $date_end = '';
+        $search = '';
+
+        if(isset($_GET['filter'])) {
+            $filter = $_GET['filter'];
+            $date_start = $_GET['date_start'];
+            $date_end = $_GET['date_end'];
+            $status = $_GET['Reports']['status'];
+
+            if($filter) {
+                if($date_start || $date_end) {
+                    if($date_start) {
+                        $date_start_time = strtotime($date_start);
+                        $criteria->addCondition("date_update >= $date_start_time");
+                    }
+
+                    if($date_end) {
+                        $date_end_time = strtotime($date_end);
+                        $criteria->addCondition("date_update <= $date_end_time");
+                    }
                 }
 
-                if($date_end) {
-                    $date_end_time = strtotime($date_end);
-                    $criteria->addCondition("date_update <= $date_end_time");
+                if($status) {
+                    $status = htmlspecialchars(strip_tags(trim($status)));
+                    $status = (int)$status;
+                    //var_dump($status);die;
+                    $criteria->addCondition("status = $status");
+                    $modelReports->status = $status;
                 }
             }
 
-            if($status) {
-                $status = htmlspecialchars(strip_tags(trim($status)));
-                $status = (int)$status;
-                //var_dump($status);die;
-                $criteria->addCondition("status = $status");
-                $modelReports->status = $status;
-            }
-        }
+            $search = $_GET['search'];
 
-        $search = $_GET['search'];
-
-        if($search) {
-            $search = trim($search);
-            $search = strip_tags($search);
-            $search = htmlspecialchars($search);
-            if(strlen($search)) {
-                $criteria->addCondition("name LIKE '%$search%'");
+            if($search) {
+                $search = trim($search);
+                $search = strip_tags($search);
+                $search = htmlspecialchars($search);
+                if(strlen($search)) {
+                    $criteria->addCondition("name LIKE '%$search%'");
+                }
+            } else {
+                $search = '';
             }
-        } else {
-            $search = '';
         }
 
         $user_id = Yii::app()->user->id;
         $reports = Reports::model()->findAll($criteria);
-
 
         $this->render('reporting', array(
             'entrepreneur_id' => $entrepreuner_id,
@@ -310,35 +312,41 @@ class DefaultController extends Controller
         $criteria = new CDbCriteria;
         $criteria->condition = 'parent=:parent';
 
-        $filter = $_GET['filter'];
-        $date_start = $_GET['date_start'];
-        $date_end = $_GET['date_end'];
+        $date_start = '';
+        $date_end = '';
+        $search = '';
 
-        if($filter) {
-            if($date_start || $date_end) {
-                if($date_start) {
-                    $date_start_time = strtotime($date_start);
-                    $criteria->addCondition("deadline >= $date_start_time");
-                }
+        if(isset($_GET['filter'])) {
+            $filter = $_GET['filter'];
+            $date_start = $_GET['date_start'];
+            $date_end = $_GET['date_end'];
 
-                if($date_end) {
-                    $date_end_time = strtotime($date_end);
-                    $criteria->addCondition("deadline <= $date_end_time");
+            if($filter) {
+                if($date_start || $date_end) {
+                    if($date_start) {
+                        $date_start_time = strtotime($date_start);
+                        $criteria->addCondition("deadline >= $date_start_time");
+                    }
+
+                    if($date_end) {
+                        $date_end_time = strtotime($date_end);
+                        $criteria->addCondition("deadline <= $date_end_time");
+                    }
                 }
             }
-        }
 
-        $search = $_GET['search'];
+            $search = $_GET['search'];
 
-        if($search) {
-            $search = trim($search);
-            $search = strip_tags($search);
-            $search = htmlspecialchars($search);
-            if(strlen($search)) {
-                $criteria->addCondition("event LIKE '%$search%'");
+            if($search) {
+                $search = trim($search);
+                $search = strip_tags($search);
+                $search = htmlspecialchars($search);
+                if(strlen($search)) {
+                    $criteria->addCondition("event LIKE '%$search%'");
+                }
+            } else {
+                $search = '';
             }
-        } else {
-            $search = '';
         }
 
         $criteria->params = array(':parent' => $entrepreuner_id);

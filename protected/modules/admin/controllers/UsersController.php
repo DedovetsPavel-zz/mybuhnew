@@ -26,7 +26,7 @@ class UsersController extends Controller
 				'roles'=>array('0'),
 			),
 			array('deny',  // deny all users
-				'users'=>array('*'),
+                'roles'=>array('1','2'),
 			),
 		);
 	}
@@ -45,11 +45,14 @@ class UsersController extends Controller
 
     public function actionPassword($id)
     {
-        $model = $this->loadModel($id);
-        $model->scenario = 'password';
-        $model->password = $_POST['password'];
-        if($model->save()) {
-            $this->redirect(array('view', 'id' => $model->id));
+
+        if(Yii::app()->request->isPostRequest) {
+            $model = $this->loadModel($id);
+            $model->scenario = 'password';
+            $model->password = $_POST['password'];
+            if($model->save()) {
+                $this->redirect(array('view', 'id' => $model->id));
+            }
         }
 
         $this->render('password',array(
@@ -126,7 +129,7 @@ class UsersController extends Controller
 				$this->redirect(array('view','id'=>$model->id));
 		}
 
-        if($role == 2) {
+        if($model->role == 2) {
             $model->scenario = 'entrepreneur';
         }
 

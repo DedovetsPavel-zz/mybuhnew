@@ -91,7 +91,7 @@ class SiteController extends Controller
 		{
 			$model->attributes=$_POST['LoginForm'];
 			// validate user input and redirect to the previous page if valid
-			if($model->validate() && $model->login())
+			if($model->validate() && $model->login()) {
                 $user_id = Yii::app()->user->id;
                 $user = Users::model()->findByPk($user_id);
                 $role = $user->attributes['role'];
@@ -103,7 +103,8 @@ class SiteController extends Controller
                     $url = Yii::app()->createUrl('/entrepreneur/');
                 }
 
-				$this->redirect($url);
+                $this->redirect($url);
+            }
 		}
 		// display the login form
 		$this->render('login',array('model'=>$model));
@@ -140,40 +141,17 @@ class SiteController extends Controller
 
     public function actionGetfile($id) {
         $modelFiles = Files::model()->findByPk($id);
-        $file_url = 'http://mybuhnew.loc/upload/' . $modelFiles->attributes['file'];
-        if(file_exists($file_url)) {
-            echo '1';
-        } else {
-            echo '2';
-        }
-        //var_dump($file_url);die;
+        $file_url = $modelFiles->attributes['file'];
+        $url = $_SERVER['DOCUMENT_ROOT'] . '/upload/' . $file_url;
 
-        if (is_file($file_url)) {
+        if (is_file($url)) {
             header("Content-Type: application/octet-stream");
             header("Accept-Ranges: bytes");
-            header("Content-Length: " . filesize($file_url));
+            header("Content-Length: " . filesize($url));
             header("Content-Disposition: attachment; filename=" . $modelFiles->attributes['file']);
-            readfile($file_url);
-        } else {
-            //echo '123';
+            readfile($url);
         }
-
-
-
-//        header('Content-Description: File Transfer');
-//        header('Content-Type: application/octet-stream');
-//        header('Content-Disposition: attachment; filename='.basename($modelFiles->attributes['file']));
-//        header('Content-Transfer-Encoding: binary');
-//        header('Expires: 0');
-//        header('Cache-Control: must-revalidate');
-//        header('Pragma: public');
-//        header('Content-Length: ' . filesize($file_url));
-//        ob_clean();
-//        flush();
-//        readfile($file_url);
         exit;
     }
-
-
 
 }
