@@ -6,8 +6,20 @@
  * To change this template use File | Settings | File Templates.
  */
 $(document).ready(function(){
+    $('.edit_link_account').on('click', function() {
+        var link_id = $(this).attr('id');
+        var account_id = link_id.substr(18);
+        $('#account_row_' + account_id).hide();
+        $('#account_edit_row_' + account_id).show();
+        //console.log(account_id);
+        return false;
+    });
 
-    $('select').selectBox();
+
+    $('.drop_down_select_head').selectBox();
+    $('.drop_down_list').selectBox();
+    $('.form_select').selectBox();
+
 
     $('#events-form-filter .input_filter_prognoz').on('change', function() {
         $('#events-form-filter').submit();
@@ -26,7 +38,6 @@ $(document).ready(function(){
     });
 
     $('#accounting-form-filter #Accounting_type').on('change', function() {
-        console.log('12312');
         $('#accounting-form-filter').submit();
     });
 
@@ -133,6 +144,7 @@ $(document).ready(function(){
     $(".loadForm .little .left span").live("click", function(){
         $(this).closest(".left").find("input").click();
     });
+
 
     $(".calendar input").datepicker();
 
@@ -257,7 +269,13 @@ $(document).ready(function(){
 
     $(".mission .little .left span").live("click", function(){
         $('#uploadFile input[type="file"]').click();
-    })
+    });
+
+    $(".span_load_doc").on("click", function(){
+        $(this).parent().parent().next().find('input[type="file"]').click();
+    });
+
+
     /******скрипты со страницы account1.html end**/
 
 

@@ -33,7 +33,8 @@ class EntrepreneursController extends Controller
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
 				'actions'=>array('create','update','workers', 'createworker', 'prognozes', 'createevent', 'deleteprognoz',
-                'reporting', 'createreport', 'deletereport', 'accounting', 'createaccount', 'deleteaccount', 'deleteworker'),
+                'reporting', 'createreport', 'deletereport', 'accounting', 'createaccount', 'deleteaccount', 'deleteworker',
+                'updateaccount'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -327,6 +328,10 @@ class EntrepreneursController extends Controller
     }
 
     public function actionAccounting($id) {
+
+        $entrepreuner = Entrepreneurs::model()->findByPk($id);
+        $entrepreuner_name = $entrepreuner->name;
+
         $modelAccounting = new Accounting();
         $criteria = new CDbCriteria;
         $criteria->condition = 'parent=:parent';
@@ -371,9 +376,9 @@ class EntrepreneursController extends Controller
         }
 
         $user_id = Yii::app()->user->id;
+        $user_name = Yii::app()->user->name;
         $accounting = Accounting::model()->findAll($criteria);
         $type = array(''=> '', '1' => 'Счет','2' => 'Счет-фактура','3' => 'Договор','4' => 'Платежное поручение','5' => 'Декларация','6' => 'Отчет','7' => 'Задача бухгалтеру','8' => 'Прочее',);
-
 
         $this->render('accounting', array(
             'entrepreneur_id' => $id,
@@ -382,16 +387,20 @@ class EntrepreneursController extends Controller
             'type' => $type,
             'date_start' => $date_start,
             'date_end' => $date_end,
-            'search' => $search
+            'search' => $search,
+            'user_name' => $user_name,
+            'entrepreuner_name' => $entrepreuner_name
         ));
     }
 
 
     public function actionCreateAccount() {
+        $type = array(''=> '', '1' => 'Счет','2' => 'Счет-фактура','3' => 'Договор','4' => 'Платежное поручение','5' => 'Декларация','6' => 'Отчет','7' => 'Задача бухгалтеру','8' => 'Прочее',);
         $response = array();
         $response['success'] = 0;
         $response['error'] = 0;
         $model = new Accounting();
+
         $this->performAjaxValidationAccount($model);
         if(isset($_POST['Accounting'])) {
             if(Yii::app()->request->isAjaxRequest) {
@@ -402,12 +411,18 @@ class EntrepreneursController extends Controller
                 $model->type_file = 2;
 
                 if($model->save()) {
+                    $user_name = Yii::app()->user->name;
+                    $entrepreuner = Entrepreneurs::model()->findByPk($parent);
+                    $entrepreuner_name = $entrepreuner->name;
                     $response['success'] = 1;
                     $this->layout = null;
                     $accounts = Accounting::model()->findAll('parent=:parent', array(':parent' => $parent));
                     $this->renderPartial('_view_new_accounts',array(
                         'accounting' =>  $accounts,
-                        'entrepreneur_id' => $parent
+                        'entrepreneur_id' => $parent,
+                        'type' => $type,
+                        'user_name' => $user_name,
+                        'entrepreuner_name' => $entrepreuner_name
                     ), false, true);
                 }
             }
@@ -415,15 +430,56 @@ class EntrepreneursController extends Controller
     }
 
     public function actionDeleteaccount($id, $entrepreneur_id) {
+        $type = array(''=> '', '1' => 'Счет','2' => 'Счет-фактура','3' => 'Договор','4' => 'Платежное поручение','5' => 'Декларация','6' => 'Отчет','7' => 'Задача бухгалтеру','8' => 'Прочее',);
         if(Yii::app()->request->isAjaxRequest) {
             $model = Accounting::model()->findByPk($id);
             if($model->attributes['parent'] == $entrepreneur_id) {
                 if($model->delete()) {
+                    $user_name = Yii::app()->user->name;
+                    $entrepreuner = Entrepreneurs::model()->findByPk($entrepreneur_id);
+                    $entrepreuner_name = $entrepreuner->name;
                     $accounts = Accounting::model()->findAll('parent=:parent', array(':parent' => $entrepreneur_id));
                     $this->layout = null;
                     $this->renderPartial('_view_new_accounts',array(
                         'accounting' =>  $accounts,
-                        'entrepreneur_id' => $entrepreneur_id
+                        'entrepreneur_id' => $entrepreneur_id,
+                        'type' => $type,
+                        'user_name' => $user_name,
+                        'entrepreuner_name' => $entrepreuner_name
+                    ), false, true);
+                }
+            }
+        }
+    }
+
+
+    public function actionUpdateaccount($id) {
+        $model = Accounting::model()->findByPk($id);
+        if($model === null) {
+            throw new CHttpException(404,'The requested page does not exist.');
+        }
+        $type = array(''=> '', '1' => 'Счет','2' => 'Счет-фактура','3' => 'Договор','4' => 'Платежное поручение','5' => 'Декларация','6' => 'Отчет','7' => 'Задача бухгалтеру','8' => 'Прочее',);
+        if(isset($_POST['Accounting'])) {
+            if(Yii::app()->request->isAjaxRequest) {
+                $model->attributes = $_POST['Accounting'];
+                $parent = $model->attributes['parent'];
+                $model->file = $_POST['Accounting']['file'];
+                $model->entrepreneur_id = $parent;
+                $model->type_file = 2;
+
+                if($model->save()) {
+                    $user_name = Yii::app()->user->name;
+                    $entrepreuner = Entrepreneurs::model()->findByPk($parent);
+                    $entrepreuner_name = $entrepreuner->name;
+                    $response['success'] = 1;
+                    $this->layout = null;
+                    $accounts = Accounting::model()->findAll('parent=:parent', array(':parent' => $parent));
+                    $this->renderPartial('_view_new_accounts',array(
+                        'accounting' =>  $accounts,
+                        'entrepreneur_id' => $parent,
+                        'type' => $type,
+                        'user_name' => $user_name,
+                        'entrepreuner_name' => $entrepreuner_name
                     ), false, true);
                 }
             }
@@ -446,6 +502,9 @@ class EntrepreneursController extends Controller
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
 	}
+
+
+
 
 	/**
 	 * Performs the AJAX validation.

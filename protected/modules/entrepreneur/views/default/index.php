@@ -23,8 +23,8 @@ $this->menu = array(
         ));
         ?>
         <input type="hidden" name="filter" value="1"/>
-        <div class="select-wrap">
-            <?php echo $form->dropDownList($accountingModel,'type', $type); ?>
+        <div class="select-wrap ">
+            <?php echo $form->dropDownList($accountingModel,'type', $type, array('class' => 'drop_down_select_head')); ?>
         </div>
 
         <div class="date">
@@ -65,6 +65,7 @@ $this->menu = array(
                         $files_str .= CHtml::link($file->attributes['file'], array('/site/getfile/', 'id' => $file->attributes['id'])) . '<br>';
                     }
                 }
+                $edit_link = CHtml::link('Редактировать запись', '#', array('class' => 'edit_link_account', 'id' => 'edit_link_account_' . $account->id));
 
                 $delete_link = CHtml::ajaxLink(
                     'Удалить запись',
@@ -80,16 +81,37 @@ $this->menu = array(
                     array('class' => 'delete','confirm'=>'Вы уверены, что хотите удалить данную задачу?')
                 );
 
+                $comments_str = '';
+                if(count($account->comments)) {
+                    foreach($account->comments as $comment) {
+                        if($comment->author == 1) {
+                            $comments_str .= '<div class="comment_item"><span>'.$user_name.': </span>';
+                        } elseif($comment->author == 2) {
+                            $comments_str .= '<div class="comment_item"><span>'.$entrepreuner_name.': </span>';
+                        }
+                        $comments_str .= $comment->comment . '</div>';
+                    }
+                }
+
+                if($account->ready == 1) {
+                    $ready_txt = '<p class="ready">Готово</p>';
+                } else {
+                    $ready_txt = '';
+                }
+
                 echo '
-                <tr>
+                <tr id="account_row_'.$account->id.'">
                     <td width="38" height="95">'.$key.'</td>
                     <td width="140">'.$account->name.'</td>
                     <td width="140">'.$type[$account->type].'</td>
                     <td width="140">'.$update.'</td>
-                    <td width="140">'.$account->comment.'</td>
-                    <td width="140">'.$files_str.'</td>
+                    <td width="140">'.$comments_str.'</td>
+                    <td width="140">'.$ready_txt.$files_str.'<br>' . $edit_link .'</td>
                 </tr>
                 ';
+                echo '<tr id="account_edit_row_'.$account->id.'" class="hide_form_edit_account"><td colspan="6">';
+                $this->renderPartial('_form_edit_account', array('model'=>$account, 'entrepreneur_id' => $entrepreneur_id, 'type' => $type));
+                echo '</td></tr>';
                 $key++;
             }
             ?>

@@ -10,6 +10,7 @@
  * @property integer $date_update
  * @property string $comment
  * @property integer $parent
+ * @property integer $ready
  */
 class Accounting extends CActiveRecord
 {
@@ -36,7 +37,7 @@ class Accounting extends CActiveRecord
 		return array(
 			array('type, date_update, parent', 'numerical', 'integerOnly'=>true),
 			array('name', 'length', 'max'=>255),
-			array('comment', 'safe'),
+			array('comment,ready', 'safe'),
             array('name,type', 'required'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
@@ -52,7 +53,8 @@ class Accounting extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
         return array(
-            'files' => array(self::HAS_MANY, 'Files', 'parent')
+            'files' => array(self::HAS_MANY, 'Files', 'parent'),
+            'comments' => array(self::HAS_MANY, 'AccountComments', 'account_id')
         );
 	}
 
@@ -70,7 +72,8 @@ class Accounting extends CActiveRecord
 			'parent' => 'Parent',
             'file' => 'Файл',
             'type_file' => 'Тип файла',
-            'entrepreneur_id' => 'Предприниматель'
+            'entrepreneur_id' => 'Предприниматель',
+            'ready' => 'Готово'
 		);
 	}
 
@@ -98,6 +101,7 @@ class Accounting extends CActiveRecord
 		$criteria->compare('date_update',$this->date_update);
 		$criteria->compare('comment',$this->comment,true);
 		$criteria->compare('parent',$this->parent);
+        $criteria->compare('ready',$this->ready);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
@@ -122,22 +126,29 @@ class Accounting extends CActiveRecord
 
 
     protected function afterSave() {
+        $user_id = Yii::app()->user->id;
+        $user_role = Yii::app()->user->role;
         parent::afterSave();
-        if($this->isNewRecord){
-            if(count($this->file)) {
-                foreach($this->file as $file) {
-                    //var_dump($file);
-                    $modelFile = new Files();
-                    $modelFile->file = $file;
-                    $modelFile->type = $this->type_file;
-                    $modelFile->entrepreneur_id = $this->entrepreneur_id;
-                    $modelFile->parent = $this->id;
-                    $modelFile->save();
-                }
-//                die('123123123123');
+        if(count($this->file)) {
+            foreach($this->file as $file) {
+                //var_dump($file);
+                $modelFile = new Files();
+                $modelFile->file = $file;
+                $modelFile->type = $this->type_file;
+                $modelFile->entrepreneur_id = $this->entrepreneur_id;
+                $modelFile->parent = $this->id;
+                $modelFile->save();
             }
         }
+
+        if($this->comment) {
+            $modelComment = new AccountComments();
+            $modelComment->comment = $this->comment;
+            $modelComment->user_id = $user_id;
+            $modelComment->account_id = $this->id;
+            $modelComment->createdon = time();
+            $modelComment->author = $user_role;
+            $modelComment->save();
+        }
     }
-
-
 }

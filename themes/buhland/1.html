@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="/assets/bc6f297c/fileuploader.css" />
+    <script type="text/javascript" src="/assets/c3e33a23/jquery.js"></script>
+    <script type="text/javascript" src="/assets/c3e33a23/jquery.yiiactiveform.js"></script>
+    <script type="text/javascript" src="/assets/c3e33a23/jquery.yii.js"></script>
+    <script type="text/javascript" src="/assets/bc6f297c/fileuploader.js"></script>
+    <title>Мой бухгалтер - Accounting Entrepreneurs</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="/themes/buhland/style.css" type="text/css" />
+    <link rel="stylesheet" href="/themes/buhland/jquery-lightbox.css" type="text/css" />
+    <!--    <script src="--><!--/themes/buhland/jquery.min.js" type="text/javascript"></script>-->
+    <script src="/themes/buhland/jqueryui.custom.js" type="text/javascript"></script>
+    <script src="/themes/buhland/scripts/jquery.lightbox.js" type="text/javascript"></script>
+    <script src="/themes/buhland/scripts/jquery.color.js" type="text/javascript"></script>
+    <script src="/themes/buhland/jcarousellite_1.0.1.js" type="text/javascript"></script>
+    <script src="/themes/buhland/scripts/jquery.selectBox.js" type="text/javascript"></script>
+    <script src="/themes/buhland/scripts/checkbox.js" type="text/javascript"></script>
+    <script src="/themes/buhland/scripts.js" type="text/javascript"></script>
+
+</head>
+<body>
+<div class="header">
+    <div class="center">
+        <div class="logo"></div>
+        <div class="phones">
+            <span><b>8-800-555-28-31</b><br>звонок по России бесплатный</span>
+            <hr>
+            <span><b>8-495-215-18-37</b><br>для Москвы</span>
+        </div>
+        <ul id="top_menu" class="mainMenu">
+            <li><a href="/booker/entrepreneurs/accounting/id/5">Главная</a></li>
+            <li><a href="/booker/entrepreneurs/accounting/id/5">Как работает</a></li>
+            <li><a href="/booker/entrepreneurs/accounting/id/5">Вопросы и ответы</a></li>
+            <li><a href="/booker/entrepreneurs/accounting/id/5">Нам доверяют</a></li>
+        </ul>        <ul id="enter_links" class="logoutBlock">
+        <li><a href="/booker">Иван</a></li>
+        <li class="enter"><a href="/site/logout">Выход</a></li>
+    </ul>    </div>
+</div>
+<div class="body">
+<div class="center">
+<div class="accountBlock">
+<p class="accHead">Личный кабинет</p>
+<div id="top_tabs">
+    <ul class="accMenu" id="yw0">
+        <li><a href="/booker">Клиенты</a></li>
+        <li class="active active"><a href="/booker/entrepreneurs/accounting/id/5">Бухгалтерия</a></li>
+        <li><a href="/booker/entrepreneurs/reporting/id/5">Отчетность</a></li>
+        <li><a href="/booker/entrepreneurs/prognozes/id/5">Прогнозы</a></li>
+        <li><a href="/booker/entrepreneurs/update/id/5">Настройки</a></li>
+    </ul></div><!-- sidebar -->
+<div id="content_cabinet">
+
+<div class="tableBlock">
+<div class="clear_top_block"></div>
+<div class="mission">
+    <img class="misImg" src="/themes/buhland/images/accFormTop.png">
+    <div class="accFormBody">
+        <form id="account-form-create" action="/booker/entrepreneurs/createaccount" method="post">
+
+            <div id="success"></div>
+            <div class="row">
+                <label for="Accounting_name" class="required">Наименование документа <span class="required">*</span></label>            <div class="errorMessage" id="Accounting_name_em_" style="display:none"></div>            <input class="account_form_text_input" name="Accounting[name]" id="Accounting_name" type="text" maxlength="255" />        </div>
+
+            <div class="row">
+                <label for="Accounting_type" class="required">Тип <span class="required">*</span></label>            <div class="errorMessage" id="Accounting_type_em_" style="display:none"></div>            <div class="select-wrap">
+                <select width="206px;" name="Accounting[type]" id="Accounting_type">
+                    <option value="" selected="selected"></option>
+                    <option value="1">Счет</option>
+                    <option value="2">Счет-фактура</option>
+                    <option value="3">Договор</option>
+                    <option value="4">Платежное поручение</option>
+                    <option value="5">Декларация</option>
+                    <option value="6">Отчет</option>
+                    <option value="7">Задача бухгалтеру</option>
+                    <option value="8">Прочее</option>
+                </select>            </div>
+            </div>
+            <div class="row">
+                <label for="Accounting_comment">Комментарий</label>            <div class="errorMessage" id="Accounting_comment_em_" style="display:none"></div>            <textarea class="comment_form_textarea textarea" name="Accounting[comment]" id="Accounting_comment"></textarea>        </div>
+            <div class="row">
+                <input value="5" name="Accounting[parent]" id="Accounting_parent" type="hidden" />        </div>
+            <div class="load_files" id="load_files">
+
+            </div>
+            <p class="little"><span class="left"><img src="/themes/buhland/images/skrep.png"><span>Загрузить докумет</span><input type="file" class="hidden" name="file"></span><span class="right">+ еще</span></p>
+            <div id="uploadFile"><noscript><p>Please enable JavaScript to use file uploader.</p></noscript></div>
+
+            <div class="row">
+                <input id="create_account_submit" type="submit" name="yt0" value="Поставить задачу" />        </div>
+        </form>    </div>
+    <img class="misImg" src="/themes/buhland/images/accFormBottom.png">
+</div>    <div class="controlPanel">
+    <form id="accounting-form-filter" action="/booker/entrepreneurs/accounting/id/5" method="get">        <input type="hidden" name="filter" value="1"/>
+        <div class="select-wrap">
+            <select name="Accounting[type]" id="Accounting_type">
+                <option value="" selected="selected"></option>
+                <option value="1">Счет</option>
+                <option value="2">Счет-фактура</option>
+                <option value="3">Договор</option>
+                <option value="4">Платежное поручение</option>
+                <option value="5">Декларация</option>
+                <option value="6">Отчет</option>
+                <option value="7">Задача бухгалтеру</option>
+                <option value="8">Прочее</option>
+            </select>        </div>
+
+        <div class="date">
+            <span>Дата изменения с</span>
+            <div class="input">
+                <input class="input_filter_report" type="text" name="date_start" value=""/>
+                <img src="/themes/buhland/images/calendar.png">
+            </div>
+            <span>по</span>
+            <div class="input">
+                <input class="input_filter_report" type="text" name="date_end" value=""/>
+                <img src="/themes/buhland/images/calendar.png">
+            </div>
+        </div>
+        <div class="searchInput">
+            <input type="text" name="search" value=""/>
+            <button type="submit" class="search_button" title="Поиск"></button>
+        </div>
+    </form>    </div>
+<div id="table_accounting_wrapper">
+<table class="infoTable"  id="table_accounting">
+<tr>
+    <td class="headerTd" width="38">№</td>
+    <td class="headerTd" width="140">Название документа</td>
+    <td class="headerTd" width="140">Тип</td>
+    <td class="headerTd" width="140">Дата изменения</td>
+    <td class="headerTd" width="140">Комментарий</td>
+    <td class="headerTd" width="140">Файл документа</td>
+</tr>
+
+<tr id="account_row_1">
+    <td width="38" height="95">1</td>
+    <td width="140">счет</td>
+    <td width="140">Счет</td>
+    <td width="140">16.05.2014</td>
+    <td width="140">комментарий</td>
+    <td width="140"><br><a class="edit_link_account" id="edit_link_account_1" href="#">Редактировать запись</a></td>
+</tr>
+<tr id="account_edit_row_1" class="hide_form_edit_account"><td colspan="6"><td colspan="6">
+
+    <form class="account_update_form" id="account-form-update_1" action="/booker/entrepreneurs/updateaccount/id/1" method="post"><table>
+        <tr>
+
+            <td width="38" height="95">1</td>
+            <td width="140">
+                <label for="Accounting_name" class="required">Наименование документа <span class="required">*</span></label>    <div class="errorMessage" id="Accounting_name_em_" style="display:none"></div>    <input class="account_form_text_input" name="Accounting[name]" id="Accounting_name" type="text" maxlength="255" value="счет" /></td>
+            <td width="140">
+                <label for="Accounting_type" class="required">Тип <span class="required">*</span></label>    <div class="errorMessage" id="Accounting_type_em_" style="display:none"></div>    <div class="select-wrap">
+                <select width="206px;" name="Accounting[type]" id="Accounting_type">
+                    <option value=""></option>
+                    <option value="1" selected="selected">Счет</option>
+                    <option value="2">Счет-фактура</option>
+                    <option value="3">Договор</option>
+                    <option value="4">Платежное поручение</option>
+                    <option value="5">Декларация</option>
+                    <option value="6">Отчет</option>
+                    <option value="7">Задача бухгалтеру</option>
+                    <option value="8">Прочее</option>
+                </select>    </div>
+            </td>
+            <td width="140">16.05.2014</td>
+            <td width="140">
+                <label for="Accounting_comment">Комментарий</label>    <div class="errorMessage" id="Accounting_comment_em_" style="display:none"></div>    <textarea class="comment_form_textarea textarea" name="Accounting[comment]" id="Accounting_comment">комментарий</textarea></td>
+            <td width="140">
+                <div class="load_files" id="load_files_1">
+
+                </div>
+                <p class="little"><span class="left"><img src="/themes/buhland/images/skrep.png"><span class="span_load_doc">Загрузить докумет</span><input type="file" class="hidden" name="file"></span><span class="right">+ еще</span></p>
+                <div id="uploadFile_1"><noscript><p>Please enable JavaScript to use file uploader.</p></noscript></div>
+                <input value="5" name="Accounting[parent]" id="Accounting_parent" type="hidden" />    <input id="create_account_submit_1" class="update_account_button" type="submit" name="yt1" value="Сохранить" /></td>
+        </tr>
+    </table>
+
+    </form></td>
+
+
+    </td></tr>
+<tr id="account_row_2">
+    <td width="38" height="95">2</td>
+    <td width="140">тест</td>
+    <td width="140">Счет-фактура</td>
+    <td width="140">19.05.2014</td>
+    <td width="140">коммент</td>
+    <td width="140"><br><a class="edit_link_account" id="edit_link_account_2" href="#">Редактировать запись</a></td>
+</tr>
+<tr id="account_edit_row_2" class="hide_form_edit_account"><td colspan="6"><td colspan="6">
+
+    <form class="account_update_form" id="account-form-update_2" action="/booker/entrepreneurs/updateaccount/id/2" method="post"><table>
+        <tr>
+
+            <td width="38" height="95">2</td>
+            <td width="140">
+                <label for="Accounting_name" class="required">Наименование документа <span class="required">*</span></label>    <div class="errorMessage" id="Accounting_name_em_" style="display:none"></div>    <input class="account_form_text_input" name="Accounting[name]" id="Accounting_name" type="text" maxlength="255" value="тест" /></td>
+            <td width="140">
+                <label for="Accounting_type" class="required">Тип <span class="required">*</span></label>    <div class="errorMessage" id="Accounting_type_em_" style="display:none"></div>    <div class="select-wrap">
+                <select width="206px;" name="Accounting[type]" id="Accounting_type">
+                    <option value=""></option>
+                    <option value="1">Счет</option>
+                    <option value="2" selected="selected">Счет-фактура</option>
+                    <option value="3">Договор</option>
+                    <option value="4">Платежное поручение</option>
+                    <option value="5">Декларация</option>
+                    <option value="6">Отчет</option>
+                    <option value="7">Задача бухгалтеру</option>
+                    <option value="8">Прочее</option>
+                </select>    </div>
+            </td>
+            <td width="140">19.05.2014</td>
+            <td width="140">
+                <label for="Accounting_comment">Комментарий</label>    <div class="errorMessage" id="Accounting_comment_em_" style="display:none"></div>    <textarea class="comment_form_textarea textarea" name="Accounting[comment]" id="Accounting_comment">коммент</textarea></td>
+            <td width="140">
+                <div class="load_files" id="load_files_2">
+
+                </div>
+                <p class="little"><span class="left"><img src="/themes/buhland/images/skrep.png"><span class="span_load_doc">Загрузить докумет</span><input type="file" class="hidden" name="file"></span><span class="right">+ еще</span></p>
+                <div id="uploadFile_2"><noscript><p>Please enable JavaScript to use file uploader.</p></noscript></div>
+                <input value="5" name="Accounting[parent]" id="Accounting_parent" type="hidden" />    <input id="create_account_submit_2" class="update_account_button" type="submit" name="yt2" value="Сохранить" /></td>
+        </tr>
+    </table>
+
+    </form></td>
+
+
+    </td></tr>
+<tr id="account_row_5">
+    <td width="38" height="95">3</td>
+    <td width="140">asdasdasd</td>
+    <td width="140">Отчет</td>
+    <td width="140">19.05.2014</td>
+    <td width="140">фавфывафыва</td>
+    <td width="140"><br><a class="edit_link_account" id="edit_link_account_5" href="#">Редактировать запись</a></td>
+</tr>
+<tr id="account_edit_row_5" class="hide_form_edit_account"><td colspan="6"><td colspan="6">
+
+    <form class="account_update_form" id="account-form-update_5" action="/booker/entrepreneurs/updateaccount/id/5" method="post"><table>
+        <tr>
+
+            <td width="38" height="95">3</td>
+            <td width="140">
+                <label for="Accounting_name" class="required">Наименование документа <span class="required">*</span></label>    <div class="errorMessage" id="Accounting_name_em_" style="display:none"></div>    <input class="account_form_text_input" name="Accounting[name]" id="Accounting_name" type="text" maxlength="255" value="asdasdasd" /></td>
+            <td width="140">
+                <label for="Accounting_type" class="required">Тип <span class="required">*</span></label>    <div class="errorMessage" id="Accounting_type_em_" style="display:none"></div>    <div class="select-wrap">
+                <select width="206px;" name="Accounting[type]" id="Accounting_type">
+                    <option value=""></option>
+                    <option value="1">Счет</option>
+                    <option value="2">Счет-фактура</option>
+                    <option value="3">Договор</option>
+                    <option value="4">Платежное поручение</option>
+                    <option value="5">Декларация</option>
+                    <option value="6" selected="selected">Отчет</option>
+                    <option value="7">Задача бухгалтеру</option>
+                    <option value="8">Прочее</option>
+                </select>    </div>
+            </td>
+            <td width="140">19.05.2014</td>
+            <td width="140">
+                <label for="Accounting_comment">Комментарий</label>    <div class="errorMessage" id="Accounting_comment_em_" style="display:none"></div>    <textarea class="comment_form_textarea textarea" name="Accounting[comment]" id="Accounting_comment">фавфывафыва</textarea></td>
+            <td width="140">
+                <div class="load_files" id="load_files_5">
+
+                </div>
+                <p class="little"><span class="left"><img src="/themes/buhland/images/skrep.png"><span class="span_load_doc">Загрузить докумет</span><input type="file" class="hidden" name="file"></span><span class="right">+ еще</span></p>
+                <div id="uploadFile_5"><noscript><p>Please enable JavaScript to use file uploader.</p></noscript></div>
+                <input value="5" name="Accounting[parent]" id="Accounting_parent" type="hidden" />    <input id="create_account_submit_5" class="update_account_button" type="submit" name="yt3" value="Сохранить" /></td>
+        </tr>
+    </table>
+
+    </form></td>
+
+
+    </td></tr>
+<tr id="account_row_9">
+    <td width="38" height="95">4</td>
+    <td width="140">asdasdas</td>
+    <td width="140">Счет</td>
+    <td width="140">19.05.2014</td>
+    <td width="140">asdasdasd</td>
+    <td width="140"><a href="/site/getfile/16">kartinka23.jpg</a><br><a href="/site/getfile/17">infiniti-)))))))10.jpg</a><br><br><a class="edit_link_account" id="edit_link_account_9" href="#">Редактировать запись</a></td>
+</tr>
+<tr id="account_edit_row_9" class="hide_form_edit_account"><td colspan="6"><td colspan="6">
+
+    <form class="account_update_form" id="account-form-update_9" action="/booker/entrepreneurs/updateaccount/id/9" method="post"><table>
+        <tr>
+
+            <td width="38" height="95">4</td>
+            <td width="140">
+                <label for="Accounting_name" class="required">Наименование документа <span class="required">*</span></label>    <div class="errorMessage" id="Accounting_name_em_" style="display:none"></div>    <input class="account_form_text_input" name="Accounting[name]" id="Accounting_name" type="text" maxlength="255" value="asdasdas" /></td>
+            <td width="140">
+                <label for="Accounting_type" class="required">Тип <span class="required">*</span></label>    <div class="errorMessage" id="Accounting_type_em_" style="display:none"></div>    <div class="select-wrap">
+                <select width="206px;" name="Accounting[type]" id="Accounting_type">
+                    <option value=""></option>
+                    <option value="1" selected="selected">Счет</option>
+                    <option value="2">Счет-фактура</option>
+                    <option value="3">Договор</option>
+                    <option value="4">Платежное поручение</option>
+                    <option value="5">Декларация</option>
+                    <option value="6">Отчет</option>
+                    <option value="7">Задача бухгалтеру</option>
+                    <option value="8">Прочее</option>
+                </select>    </div>
+            </td>
+            <td width="140">19.05.2014</td>
+            <td width="140">
+                <label for="Accounting_comment">Комментарий</label>    <div class="errorMessage" id="Accounting_comment_em_" style="display:none"></div>    <textarea class="comment_form_textarea textarea" name="Accounting[comment]" id="Accounting_comment">asdasdasd</textarea></td>
+            <td width="140">
+                <div class="load_files" id="load_files_9">
+
+                </div>
+                <p class="little"><span class="left"><img src="/themes/buhland/images/skrep.png"><span class="span_load_doc">Загрузить докумет</span><input type="file" class="hidden" name="file"></span><span class="right">+ еще</span></p>
+                <div id="uploadFile_9"><noscript><p>Please enable JavaScript to use file uploader.</p></noscript></div>
+                <input value="5" name="Accounting[parent]" id="Accounting_parent" type="hidden" />    <input id="create_account_submit_9" class="update_account_button" type="submit" name="yt4" value="Сохранить" /></td>
+        </tr>
+    </table>
+
+    </form></td>
+
+
+    </td></tr>
+<tr id="account_row_10">
+    <td width="38" height="95">5</td>
+    <td width="140">sadfasdf</td>
+    <td width="140">Отчет</td>
+    <td width="140">21.05.2014</td>
+    <td width="140">коммент</td>
+    <td width="140"><br><a class="edit_link_account" id="edit_link_account_10" href="#">Редактировать запись</a></td>
+</tr>
+<tr id="account_edit_row_10" class="hide_form_edit_account"><td colspan="6"><td colspan="6">
+
+    <form class="account_update_form" id="account-form-update_10" action="/booker/entrepreneurs/updateaccount/id/10" method="post"><table>
+        <tr>
+
+            <td width="38" height="95">5</td>
+            <td width="140">
+                <label for="Accounting_name" class="required">Наименование документа <span class="required">*</span></label>    <div class="errorMessage" id="Accounting_name_em_" style="display:none"></div>    <input class="account_form_text_input" name="Accounting[name]" id="Accounting_name" type="text" maxlength="255" value="sadfasdf" /></td>
+            <td width="140">
+                <label for="Accounting_type" class="required">Тип <span class="required">*</span></label>    <div class="errorMessage" id="Accounting_type_em_" style="display:none"></div>    <div class="select-wrap">
+                <select width="206px;" name="Accounting[type]" id="Accounting_type">
+                    <option value=""></option>
+                    <option value="1">Счет</option>
+                    <option value="2">Счет-фактура</option>
+                    <option value="3">Договор</option>
+                    <option value="4">Платежное поручение</option>
+                    <option value="5">Декларация</option>
+                    <option value="6" selected="selected">Отчет</option>
+                    <option value="7">Задача бухгалтеру</option>
+                    <option value="8">Прочее</option>
+                </select>    </div>
+            </td>
+            <td width="140">21.05.2014</td>
+            <td width="140">
+                <label for="Accounting_comment">Комментарий</label>    <div class="errorMessage" id="Accounting_comment_em_" style="display:none"></div>    <textarea class="comment_form_textarea textarea" name="Accounting[comment]" id="Accounting_comment">коммент</textarea></td>
+            <td width="140">
+                <div class="load_files" id="load_files_10">
+
+                </div>
+                <p class="little"><span class="left"><img src="/themes/buhland/images/skrep.png"><span class="span_load_doc">Загрузить докумет</span><input type="file" class="hidden" name="file"></span><span class="right">+ еще</span></p>
+                <div id="uploadFile_10"><noscript><p>Please enable JavaScript to use file uploader.</p></noscript></div>
+                <input value="5" name="Accounting[parent]" id="Accounting_parent" type="hidden" />    <input id="create_account_submit_10" class="update_account_button" type="submit" name="yt5" value="Сохранить" /></td>
+        </tr>
+    </table>
+
+    </form></td>
+
+
+    </td></tr>
+<tr id="account_row_11">
+    <td width="38" height="95">6</td>
+    <td width="140">тест</td>
+    <td width="140">Декларация</td>
+    <td width="140">21.05.2014</td>
+    <td width="140">фыва sadf asdf </td>
+    <td width="140"><br><a class="edit_link_account" id="edit_link_account_11" href="#">Редактировать запись</a></td>
+</tr>
+<tr id="account_edit_row_11" class="hide_form_edit_account"><td colspan="6"><td colspan="6">
+
+    <form class="account_update_form" id="account-form-update_11" action="/booker/entrepreneurs/updateaccount/id/11" method="post"><table>
+        <tr>
+
+            <td width="38" height="95">6</td>
+            <td width="140">
+                <label for="Accounting_name" class="required">Наименование документа <span class="required">*</span></label>    <div class="errorMessage" id="Accounting_name_em_" style="display:none"></div>    <input class="account_form_text_input" name="Accounting[name]" id="Accounting_name" type="text" maxlength="255" value="тест" /></td>
+            <td width="140">
+                <label for="Accounting_type" class="required">Тип <span class="required">*</span></label>    <div class="errorMessage" id="Accounting_type_em_" style="display:none"></div>    <div class="select-wrap">
+                <select width="206px;" name="Accounting[type]" id="Accounting_type">
+                    <option value=""></option>
+                    <option value="1">Счет</option>
+                    <option value="2">Счет-фактура</option>
+                    <option value="3">Договор</option>
+                    <option value="4">Платежное поручение</option>
+                    <option value="5" selected="selected">Декларация</option>
+                    <option value="6">Отчет</option>
+                    <option value="7">Задача бухгалтеру</option>
+                    <option value="8">Прочее</option>
+                </select>    </div>
+            </td>
+            <td width="140">21.05.2014</td>
+            <td width="140">
+                <label for="Accounting_comment">Комментарий</label>    <div class="errorMessage" id="Accounting_comment_em_" style="display:none"></div>    <textarea class="comment_form_textarea textarea" name="Accounting[comment]" id="Accounting_comment">фыва sadf asdf </textarea></td>
+            <td width="140">
+                <div class="load_files" id="load_files_11">
+
+                </div>
+                <p class="little"><span class="left"><img src="/themes/buhland/images/skrep.png"><span class="span_load_doc">Загрузить докумет</span><input type="file" class="hidden" name="file"></span><span class="right">+ еще</span></p>
+                <div id="uploadFile_11"><noscript><p>Please enable JavaScript to use file uploader.</p></noscript></div>
+                <input value="5" name="Accounting[parent]" id="Accounting_parent" type="hidden" />    <input id="create_account_submit_11" class="update_account_button" type="submit" name="yt6" value="Сохранить" /></td>
+        </tr>
+    </table>
+
+    </form></td>
+
+
+    </td></tr>
+<tr id="account_row_12">
+    <td width="38" height="95">7</td>
+    <td width="140">тест123123</td>
+    <td width="140">Счет</td>
+    <td width="140">26.05.2014</td>
+    <td width="140">коммент2</td>
+    <td width="140"><br><a class="edit_link_account" id="edit_link_account_12" href="#">Редактировать запись</a></td>
+</tr>
+<tr id="account_edit_row_12" class="hide_form_edit_account"><td colspan="6"><td colspan="6">
+
+    <form class="account_update_form" id="account-form-update_12" action="/booker/entrepreneurs/updateaccount/id/12" method="post"><table>
+        <tr>
+
+            <td width="38" height="95">7</td>
+            <td width="140">
+                <label for="Accounting_name" class="required">Наименование документа <span class="required">*</span></label>    <div class="errorMessage" id="Accounting_name_em_" style="display:none"></div>    <input class="account_form_text_input" name="Accounting[name]" id="Accounting_name" type="text" maxlength="255" value="тест123123" /></td>
+            <td width="140">
+                <label for="Accounting_type" class="required">Тип <span class="required">*</span></label>    <div class="errorMessage" id="Accounting_type_em_" style="display:none"></div>    <div class="select-wrap">
+                <select width="206px;" name="Accounting[type]" id="Accounting_type">
+                    <option value=""></option>
+                    <option value="1" selected="selected">Счет</option>
+                    <option value="2">Счет-фактура</option>
+                    <option value="3">Договор</option>
+                    <option value="4">Платежное поручение</option>
+                    <option value="5">Декларация</option>
+                    <option value="6">Отчет</option>
+                    <option value="7">Задача бухгалтеру</option>
+                    <option value="8">Прочее</option>
+                </select>    </div>
+            </td>
+            <td width="140">26.05.2014</td>
+            <td width="140">
+                <label for="Accounting_comment">Комментарий</label>    <div class="errorMessage" id="Accounting_comment_em_" style="display:none"></div>    <textarea class="comment_form_textarea textarea" name="Accounting[comment]" id="Accounting_comment">коммент2</textarea></td>
+            <td width="140">
+                <div class="load_files" id="load_files_12">
+
+                </div>
+                <p class="little"><span class="left"><img src="/themes/buhland/images/skrep.png"><span class="span_load_doc">Загрузить докумет</span><input type="file" class="hidden" name="file"></span><span class="right">+ еще</span></p>
+                <div id="uploadFile_12"><noscript><p>Please enable JavaScript to use file uploader.</p></noscript></div>
+                <input value="5" name="Accounting[parent]" id="Accounting_parent" type="hidden" />    <input id="create_account_submit_12" class="update_account_button" type="submit" name="yt7" value="Сохранить" /></td>
+        </tr>
+    </table>
+
+    </form></td>
+
+
+    </td></tr>
+<tr id="account_row_13">
+    <td width="38" height="95">8</td>
+    <td width="140">1123123</td>
+    <td width="140">Счет</td>
+    <td width="140">26.05.2014</td>
+    <td width="140">9899998</td>
+    <td width="140"><a href="/site/getfile/18">infiniti-)))))))71.jpg</a><br><a href="/site/getfile/19">kartinka78.jpg</a><br><a href="/site/getfile/20">infiniti-)))))))52.jpg</a><br><a href="/site/getfile/21">kartinka2248.jpg</a><br><br><a class="edit_link_account" id="edit_link_account_13" href="#">Редактировать запись</a></td>
+</tr>
+<tr id="account_edit_row_13" class="hide_form_edit_account"><td colspan="6"><td colspan="6">
+
+    <form class="account_update_form" id="account-form-update_13" action="/booker/entrepreneurs/updateaccount/id/13" method="post"><table>
+        <tr>
+
+            <td width="38" height="95">8</td>
+            <td width="140">
+                <label for="Accounting_name" class="required">Наименование документа <span class="required">*</span></label>    <div class="errorMessage" id="Accounting_name_em_" style="display:none"></div>    <input class="account_form_text_input" name="Accounting[name]" id="Accounting_name" type="text" maxlength="255" value="1123123" /></td>
+            <td width="140">
+                <label for="Accounting_type" class="required">Тип <span class="required">*</span></label>    <div class="errorMessage" id="Accounting_type_em_" style="display:none"></div>    <div class="select-wrap">
+                <select width="206px;" name="Accounting[type]" id="Accounting_type">
+                    <option value=""></option>
+                    <option value="1" selected="selected">Счет</option>
+                    <option value="2">Счет-фактура</option>
+                    <option value="3">Договор</option>
+                    <option value="4">Платежное поручение</option>
+                    <option value="5">Декларация</option>
+                    <option value="6">Отчет</option>
+                    <option value="7">Задача бухгалтеру</option>
+                    <option value="8">Прочее</option>
+                </select>    </div>
+            </td>
+            <td width="140">26.05.2014</td>
+            <td width="140">
+                <label for="Accounting_comment">Комментарий</label>    <div class="errorMessage" id="Accounting_comment_em_" style="display:none"></div>    <textarea class="comment_form_textarea textarea" name="Accounting[comment]" id="Accounting_comment">9899998</textarea></td>
+            <td width="140">
+                <div class="load_files" id="load_files_13">
+
+                </div>
+                <p class="little"><span class="left"><img src="/themes/buhland/images/skrep.png"><span class="span_load_doc">Загрузить докумет</span><input type="file" class="hidden" name="file"></span><span class="right">+ еще</span></p>
+                <div id="uploadFile_13"><noscript><p>Please enable JavaScript to use file uploader.</p></noscript></div>
+                <input value="5" name="Accounting[parent]" id="Accounting_parent" type="hidden" />    <input id="create_account_submit_13" class="update_account_button" type="submit" name="yt8" value="Сохранить" /></td>
+        </tr>
+    </table>
+
+    </form></td>
+
+
+    </td></tr>        </table>
+</div>
+</div>
+</div><!-- content -->
+
+
+</div>
+</div>
+</div>
+<div class="footer">
+    <div class="center">
+        <ul>
+            <li><a href="#">О компании</a></li>
+            <li><a href="#">Контакты</a></li>
+            <li><a href="#">Условия использования</a></li>
+            <li><a href="#">Помощь</a></li>
+            <li><a href="#">Поддержка: 8-800-555-28-31, 8-495-215-18-37</a></li>
+        </ul>
+    </div>
+</div>
+<script type="text/javascript">
+/*<![CDATA[*/
+jQuery(function($) {
+    jQuery('#account-form-create').yiiactiveform({'validateOnSubmit':true,'afterValidate':function(form,data,hasError) {
+        if(!hasError) {
+            $.ajax({
+                "type":"POST",
+                "url":"/booker/entrepreneurs/createaccount",
+                "data":form.serialize(),
+                "success":function(data) {
+                    $("#table_accounting_wrapper").html(data);
+                    $("#success").html("Задача добавлена");
+                    $("#account-form-create").trigger("reset");
+                    $("#load_files").html("");
+                    $(".qq-upload-list li").remove();
+                }
+            });
+        }
+    },'attributes':[{'id':'Accounting_name','inputID':'Accounting_name','errorID':'Accounting_name_em_','model':'Accounting','name':'name','enableAjaxValidation':true,'clientValidation':function(value, messages, attribute) {
+
+        if(jQuery.trim(value)!='') {
+
+            if(value.length>255) {
+                messages.push("\u041d\u0430\u0438\u043c\u0435\u043d\u043e\u0432\u0430\u043d\u0438\u0435 \u0434\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u0430 \u0441\u043b\u0438\u0448\u043a\u043e\u043c \u0434\u043b\u0438\u043d\u043d\u044b\u0439 (\u041c\u0430\u043a\u0441\u0438\u043c\u0443\u043c: 255 \u0441\u0438\u043c\u0432.).");
+            }
+
+        }
+
+
+        if(jQuery.trim(value)=='') {
+            messages.push("\u041d\u0435\u043e\u0431\u0445\u043e\u0434\u0438\u043c\u043e \u0437\u0430\u043f\u043e\u043b\u043d\u0438\u0442\u044c \u043f\u043e\u043b\u0435 \u00ab\u041d\u0430\u0438\u043c\u0435\u043d\u043e\u0432\u0430\u043d\u0438\u0435 \u0434\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u0430\u00bb.");
+        }
+
+    }},{'id':'Accounting_type','inputID':'Accounting_type','errorID':'Accounting_type_em_','model':'Accounting','name':'type','enableAjaxValidation':true,'clientValidation':function(value, messages, attribute) {
+
+        if(jQuery.trim(value)!='') {
+
+            if(!value.match(/^\s*[+-]?\d+\s*$/)) {
+                messages.push("\u0422\u0438\u043f \u0434\u043e\u043b\u0436\u0435\u043d \u0431\u044b\u0442\u044c \u0446\u0435\u043b\u044b\u043c \u0447\u0438\u0441\u043b\u043e\u043c.");
+            }
+
+        }
+
+
+        if(jQuery.trim(value)=='') {
+            messages.push("\u041d\u0435\u043e\u0431\u0445\u043e\u0434\u0438\u043c\u043e \u0437\u0430\u043f\u043e\u043b\u043d\u0438\u0442\u044c \u043f\u043e\u043b\u0435 \u00ab\u0422\u0438\u043f\u00bb.");
+        }
+
+    }},{'id':'Accounting_comment','inputID':'Accounting_comment','errorID':'Accounting_comment_em_','model':'Accounting','name':'comment','enableAjaxValidation':true}],'errorCss':'error'});
+    jQuery('body').on('click','#account_1',function(){if(confirm('Вы уверены, что хотите удалить данную задачу?')) {jQuery.ajax({'type':'get','data':{'id':'1','entrepreneur_id':'5'},'url':'/booker/entrepreneurs/deleteaccount/','cache':false,'success':function(html){jQuery("#table_accounting_wrapper").html(html)}});return false;} else return false;});
+    jQuery('#account-form-update_1').yiiactiveform({'validateOnSubmit':true,'afterValidate':function(form,data,hasError) {
+        if(!hasError) {
+            $.ajax({
+                "type":"POST",
+                "url":"/booker/entrepreneurs/updateaccount/id/1",
+                "data":form.serialize(),
+                "success":function(data) {
+                    console.log("123");
+                    $("#table_accounting_wrapper").html(data);
+                    $(".account_update_form").trigger("reset");
+                    $("#load_files_1").html("");
+                    $(".qq-upload-list li").remove();
+                }
+            });
+        }
+    },'attributes':[{'id':'Accounting_name','inputID':'Accounting_name','errorID':'Accounting_name_em_','model':'Accounting','name':'name','enableAjaxValidation':true,'status':1,'clientValidation':function(value, messages, attribute) {
+
+        if(jQuery.trim(value)!='') {
+
+            if(value.length>255) {
+                messages.push("\u041d\u0430\u0438\u043c\u0435\u043d\u043e\u0432\u0430\u043d\u0438\u0435 \u0434\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u0430 \u0441\u043b\u0438\u0448\u043a\u043e\u043c \u0434\u043b\u0438\u043d\u043d\u044b\u0439 (\u041c\u0430\u043a\u0441\u0438\u043c\u0443\u043c: 255 \u0441\u0438\u043c\u0432.).");
+            }
+
+        }
+
+
+        if(jQuery.trim(value)=='') {
+            messages.push("\u041d\u0435\u043e\u0431\u0445\u043e\u0434\u0438\u043c\u043e \u0437\u0430\u043f\u043e\u043b\u043d\u0438\u0442\u044c \u043f\u043e\u043b\u0435 \u00ab\u041d\u0430\u0438\u043c\u0435\u043d\u043e\u0432\u0430\u043d\u0438\u0435 \u0434\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u0430\u00bb.");
+        }
+
+    }},{'id':'Accounting_type','inputID':'Accounting_type','errorID':'Accounting_type_em_','model':'Accounting','name':'type','enableAjaxValidation':true,'status':1,'clientValidation':function(value, messages, attribute) {
+
+        if(jQuery.trim(value)!='') {
+
+            if(!value.match(/^\s*[+-]?\d+\s*$/)) {
+                messages.push("\u0422\u0438\u043f \u0434\u043e\u043b\u0436\u0435\u043d \u0431\u044b\u0442\u044c \u0446\u0435\u043b\u044b\u043c \u0447\u0438\u0441\u043b\u043e\u043c.");
+            }
+
+        }
+
+
+        if(jQuery.trim(value)=='') {
+            messages.push("\u041d\u0435\u043e\u0431\u0445\u043e\u0434\u0438\u043c\u043e \u0437\u0430\u043f\u043e\u043b\u043d\u0438\u0442\u044c \u043f\u043e\u043b\u0435 \u00ab\u0422\u0438\u043f\u00bb.");
+        }
+
+    }},{'id':'Accounting_comment','inputID':'Accounting_comment','errorID':'Accounting_comment_em_','model':'Accounting','name':'comment','enableAjaxValidation':true,'status':1}],'errorCss':'error'});
+    jQuery('body').on('click','#account_2',function(){if(confirm('Вы уверены, что хотите удалить данную задачу?')) {jQuery.ajax({'type':'get','data':{'id':'2','entrepreneur_id':'5'},'url':'/booker/entrepreneurs/deleteaccount/','cache':false,'success':function(html){jQuery("#table_accounting_wrapper").html(html)}});return false;} else return false;});
+    jQuery('#account-form-update_2').yiiactiveform({'validateOnSubmit':true,'afterValidate':function(form,data,hasError) {
+        if(!hasError) {
+            $.ajax({
+                "type":"POST",
+                "url":"/booker/entrepreneurs/updateaccount/id/2",
+                "data":form.serialize(),
+                "success":function(data) {
+                    console.log("123");
+                    $("#table_accounting_wrapper").html(data);
+                    $(".account_update_form").trigger("reset");
+                    $("#load_files_2").html("");
+                    $(".qq-upload-list li").remove();
+                }
+            });
+        }
+    },'attributes':[{'id':'Accounting_name','inputID':'Accounting_name','errorID':'Accounting_name_em_','model':'Accounting','name':'name','enableAjaxValidation':true,'status':1,'clientValidation':function(value, messages, attribute) {
+
+        if(jQuery.trim(value)!='') {
+
+            if(value.length>255) {
+                messages.push("\u041d\u0430\u0438\u043c\u0435\u043d\u043e\u0432\u0430\u043d\u0438\u0435 \u0434\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u0430 \u0441\u043b\u0438\u0448\u043a\u043e\u043c \u0434\u043b\u0438\u043d\u043d\u044b\u0439 (\u041c\u0430\u043a\u0441\u0438\u043c\u0443\u043c: 255 \u0441\u0438\u043c\u0432.).");
+            }
+
+        }
+
+
+        if(jQuery.trim(value)=='') {
+            messages.push("\u041d\u0435\u043e\u0431\u0445\u043e\u0434\u0438\u043c\u043e \u0437\u0430\u043f\u043e\u043b\u043d\u0438\u0442\u044c \u043f\u043e\u043b\u0435 \u00ab\u041d\u0430\u0438\u043c\u0435\u043d\u043e\u0432\u0430\u043d\u0438\u0435 \u0434\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u0430\u00bb.");
+        }
+
+    }},{'id':'Accounting_type','inputID':'Accounting_type','errorID':'Accounting_type_em_','model':'Accounting','name':'type','enableAjaxValidation':true,'status':1,'clientValidation':function(value, messages, attribute) {
+
+        if(jQuery.trim(value)!='') {
+
+            if(!value.match(/^\s*[+-]?\d+\s*$/)) {
+                messages.push("\u0422\u0438\u043f \u0434\u043e\u043b\u0436\u0435\u043d \u0431\u044b\u0442\u044c \u0446\u0435\u043b\u044b\u043c \u0447\u0438\u0441\u043b\u043e\u043c.");
+            }
+
+        }
+
+
+        if(jQuery.trim(value)=='') {
+            messages.push("\u041d\u0435\u043e\u0431\u0445\u043e\u0434\u0438\u043c\u043e \u0437\u0430\u043f\u043e\u043b\u043d\u0438\u0442\u044c \u043f\u043e\u043b\u0435 \u00ab\u0422\u0438\u043f\u00bb.");
+        }
+
+    }},{'id':'Accounting_comment','inputID':'Accounting_comment','errorID':'Accounting_comment_em_','model':'Accounting','name':'comment','enableAjaxValidation':true,'status':1}],'errorCss':'error'});
+    jQuery('body').on('click','#account_5',function(){if(confirm('Вы уверены, что хотите удалить данную задачу?')) {jQuery.ajax({'type':'get','data':{'id':'5','entrepreneur_id':'5'},'url':'/booker/entrepreneurs/deleteaccount/','cache':false,'success':function(html){jQuery("#table_accounting_wrapper").html(html)}});return false;} else return false;});
+    jQuery('#account-form-update_5').yiiactiveform({'validateOnSubmit':true,'afterValidate':function(form,data,hasError) {
+        if(!hasError) {
+            $.ajax({
+                "type":"POST",
+                "url":"/booker/entrepreneurs/updateaccount/id/5",
+                "data":form.serialize(),
+                "success":function(data) {
+                    console.log("123");
+                    $("#table_accounting_wrapper").html(data);
+                    $(".account_update_form").trigger("reset");
+                    $("#load_files_5").html("");
+                    $(".qq-upload-list li").remove();
+                }
+            });
+        }
+    },'attributes':[{'id':'Accounting_name','inputID':'Accounting_name','errorID':'Accounting_name_em_','model':'Accounting','name':'name','enableAjaxValidation':true,'status':1,'clientValidation':function(value, messages, attribute) {
+
+        if(jQuery.trim(value)!='') {
+
+            if(value.length>255) {
+                messages.push("\u041d\u0430\u0438\u043c\u0435\u043d\u043e\u0432\u0430\u043d\u0438\u0435 \u0434\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u0430 \u0441\u043b\u0438\u0448\u043a\u043e\u043c \u0434\u043b\u0438\u043d\u043d\u044b\u0439 (\u041c\u0430\u043a\u0441\u0438\u043c\u0443\u043c: 255 \u0441\u0438\u043c\u0432.).");
+            }
+
+        }
+
+
+        if(jQuery.trim(value)=='') {
+            messages.push("\u041d\u0435\u043e\u0431\u0445\u043e\u0434\u0438\u043c\u043e \u0437\u0430\u043f\u043e\u043b\u043d\u0438\u0442\u044c \u043f\u043e\u043b\u0435 \u00ab\u041d\u0430\u0438\u043c\u0435\u043d\u043e\u0432\u0430\u043d\u0438\u0435 \u0434\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u0430\u00bb.");
+        }
+
+    }},{'id':'Accounting_type','inputID':'Accounting_type','errorID':'Accounting_type_em_','model':'Accounting','name':'type','enableAjaxValidation':true,'status':1,'clientValidation':function(value, messages, attribute) {
+
+        if(jQuery.trim(value)!='') {
+
+            if(!value.match(/^\s*[+-]?\d+\s*$/)) {
+                messages.push("\u0422\u0438\u043f \u0434\u043e\u043b\u0436\u0435\u043d \u0431\u044b\u0442\u044c \u0446\u0435\u043b\u044b\u043c \u0447\u0438\u0441\u043b\u043e\u043c.");
+            }
+
+        }
+
+
+        if(jQuery.trim(value)=='') {
+            messages.push("\u041d\u0435\u043e\u0431\u0445\u043e\u0434\u0438\u043c\u043e \u0437\u0430\u043f\u043e\u043b\u043d\u0438\u0442\u044c \u043f\u043e\u043b\u0435 \u00ab\u0422\u0438\u043f\u00bb.");
+        }
+
+    }},{'id':'Accounting_comment','inputID':'Accounting_comment','errorID':'Accounting_comment_em_','model':'Accounting','name':'comment','enableAjaxValidation':true,'status':1}],'errorCss':'error'});
+    jQuery('body').on('click','#account_9',function(){if(confirm('Вы уверены, что хотите удалить данную задачу?')) {jQuery.ajax({'type':'get','data':{'id':'9','entrepreneur_id':'5'},'url':'/booker/entrepreneurs/deleteaccount/','cache':false,'success':function(html){jQuery("#table_accounting_wrapper").html(html)}});return false;} else return false;});
+    jQuery('#account-form-update_9').yiiactiveform({'validateOnSubmit':true,'afterValidate':function(form,data,hasError) {
+        if(!hasError) {
+            $.ajax({
+                "type":"POST",
+                "url":"/booker/entrepreneurs/updateaccount/id/9",
+                "data":form.serialize(),
+                "success":function(data) {
+                    console.log("123");
+                    $("#table_accounting_wrapper").html(data);
+                    $(".account_update_form").trigger("reset");
+                    $("#load_files_9").html("");
+                    $(".qq-upload-list li").remove();
+                }
+            });
+        }
+    },'attributes':[{'id':'Accounting_name','inputID':'Accounting_name','errorID':'Accounting_name_em_','model':'Accounting','name':'name','enableAjaxValidation':true,'status':1,'clientValidation':function(value, messages, attribute) {
+
+        if(jQuery.trim(value)!='') {
+
+            if(value.length>255) {
+                messages.push("\u041d\u0430\u0438\u043c\u0435\u043d\u043e\u0432\u0430\u043d\u0438\u0435 \u0434\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u0430 \u0441\u043b\u0438\u0448\u043a\u043e\u043c \u0434\u043b\u0438\u043d\u043d\u044b\u0439 (\u041c\u0430\u043a\u0441\u0438\u043c\u0443\u043c: 255 \u0441\u0438\u043c\u0432.).");
+            }
+
+        }
+
+
+        if(jQuery.trim(value)=='') {
+            messages.push("\u041d\u0435\u043e\u0431\u0445\u043e\u0434\u0438\u043c\u043e \u0437\u0430\u043f\u043e\u043b\u043d\u0438\u0442\u044c \u043f\u043e\u043b\u0435 \u00ab\u041d\u0430\u0438\u043c\u0435\u043d\u043e\u0432\u0430\u043d\u0438\u0435 \u0434\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u0430\u00bb.");
+        }
+
+    }},{'id':'Accounting_type','inputID':'Accounting_type','errorID':'Accounting_type_em_','model':'Accounting','name':'type','enableAjaxValidation':true,'status':1,'clientValidation':function(value, messages, attribute) {
+
+        if(jQuery.trim(value)!='') {
+
+            if(!value.match(/^\s*[+-]?\d+\s*$/)) {
+                messages.push("\u0422\u0438\u043f \u0434\u043e\u043b\u0436\u0435\u043d \u0431\u044b\u0442\u044c \u0446\u0435\u043b\u044b\u043c \u0447\u0438\u0441\u043b\u043e\u043c.");
+            }
+
+        }
+
+
+        if(jQuery.trim(value)=='') {
+            messages.push("\u041d\u0435\u043e\u0431\u0445\u043e\u0434\u0438\u043c\u043e \u0437\u0430\u043f\u043e\u043b\u043d\u0438\u0442\u044c \u043f\u043e\u043b\u0435 \u00ab\u0422\u0438\u043f\u00bb.");
+        }
+
+    }},{'id':'Accounting_comment','inputID':'Accounting_comment','errorID':'Accounting_comment_em_','model':'Accounting','name':'comment','enableAjaxValidation':true,'status':1}],'errorCss':'error'});
+    jQuery('body').on('click','#account_10',function(){if(confirm('Вы уверены, что хотите удалить данную задачу?')) {jQuery.ajax({'type':'get','data':{'id':'10','entrepreneur_id':'5'},'url':'/booker/entrepreneurs/deleteaccount/','cache':false,'success':function(html){jQuery("#table_accounting_wrapper").html(html)}});return false;} else return false;});
+    jQuery('#account-form-update_10').yiiactiveform({'validateOnSubmit':true,'afterValidate':function(form,data,hasError) {
+        if(!hasError) {
+            $.ajax({
+                "type":"POST",
+                "url":"/booker/entrepreneurs/updateaccount/id/10",
+                "data":form.serialize(),
+                "success":function(data) {
+                    console.log("123");
+                    $("#table_accounting_wrapper").html(data);
+                    $(".account_update_form").trigger("reset");
+                    $("#load_files_10").html("");
+                    $(".qq-upload-list li").remove();
+                }
+            });
+        }
+    },'attributes':[{'id':'Accounting_name','inputID':'Accounting_name','errorID':'Accounting_name_em_','model':'Accounting','name':'name','enableAjaxValidation':true,'status':1,'clientValidation':function(value, messages, attribute) {
+
+        if(jQuery.trim(value)!='') {
+
+            if(value.length>255) {
+                messages.push("\u041d\u0430\u0438\u043c\u0435\u043d\u043e\u0432\u0430\u043d\u0438\u0435 \u0434\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u0430 \u0441\u043b\u0438\u0448\u043a\u043e\u043c \u0434\u043b\u0438\u043d\u043d\u044b\u0439 (\u041c\u0430\u043a\u0441\u0438\u043c\u0443\u043c: 255 \u0441\u0438\u043c\u0432.).");
+            }
+
+        }
+
+
+        if(jQuery.trim(value)=='') {
+            messages.push("\u041d\u0435\u043e\u0431\u0445\u043e\u0434\u0438\u043c\u043e \u0437\u0430\u043f\u043e\u043b\u043d\u0438\u0442\u044c \u043f\u043e\u043b\u0435 \u00ab\u041d\u0430\u0438\u043c\u0435\u043d\u043e\u0432\u0430\u043d\u0438\u0435 \u0434\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u0430\u00bb.");
+        }
+
+    }},{'id':'Accounting_type','inputID':'Accounting_type','errorID':'Accounting_type_em_','model':'Accounting','name':'type','enableAjaxValidation':true,'status':1,'clientValidation':function(value, messages, attribute) {
+
+        if(jQuery.trim(value)!='') {
+
+            if(!value.match(/^\s*[+-]?\d+\s*$/)) {
+                messages.push("\u0422\u0438\u043f \u0434\u043e\u043b\u0436\u0435\u043d \u0431\u044b\u0442\u044c \u0446\u0435\u043b\u044b\u043c \u0447\u0438\u0441\u043b\u043e\u043c.");
+            }
+
+        }
+
+
+        if(jQuery.trim(value)=='') {
+            messages.push("\u041d\u0435\u043e\u0431\u0445\u043e\u0434\u0438\u043c\u043e \u0437\u0430\u043f\u043e\u043b\u043d\u0438\u0442\u044c \u043f\u043e\u043b\u0435 \u00ab\u0422\u0438\u043f\u00bb.");
+        }
+
+    }},{'id':'Accounting_comment','inputID':'Accounting_comment','errorID':'Accounting_comment_em_','model':'Accounting','name':'comment','enableAjaxValidation':true,'status':1}],'errorCss':'error'});
+    jQuery('body').on('click','#account_11',function(){if(confirm('Вы уверены, что хотите удалить данную задачу?')) {jQuery.ajax({'type':'get','data':{'id':'11','entrepreneur_id':'5'},'url':'/booker/entrepreneurs/deleteaccount/','cache':false,'success':function(html){jQuery("#table_accounting_wrapper").html(html)}});return false;} else return false;});
+    jQuery('#account-form-update_11').yiiactiveform({'validateOnSubmit':true,'afterValidate':function(form,data,hasError) {
+        if(!hasError) {
+            $.ajax({
+                "type":"POST",
+                "url":"/booker/entrepreneurs/updateaccount/id/11",
+                "data":form.serialize(),
+                "success":function(data) {
+                    console.log("123");
+                    $("#table_accounting_wrapper").html(data);
+                    $(".account_update_form").trigger("reset");
+                    $("#load_files_11").html("");
+                    $(".qq-upload-list li").remove();
+                }
+            });
+        }
+    },'attributes':[{'id':'Accounting_name','inputID':'Accounting_name','errorID':'Accounting_name_em_','model':'Accounting','name':'name','enableAjaxValidation':true,'status':1,'clientValidation':function(value, messages, attribute) {
+
+        if(jQuery.trim(value)!='') {
+
+            if(value.length>255) {
+                messages.push("\u041d\u0430\u0438\u043c\u0435\u043d\u043e\u0432\u0430\u043d\u0438\u0435 \u0434\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u0430 \u0441\u043b\u0438\u0448\u043a\u043e\u043c \u0434\u043b\u0438\u043d\u043d\u044b\u0439 (\u041c\u0430\u043a\u0441\u0438\u043c\u0443\u043c: 255 \u0441\u0438\u043c\u0432.).");
+            }
+
+        }
+
+
+        if(jQuery.trim(value)=='') {
+            messages.push("\u041d\u0435\u043e\u0431\u0445\u043e\u0434\u0438\u043c\u043e \u0437\u0430\u043f\u043e\u043b\u043d\u0438\u0442\u044c \u043f\u043e\u043b\u0435 \u00ab\u041d\u0430\u0438\u043c\u0435\u043d\u043e\u0432\u0430\u043d\u0438\u0435 \u0434\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u0430\u00bb.");
+        }
+
+    }},{'id':'Accounting_type','inputID':'Accounting_type','errorID':'Accounting_type_em_','model':'Accounting','name':'type','enableAjaxValidation':true,'status':1,'clientValidation':function(value, messages, attribute) {
+
+        if(jQuery.trim(value)!='') {
+
+            if(!value.match(/^\s*[+-]?\d+\s*$/)) {
+                messages.push("\u0422\u0438\u043f \u0434\u043e\u043b\u0436\u0435\u043d \u0431\u044b\u0442\u044c \u0446\u0435\u043b\u044b\u043c \u0447\u0438\u0441\u043b\u043e\u043c.");
+            }
+
+        }
+
+
+        if(jQuery.trim(value)=='') {
+            messages.push("\u041d\u0435\u043e\u0431\u0445\u043e\u0434\u0438\u043c\u043e \u0437\u0430\u043f\u043e\u043b\u043d\u0438\u0442\u044c \u043f\u043e\u043b\u0435 \u00ab\u0422\u0438\u043f\u00bb.");
+        }
+
+    }},{'id':'Accounting_comment','inputID':'Accounting_comment','errorID':'Accounting_comment_em_','model':'Accounting','name':'comment','enableAjaxValidation':true,'status':1}],'errorCss':'error'});
+    jQuery('body').on('click','#account_12',function(){if(confirm('Вы уверены, что хотите удалить данную задачу?')) {jQuery.ajax({'type':'get','data':{'id':'12','entrepreneur_id':'5'},'url':'/booker/entrepreneurs/deleteaccount/','cache':false,'success':function(html){jQuery("#table_accounting_wrapper").html(html)}});return false;} else return false;});
+    jQuery('#account-form-update_12').yiiactiveform({'validateOnSubmit':true,'afterValidate':function(form,data,hasError) {
+        if(!hasError) {
+            $.ajax({
+                "type":"POST",
+                "url":"/booker/entrepreneurs/updateaccount/id/12",
+                "data":form.serialize(),
+                "success":function(data) {
+                    console.log("123");
+                    $("#table_accounting_wrapper").html(data);
+                    $(".account_update_form").trigger("reset");
+                    $("#load_files_12").html("");
+                    $(".qq-upload-list li").remove();
+                }
+            });
+        }
+    },'attributes':[{'id':'Accounting_name','inputID':'Accounting_name','errorID':'Accounting_name_em_','model':'Accounting','name':'name','enableAjaxValidation':true,'status':1,'clientValidation':function(value, messages, attribute) {
+
+        if(jQuery.trim(value)!='') {
+
+            if(value.length>255) {
+                messages.push("\u041d\u0430\u0438\u043c\u0435\u043d\u043e\u0432\u0430\u043d\u0438\u0435 \u0434\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u0430 \u0441\u043b\u0438\u0448\u043a\u043e\u043c \u0434\u043b\u0438\u043d\u043d\u044b\u0439 (\u041c\u0430\u043a\u0441\u0438\u043c\u0443\u043c: 255 \u0441\u0438\u043c\u0432.).");
+            }
+
+        }
+
+
+        if(jQuery.trim(value)=='') {
+            messages.push("\u041d\u0435\u043e\u0431\u0445\u043e\u0434\u0438\u043c\u043e \u0437\u0430\u043f\u043e\u043b\u043d\u0438\u0442\u044c \u043f\u043e\u043b\u0435 \u00ab\u041d\u0430\u0438\u043c\u0435\u043d\u043e\u0432\u0430\u043d\u0438\u0435 \u0434\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u0430\u00bb.");
+        }
+
+    }},{'id':'Accounting_type','inputID':'Accounting_type','errorID':'Accounting_type_em_','model':'Accounting','name':'type','enableAjaxValidation':true,'status':1,'clientValidation':function(value, messages, attribute) {
+
+        if(jQuery.trim(value)!='') {
+
+            if(!value.match(/^\s*[+-]?\d+\s*$/)) {
+                messages.push("\u0422\u0438\u043f \u0434\u043e\u043b\u0436\u0435\u043d \u0431\u044b\u0442\u044c \u0446\u0435\u043b\u044b\u043c \u0447\u0438\u0441\u043b\u043e\u043c.");
+            }
+
+        }
+
+
+        if(jQuery.trim(value)=='') {
+            messages.push("\u041d\u0435\u043e\u0431\u0445\u043e\u0434\u0438\u043c\u043e \u0437\u0430\u043f\u043e\u043b\u043d\u0438\u0442\u044c \u043f\u043e\u043b\u0435 \u00ab\u0422\u0438\u043f\u00bb.");
+        }
+
+    }},{'id':'Accounting_comment','inputID':'Accounting_comment','errorID':'Accounting_comment_em_','model':'Accounting','name':'comment','enableAjaxValidation':true,'status':1}],'errorCss':'error'});
+    jQuery('body').on('click','#account_13',function(){if(confirm('Вы уверены, что хотите удалить данную задачу?')) {jQuery.ajax({'type':'get','data':{'id':'13','entrepreneur_id':'5'},'url':'/booker/entrepreneurs/deleteaccount/','cache':false,'success':function(html){jQuery("#table_accounting_wrapper").html(html)}});return false;} else return false;});
+    jQuery('#account-form-update_13').yiiactiveform({'validateOnSubmit':true,'afterValidate':function(form,data,hasError) {
+        if(!hasError) {
+            $.ajax({
+                "type":"POST",
+                "url":"/booker/entrepreneurs/updateaccount/id/13",
+                "data":form.serialize(),
+                "success":function(data) {
+                    console.log("123");
+                    $("#table_accounting_wrapper").html(data);
+                    $(".account_update_form").trigger("reset");
+                    $("#load_files_13").html("");
+                    $(".qq-upload-list li").remove();
+                }
+            });
+        }
+    },'attributes':[{'id':'Accounting_name','inputID':'Accounting_name','errorID':'Accounting_name_em_','model':'Accounting','name':'name','enableAjaxValidation':true,'status':1,'clientValidation':function(value, messages, attribute) {
+
+        if(jQuery.trim(value)!='') {
+
+            if(value.length>255) {
+                messages.push("\u041d\u0430\u0438\u043c\u0435\u043d\u043e\u0432\u0430\u043d\u0438\u0435 \u0434\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u0430 \u0441\u043b\u0438\u0448\u043a\u043e\u043c \u0434\u043b\u0438\u043d\u043d\u044b\u0439 (\u041c\u0430\u043a\u0441\u0438\u043c\u0443\u043c: 255 \u0441\u0438\u043c\u0432.).");
+            }
+
+        }
+
+
+        if(jQuery.trim(value)=='') {
+            messages.push("\u041d\u0435\u043e\u0431\u0445\u043e\u0434\u0438\u043c\u043e \u0437\u0430\u043f\u043e\u043b\u043d\u0438\u0442\u044c \u043f\u043e\u043b\u0435 \u00ab\u041d\u0430\u0438\u043c\u0435\u043d\u043e\u0432\u0430\u043d\u0438\u0435 \u0434\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u0430\u00bb.");
+        }
+
+    }},{'id':'Accounting_type','inputID':'Accounting_type','errorID':'Accounting_type_em_','model':'Accounting','name':'type','enableAjaxValidation':true,'status':1,'clientValidation':function(value, messages, attribute) {
+
+        if(jQuery.trim(value)!='') {
+
+            if(!value.match(/^\s*[+-]?\d+\s*$/)) {
+                messages.push("\u0422\u0438\u043f \u0434\u043e\u043b\u0436\u0435\u043d \u0431\u044b\u0442\u044c \u0446\u0435\u043b\u044b\u043c \u0447\u0438\u0441\u043b\u043e\u043c.");
+            }
+
+        }
+
+
+        if(jQuery.trim(value)=='') {
+            messages.push("\u041d\u0435\u043e\u0431\u0445\u043e\u0434\u0438\u043c\u043e \u0437\u0430\u043f\u043e\u043b\u043d\u0438\u0442\u044c \u043f\u043e\u043b\u0435 \u00ab\u0422\u0438\u043f\u00bb.");
+        }
+
+    }},{'id':'Accounting_comment','inputID':'Accounting_comment','errorID':'Accounting_comment_em_','model':'Accounting','name':'comment','enableAjaxValidation':true,'status':1}],'errorCss':'error'});
+});
+jQuery(window).on('load',function() {
+    var FileUploader_uploadFile = new qq.FileUploader({'element':document.getElementById("uploadFile"),'debug':false,'multiple':false,'action':'/site/upload','allowedExtensions':['jpg','jpeg','gif','exe','mov','mp4','txt','doc','pdf','xls','3gp','php','ini','avi','rar','zip','png'],'sizeLimit':1048576000,'minSizeLimit':1024,'auto':false,'onComplete':function(id, fileName, responseJSON){
+        if(responseJSON.success == true) {
+            $('#load_files').append('<input type="hidden" name="Accounting[file][]" value="' + responseJSON.filename + '">');
+        }
+    },'messages':{'typeError':'{file} не допустимое расширение. Только {extensions} разрешены.','sizeError':'{file} очень большой, максимальный размер файла {sizeLimit}.','minSizeError':'{file} очень маленький, минимальный размер файла {minSizeLimit}.','emptyError':'{file} пуст, пожалуйста выберите файлы и повторите снова.','onLeave':'Файл загружается, если вы оставите сейчас загрузка будет отменена.'},'showMessage':function(message){ alert(message); },'params':{'PHPSESSID':'o7rslk5ajh2t50isdnblm0k5p4','YII_CSRF_TOKEN':'2ef6963e9212880a1ca696dded520e28a45c2cbb'}});
+    var FileUploader_uploadFile_1 = new qq.FileUploader({'element':document.getElementById("uploadFile_1"),'debug':false,'multiple':false,'action':'/site/upload','allowedExtensions':['jpg','jpeg','gif','exe','mov','mp4','txt','doc','pdf','xls','3gp','php','ini','avi','rar','zip','png'],'sizeLimit':1048576000,'minSizeLimit':1024,'auto':false,'onComplete':function(id, fileName, responseJSON){
+        if(responseJSON.success == true) {
+            $('#load_files_1').append('<input type="hidden" name="Accounting[file][]" value="' + responseJSON.filename + '">');
+        }
+    },'messages':{'typeError':'{file} не допустимое расширение. Только {extensions} разрешены.','sizeError':'{file} очень большой, максимальный размер файла {sizeLimit}.','minSizeError':'{file} очень маленький, минимальный размер файла {minSizeLimit}.','emptyError':'{file} пуст, пожалуйста выберите файлы и повторите снова.','onLeave':'Файл загружается, если вы оставите сейчас загрузка будет отменена.'},'showMessage':function(message){ alert(message); },'params':{'PHPSESSID':'o7rslk5ajh2t50isdnblm0k5p4','YII_CSRF_TOKEN':'2ef6963e9212880a1ca696dded520e28a45c2cbb'}});
+    var FileUploader_uploadFile_2 = new qq.FileUploader({'element':document.getElementById("uploadFile_2"),'debug':false,'multiple':false,'action':'/site/upload','allowedExtensions':['jpg','jpeg','gif','exe','mov','mp4','txt','doc','pdf','xls','3gp','php','ini','avi','rar','zip','png'],'sizeLimit':1048576000,'minSizeLimit':1024,'auto':false,'onComplete':function(id, fileName, responseJSON){
+        if(responseJSON.success == true) {
+            $('#load_files_2').append('<input type="hidden" name="Accounting[file][]" value="' + responseJSON.filename + '">');
+        }
+    },'messages':{'typeError':'{file} не допустимое расширение. Только {extensions} разрешены.','sizeError':'{file} очень большой, максимальный размер файла {sizeLimit}.','minSizeError':'{file} очень маленький, минимальный размер файла {minSizeLimit}.','emptyError':'{file} пуст, пожалуйста выберите файлы и повторите снова.','onLeave':'Файл загружается, если вы оставите сейчас загрузка будет отменена.'},'showMessage':function(message){ alert(message); },'params':{'PHPSESSID':'o7rslk5ajh2t50isdnblm0k5p4','YII_CSRF_TOKEN':'2ef6963e9212880a1ca696dded520e28a45c2cbb'}});
+    var FileUploader_uploadFile_5 = new qq.FileUploader({'element':document.getElementById("uploadFile_5"),'debug':false,'multiple':false,'action':'/site/upload','allowedExtensions':['jpg','jpeg','gif','exe','mov','mp4','txt','doc','pdf','xls','3gp','php','ini','avi','rar','zip','png'],'sizeLimit':1048576000,'minSizeLimit':1024,'auto':false,'onComplete':function(id, fileName, responseJSON){
+        if(responseJSON.success == true) {
+            $('#load_files_5').append('<input type="hidden" name="Accounting[file][]" value="' + responseJSON.filename + '">');
+        }
+    },'messages':{'typeError':'{file} не допустимое расширение. Только {extensions} разрешены.','sizeError':'{file} очень большой, максимальный размер файла {sizeLimit}.','minSizeError':'{file} очень маленький, минимальный размер файла {minSizeLimit}.','emptyError':'{file} пуст, пожалуйста выберите файлы и повторите снова.','onLeave':'Файл загружается, если вы оставите сейчас загрузка будет отменена.'},'showMessage':function(message){ alert(message); },'params':{'PHPSESSID':'o7rslk5ajh2t50isdnblm0k5p4','YII_CSRF_TOKEN':'2ef6963e9212880a1ca696dded520e28a45c2cbb'}});
+    var FileUploader_uploadFile_9 = new qq.FileUploader({'element':document.getElementById("uploadFile_9"),'debug':false,'multiple':false,'action':'/site/upload','allowedExtensions':['jpg','jpeg','gif','exe','mov','mp4','txt','doc','pdf','xls','3gp','php','ini','avi','rar','zip','png'],'sizeLimit':1048576000,'minSizeLimit':1024,'auto':false,'onComplete':function(id, fileName, responseJSON){
+        if(responseJSON.success == true) {
+            $('#load_files_9').append('<input type="hidden" name="Accounting[file][]" value="' + responseJSON.filename + '">');
+        }
+    },'messages':{'typeError':'{file} не допустимое расширение. Только {extensions} разрешены.','sizeError':'{file} очень большой, максимальный размер файла {sizeLimit}.','minSizeError':'{file} очень маленький, минимальный размер файла {minSizeLimit}.','emptyError':'{file} пуст, пожалуйста выберите файлы и повторите снова.','onLeave':'Файл загружается, если вы оставите сейчас загрузка будет отменена.'},'showMessage':function(message){ alert(message); },'params':{'PHPSESSID':'o7rslk5ajh2t50isdnblm0k5p4','YII_CSRF_TOKEN':'2ef6963e9212880a1ca696dded520e28a45c2cbb'}});
+    var FileUploader_uploadFile_10 = new qq.FileUploader({'element':document.getElementById("uploadFile_10"),'debug':false,'multiple':false,'action':'/site/upload','allowedExtensions':['jpg','jpeg','gif','exe','mov','mp4','txt','doc','pdf','xls','3gp','php','ini','avi','rar','zip','png'],'sizeLimit':1048576000,'minSizeLimit':1024,'auto':false,'onComplete':function(id, fileName, responseJSON){
+        if(responseJSON.success == true) {
+            $('#load_files_10').append('<input type="hidden" name="Accounting[file][]" value="' + responseJSON.filename + '">');
+        }
+    },'messages':{'typeError':'{file} не допустимое расширение. Только {extensions} разрешены.','sizeError':'{file} очень большой, максимальный размер файла {sizeLimit}.','minSizeError':'{file} очень маленький, минимальный размер файла {minSizeLimit}.','emptyError':'{file} пуст, пожалуйста выберите файлы и повторите снова.','onLeave':'Файл загружается, если вы оставите сейчас загрузка будет отменена.'},'showMessage':function(message){ alert(message); },'params':{'PHPSESSID':'o7rslk5ajh2t50isdnblm0k5p4','YII_CSRF_TOKEN':'2ef6963e9212880a1ca696dded520e28a45c2cbb'}});
+    var FileUploader_uploadFile_11 = new qq.FileUploader({'element':document.getElementById("uploadFile_11"),'debug':false,'multiple':false,'action':'/site/upload','allowedExtensions':['jpg','jpeg','gif','exe','mov','mp4','txt','doc','pdf','xls','3gp','php','ini','avi','rar','zip','png'],'sizeLimit':1048576000,'minSizeLimit':1024,'auto':false,'onComplete':function(id, fileName, responseJSON){
+        if(responseJSON.success == true) {
+            $('#load_files_11').append('<input type="hidden" name="Accounting[file][]" value="' + responseJSON.filename + '">');
+        }
+    },'messages':{'typeError':'{file} не допустимое расширение. Только {extensions} разрешены.','sizeError':'{file} очень большой, максимальный размер файла {sizeLimit}.','minSizeError':'{file} очень маленький, минимальный размер файла {minSizeLimit}.','emptyError':'{file} пуст, пожалуйста выберите файлы и повторите снова.','onLeave':'Файл загружается, если вы оставите сейчас загрузка будет отменена.'},'showMessage':function(message){ alert(message); },'params':{'PHPSESSID':'o7rslk5ajh2t50isdnblm0k5p4','YII_CSRF_TOKEN':'2ef6963e9212880a1ca696dded520e28a45c2cbb'}});
+    var FileUploader_uploadFile_12 = new qq.FileUploader({'element':document.getElementById("uploadFile_12"),'debug':false,'multiple':false,'action':'/site/upload','allowedExtensions':['jpg','jpeg','gif','exe','mov','mp4','txt','doc','pdf','xls','3gp','php','ini','avi','rar','zip','png'],'sizeLimit':1048576000,'minSizeLimit':1024,'auto':false,'onComplete':function(id, fileName, responseJSON){
+        if(responseJSON.success == true) {
+            $('#load_files_12').append('<input type="hidden" name="Accounting[file][]" value="' + responseJSON.filename + '">');
+        }
+    },'messages':{'typeError':'{file} не допустимое расширение. Только {extensions} разрешены.','sizeError':'{file} очень большой, максимальный размер файла {sizeLimit}.','minSizeError':'{file} очень маленький, минимальный размер файла {minSizeLimit}.','emptyError':'{file} пуст, пожалуйста выберите файлы и повторите снова.','onLeave':'Файл загружается, если вы оставите сейчас загрузка будет отменена.'},'showMessage':function(message){ alert(message); },'params':{'PHPSESSID':'o7rslk5ajh2t50isdnblm0k5p4','YII_CSRF_TOKEN':'2ef6963e9212880a1ca696dded520e28a45c2cbb'}});
+    var FileUploader_uploadFile_13 = new qq.FileUploader({'element':document.getElementById("uploadFile_13"),'debug':false,'multiple':false,'action':'/site/upload','allowedExtensions':['jpg','jpeg','gif','exe','mov','mp4','txt','doc','pdf','xls','3gp','php','ini','avi','rar','zip','png'],'sizeLimit':1048576000,'minSizeLimit':1024,'auto':false,'onComplete':function(id, fileName, responseJSON){
+        if(responseJSON.success == true) {
+            $('#load_files_13').append('<input type="hidden" name="Accounting[file][]" value="' + responseJSON.filename + '">');
+        }
+    },'messages':{'typeError':'{file} не допустимое расширение. Только {extensions} разрешены.','sizeError':'{file} очень большой, максимальный размер файла {sizeLimit}.','minSizeError':'{file} очень маленький, минимальный размер файла {minSizeLimit}.','emptyError':'{file} пуст, пожалуйста выберите файлы и повторите снова.','onLeave':'Файл загружается, если вы оставите сейчас загрузка будет отменена.'},'showMessage':function(message){ alert(message); },'params':{'PHPSESSID':'o7rslk5ajh2t50isdnblm0k5p4','YII_CSRF_TOKEN':'2ef6963e9212880a1ca696dded520e28a45c2cbb'}});
+});
+/*]]>*/
+</script>
+</body>
+</html>
+
+
+
+
+
+

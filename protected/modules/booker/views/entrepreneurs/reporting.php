@@ -30,7 +30,7 @@ $this->menu = array(
         ?>
         <input type="hidden" name="filter" value="1"/>
         <div class="select-wrap">
-                <?php echo $form->dropDownList($reportsModel,'status', array('' => '', '1' => 'Отправлено на оплату', '2' => 'Ожидает подтверждения')); ?>
+                <?php echo $form->dropDownList($reportsModel,'status', array('' => '', '1' => 'Отправлено на оплату', '2' => 'Ожидает подтверждения'), array('class' => 'drop_down_select_head')); ?>
         </div>
         <div class="date">
             <span>Дата изменения с</span>
@@ -66,9 +66,11 @@ $this->menu = array(
                 foreach($reports as $report) {
                     $files_str = '';
                     if(count($report->files)) {
+                        $files_str .= '<ul>';
                         foreach($report->files as $file) {
-                            $files_str .= CHtml::link($file->attributes['file'], array('/site/getfile/', 'id' => $file->attributes['id'])) . '<br>';
+                            $files_str .= '<li>'.CHtml::link($file->attributes['file'], array('/site/getfile/', 'id' => $file->attributes['id']), array('class' => 'download_file')) . '</li>';
                         }
+                        $files_str .= '</ul>';
                     }
 
                     $update = date('d.m.Y', $report->date_update);
@@ -102,11 +104,7 @@ $this->menu = array(
                         <td width="38" height="95">'.$key.'</td>
                         <td width="140">'.$report->name.'</td>
                         <td width="140">'.$report->comment.'</td>
-                        <td width="140">'.$files_str.'
-                            <ul>
-                                <li><a class="download" href="#"></a></li>
-                            </ul>
-                        </td>
+                        <td width="140">'.$files_str.'</td>
                         <td width="140">'.$update.'</td>
                         <td width="140">
                             '.$status_text.$delete_link.'

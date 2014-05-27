@@ -29,7 +29,7 @@ $this->menu = array(
         ?>
         <input type="hidden" name="filter" value="1"/>
         <div class="select-wrap">
-                <?php echo $form->dropDownList($reportsModel,'status', array('' => '', '1' => 'Отправлено на оплату', '2' => 'Ожидает подтверждения')); ?>
+                <?php echo $form->dropDownList($reportsModel,'status', array('' => '', '1' => 'Отправлено на оплату', '2' => 'Ожидает подтверждения'), array('class' => 'drop_down_select_head')); ?>
         </div>
         <div class="date">
             <span>Дата изменения с</span>
@@ -92,7 +92,24 @@ $this->menu = array(
                         array('class' => 'delete','confirm'=>'Вы уверены, что хотите удалить данный прогноз?')
                     );
 
-
+                    if($report->status == 2) {
+                        $confirm_status_link = CHtml::ajaxLink(
+                            'Подтвердить',
+                            '/entrepreneur/default/confirmreport/',
+                            array(
+                                'type' => 'get',
+                                'data' => array(
+                                    'id' => $report->id,
+                                    'entrepreneur_id' => $entrepreneur_id,
+                                    'confirm' => 1
+                                ),
+                                'update'=>'#table_reports_wrapper'
+                            ),
+                            array('class' => 'delete')
+                        );
+                    } else {
+                        $confirm_status_link = '';
+                    }
 
 
                     echo '
@@ -107,7 +124,7 @@ $this->menu = array(
                         </td>
                         <td width="140">'.$update.'</td>
                         <td width="140">
-                            '.$status_text.'
+                            '.$status_text.'<br> '.$confirm_status_link.'
                         </td>
                     </tr>
                     ';

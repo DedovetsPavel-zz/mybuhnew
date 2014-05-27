@@ -51,7 +51,7 @@
             <?php echo $form->labelEx($model,'type'); ?>
             <?php echo $form->error($model,'type'); ?>
             <div class="select-wrap">
-                <?php echo $form->dropDownList($model,'type', $type, array('width' => '206px;')); ?>
+                <?php echo $form->dropDownList($model,'type', $type, array('width' => '206px;', 'class' => 'form_select')); ?>
             </div>
         </div>
         <div class="row">

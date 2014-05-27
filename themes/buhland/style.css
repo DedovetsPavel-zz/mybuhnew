@@ -367,7 +367,7 @@ input {outline:none;}
 .body .center .accountBlock .tableBlock .infoTable td {border:1px solid #d4d4d4;  padding:10px 13px; position:relative;}
 .body .center .accountBlock .tableBlock .infoTable td a {color:#f96909;}
 .body .center .accountBlock .tableBlock .infoTable td span {color:#f96909;}
-.body .center .accountBlock .tableBlock .infoTable td ul {float:right;}
+.body .center .accountBlock .tableBlock .infoTable td ul {}
 .body .center .accountBlock .tableBlock .infoTable td ul li {float:left;}
 .body .center .accountBlock .tableBlock .infoTable td ul li a.download {width:20px; display:block; height:21px; background:url(images/accIcons.png) no-repeat;}
 .body .center .accountBlock .tableBlock .infoTable td ul li a.success {width:20px; display:block; height:21px; background:url(images/accIcons.png) no-repeat -19px 0px;}
@@ -800,4 +800,68 @@ select { width:167px;}
     float: left;
     padding-left: 10px;
     font-size: 15px !important;
+}
+
+.hide_form_edit_account {
+    display: none;
+}
+
+.update_account_button {
+    width:184px; height:47px; text-transform:uppercase; background:url(images/addMan.png) no-repeat; color:#ffffff; line-height:42px; margin:0px auto; cursor:pointer; margin-top:15px; font-size:14px;
+    border: medium none;
+}
+
+.update_account_button:hover {
+    background-position:0px -47px;
+}
+
+.account_update_form input[type="text"] {
+    width:198px; height:25px; font-size:14px; color: #616161; font-family: 'ArialNarrow';  border:1px solid #d4d4d4; padding-left:10px; margin-bottom:7px; border-radius:5px; background:#ffffff;
+}
+
+.account_update_form label {
+    text-align:left; margin-bottom:2px; font-size:14px;display: block;
+}
+
+.account_update_form .selectBox-dropdown {
+    width: 208px !important;
+    margin-bottom: 7px;
+}
+
+.account_update_form textarea {
+    border: 1px solid #D4D4D4; font-size:14px; color: #616161; font-family: 'ArialNarrow';  margin-bottom:7px; width:197px; resize:none; padding-left:10px; padding-top:10px; border-radius:5px; height:72px;
+}
+
+.account_update_form .little {font-size:11px;  overflow: hidden; margin-top: 12px;}
+.account_update_form .little span {text-decoration:underline; color:#616161; cursor:pointer;}
+.account_update_form .little .left {text-align:left; margin-left: 22px; letter-spacing: -0.5px; float:left; color:#fa6a0a; font-size:14px;}
+.account_update_form .little .left span {color:#F96909;}
+.account_update_form .little .left img {position:relative; top:3px; margin-right: 8px;}
+.account_update_form .little .right {float:left; width:39px;margin-left: 10px; height:17px; color:#ffffff; font-size:14px; background:#83ba0b; border-radius:3px; text-decoration:none; text-align:center; margin-top: 5px;}
+.update_account_submit_wrapper {
+padding-left: 10px;
+}
+
+
+.account_update_form .qq-upload-list {
+    float: none !important;
+}
+
+.account_update_form .qq-upload-list li {
+    float: none !important;
+}
+
+.ready {
+    color:red;
+}
+
+.comment_item {
+
+}
+
+.download_file {
+    background: url("images/download_file.png") no-repeat scroll right center rgba(0, 0, 0, 0);
+    display: block;
+    margin-bottom: 5px;
+    padding-right: 37px;
 }

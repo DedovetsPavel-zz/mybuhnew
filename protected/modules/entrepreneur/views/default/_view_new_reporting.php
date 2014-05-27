@@ -2,8 +2,8 @@
 /**
  * Created by JetBrains PhpStorm.
  * User: Pasha
- * Date: 14.05.14
- * Time: 16:37
+ * Date: 15.05.14
+ * Time: 12:04
  * To change this template use File | Settings | File Templates.
  */
 ?>
@@ -19,22 +19,21 @@
     <?php
     $key = 1;
     foreach($reports as $report) {
-        $update = date('d.m.Y', $report->date_update);
         $files_str = '';
         if(count($report->files)) {
-            $files_str .= '<ul>';
             foreach($report->files as $file) {
-                $files_str .= '<li>'.CHtml::link($file->attributes['file'], array('/site/getfile/', 'id' => $file->attributes['id']), array('class' => 'download_file')) . '</li>';
+                $files_str .= CHtml::link($file->attributes['file'], array('/site/getfile/', 'id' => $file->attributes['id'])) . '<br>';
             }
-            $files_str .= '</ul>';
         }
 
+        $update = date('d.m.Y', $report->date_update);
         switch($report->status) {
             case '1' : $status_text = 'Отправлено на оплату';
                 break;
-            case '2' : $status_text = 'Ожидает подтверждения ';
+            case '2' : $status_text = 'Ожидает подтверждения';
                 break;
         }
+
 
         $delete_link = CHtml::ajaxLink(
             'Удалить запись',
@@ -47,18 +46,42 @@
                 ),
                 'update'=>'#table_reports_wrapper'
             ),
-            array('class' => 'delete','confirm'=>'Вы уверены, что хотите удалить данный прогноз?', 'id' => 'report_' . $report->id)
+            array('class' => 'delete','confirm'=>'Вы уверены, что хотите удалить данный прогноз?')
         );
+
+        if($report->status == 2) {
+            $confirm_status_link = CHtml::ajaxLink(
+                'Подтвердить',
+                '/entrepreneur/default/confirmreport/',
+                array(
+                    'type' => 'get',
+                    'data' => array(
+                        'id' => $report->id,
+                        'entrepreneur_id' => $entrepreneur_id,
+                        'confirm' => 1
+                    ),
+                    'update'=>'#table_reports_wrapper'
+                ),
+                array('class' => 'delete')
+            );
+        } else {
+            $confirm_status_link = '';
+        }
+
 
         echo '
             <tr>
                 <td width="38" height="95">'.$key.'</td>
                 <td width="140">'.$report->name.'</td>
                 <td width="140">'.$report->comment.'</td>
-                <td width="140">'.$files_str.'</td>
+                <td width="140">'.$files_str.'
+                    <ul>
+                        <li><a class="download" href="#"></a></li>
+                    </ul>
+                </td>
                 <td width="140">'.$update.'</td>
                 <td width="140">
-                   '.$status_text.$delete_link.'
+                    '.$status_text.'<br> '.$confirm_status_link.'
                 </td>
             </tr>
             ';
