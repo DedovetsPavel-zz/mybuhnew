@@ -29,14 +29,7 @@ $this->menu = array(
 
 <div class="tableBlock">
     <div class="load">Загрузить сканы</div>
-    <div class="loadForm">
-        <img class="imgBlock" src="<?php echo Yii::app()->request->baseUrl; ?>/themes/buhland/images/loadFormTop.png">
-        <div class="bodyForm">
-            <p class="little"><span class="left"><img src="<?php echo Yii::app()->request->baseUrl; ?>/themes/buhland/images/skrep.png"><span>Загрузить докумет</span><input type="file" class="hidden" name="file"></span><span class="right">+ еще</span></p>
-            <div class="button" type="button" >Загрузить</div>
-        </div>
-        <img class="imgBlock" src="<?php echo Yii::app()->request->baseUrl; ?>/themes/buhland/images/loadFormBottom.png">
-    </div>
+    <?php $this->renderPartial('_form_load_scans', array('model'=>$model)); ?>
     <?php $this->widget('zii.widgets.CMenu', array(
         'items' => array(
             array('label' => 'Данные налогоплательщика', 'url' => array('/booker/'), 'itemOptions' => array('class' => 'active')),
@@ -51,4 +44,21 @@ $this->menu = array(
     <div class="informationBlock">
         <?php $this->renderPartial('_form', array('model'=>$model)); ?>
     </div>
+
+    <?php
+    $files_str = '';
+    if(count($files)) {
+        $files_str .= '<div class="scans_wrapper">';
+        $files_str .= '<p>Сканы</p>';
+        $files_str .= '<ul class="scans_list">';
+        foreach($files as $file) {
+            $files_str .= '<li>'.CHtml::link($file->attributes['file'], array('/site/getfile/', 'id' => $file->attributes['id']), array('class' => 'download_file')) . '</li>';
+        }
+        $files_str .= '</ul>';
+        $files_str .= '</div>';
+    }
+
+    echo $files_str;
+
+    ?>
 </div>

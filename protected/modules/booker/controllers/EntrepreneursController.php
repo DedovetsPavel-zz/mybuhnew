@@ -46,7 +46,7 @@ class EntrepreneursController extends Controller
      */
     public function actionUpdate($id)
     {
-        $model=$this->loadModel($id);
+        $model = $this->loadModel($id);
 
         // Uncomment the following line if AJAX validation is needed
         // $this->performAjaxValidation($model);
@@ -58,8 +58,29 @@ class EntrepreneursController extends Controller
                 $this->redirect(array('/booker/entrepreneurs/update/','id'=>$model->id));
         }
 
+        if(isset($_POST['scans'])) {
+            if(count($_POST['scans'])) {
+                foreach($_POST['scans'] as $file) {
+                    $modelFile = new Files();
+                    $modelFile->file = $file;
+                    $modelFile->type = 0;
+                    $modelFile->entrepreneur_id = $id;
+                    $modelFile->parent = 0;
+                    $modelFile->save();
+                }
+            }
+        }
+
+        $criteria = new CDbCriteria;
+        $criteria->condition = 'entrepreneur_id=:entrepreneur_id';
+        $criteria->condition = 'type=0';
+        $criteria->params = array(':entrepreneur_id' => $id);
+
+        $files = Files::model()->findAll($criteria);
+
         $this->render('update',array(
             'model'=>$model,
+            'files' => $files
         ));
     }
 

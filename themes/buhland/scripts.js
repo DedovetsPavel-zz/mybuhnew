@@ -153,13 +153,13 @@ $(document).ready(function(){
         }
     });
 
-    $(".loadForm .little .right").click(function(){
-        $(".loadForm .little .left:last").after('<span class="left"><img src="images/skrep.png"><span>Загрузить докумет</span><input type="file" class="hidden" name="file"></span>');
-    });
-
-    $(".loadForm .little .left span").live("click", function(){
-        $(this).closest(".left").find("input").click();
-    });
+//    $(".loadForm .little .right").click(function(){
+//        $(".loadForm .little .left:last").after('<span class="left"><img src="images/skrep.png"><span>Загрузить докумет</span><input type="file" class="hidden" name="file"></span>');
+//    });
+//
+//    $(".loadForm .little .left span").live("click", function(){
+//        $(this).closest(".left").find("input").click();
+//    });
 
 
     $(".calendar input").datepicker();
@@ -270,7 +270,7 @@ $(document).ready(function(){
         }
     });
 
-    $(".mission2 .little .right").click(function(){
+    $(".mission2 .span_load_doc .right").click(function(){
         $('#uploadFile input[type="file"]').click();
     });
 
@@ -288,6 +288,10 @@ $(document).ready(function(){
     });
 
     $(".span_load_doc").on("click", function(){
+        $(this).parent().parent().next().find('input[type="file"]').click();
+    });
+
+    $('.load_scans').on("click", function(){
         $(this).parent().parent().next().find('input[type="file"]').click();
     });
 
