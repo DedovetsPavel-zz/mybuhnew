@@ -71,10 +71,12 @@ $this->menu = array(
                     array('class' => 'delete','confirm'=>'Вы уверены, что хотите удалить данного работника?', 'id' => 'worker_' . $worker->id)
                 );
 
+                $edit_link = CHtml::link('Редактировать запись', '#', array('class' => 'edit_link_worker', 'id' => 'edit_link_worker_' . $worker->id));
+
                 //$delete_link = CHtml::link('Удалить запись', array('url'=>'#'), array('submit'=>array('/booker/workers/delete/','id'=>$worker->id),'confirm'=>'Вы уверены, что хотите удалить выбранного сотрудника?'));
 
                 echo '
-                <tr>
+                <tr class="worker_row_'.$worker->id.'">
                     <td width="38" height="95">'.$key.'</td>
                     <td>'.$worker->fullname.'</td>
                     <td>'.$worker->post.'</td>
@@ -84,9 +86,12 @@ $this->menu = array(
                     <td>'.$worker->snils.'</td>
                     <td>' . $hire_date . $termination_date . '</td>
                     <td>'.number_format($worker->pay, 0, ',', ' ').'</td>
-                    <td>'.$delete_link.'</td>
+                    <td>'.$edit_link.$delete_link.'</td>
                 </tr>
                 ';
+                echo '<tr id="worker_edit_row_'.$worker->id.'" class="hide_form_edit_worker"><td colspan="10">';
+                $this->renderPartial('_form_edit_worker', array('model'=>$worker, 'entrepreneur_id' => $entrepreneur_id));
+                echo '</td></tr>';
                 $key++;
             }
 

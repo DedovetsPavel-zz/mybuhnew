@@ -637,6 +637,8 @@ input {outline:none;}
 
 .clear {
     clear: both;
+    margin: 0 !important;
+    padding: 0 !important;
 }
 
 #Workers_gender {
@@ -864,4 +866,131 @@ padding-left: 10px;
     display: block;
     margin-bottom: 5px;
     padding-right: 37px;
+}
+
+.hide_form_edit_worker {
+    display:none;
+}
+
+.edit_link_worker {
+    display: block;
+}
+
+.worker_update_form input[type="text"] {
+    width:198px; height:25px; font-size:14px; color: #616161; font-family: 'ArialNarrow';  border:1px solid #d4d4d4; padding-left:10px; margin-bottom:7px; border-radius:5px; background:#ffffff;
+}
+
+.worker_update_form label {
+    text-align:left; margin-bottom:2px; font-size:14px;display: block;
+
+}
+
+.worker_update_form span {
+    float: none !important;
+}
+
+.worker_update_form .calendar {width:198px;
+    height:27px;
+    font-size:14px;
+    color: #616161;
+    background:#ffffff;
+    position:relative;
+    font-family: 'ArialNarrow';
+    border:1px solid #d4d4d4;
+    margin: 0 auto 7px 0;
+    padding-left:10px;
+    margin-bottom:7px;
+    border-radius:5px;
+    padding-left: 10px !important;
+}
+.worker_update_form .calendar input {background:none; border:0px; height:25px; padding-left:0px; margin:0px;}
+.worker_update_form img {position:absolute; top:2px; right:3px; cursor:pointer;}
+
+.worker_update_form {
+
+}
+
+.edit_worker_label {
+    float: none !important;
+}
+
+.worker_update_form .gender {
+    margin-bottom: 0px !important;
+    padding-left: 15px !important;
+}
+
+.worker_update_form .gender input {
+    float: left;
+    height: 18px;
+    margin-top: 5px;
+    padding-top: 0;
+    width: 10px;
+}
+
+.update_worker_button {
+    width:184px; height:47px; text-transform:uppercase; background:url(images/addMan.png) no-repeat; color:#ffffff; line-height:42px; margin: 15px auto 0 12px; cursor:pointer;  font-size:14px;
+    border: medium none;
+}
+
+.update_worker_button:hover {
+    background-position:0px -47px;
+}
+
+.worker_update_form .row {
+    margin-bottom: 0px !important;
+}
+
+.edit_link_report {
+    display: block;
+}
+
+.hide_form_edit_report {
+    display: none;
+}
+
+
+.report_update_form input[type="text"] {
+    width:198px; height:25px; font-size:14px; color: #616161; font-family: 'ArialNarrow';  border:1px solid #d4d4d4; padding-left:10px; margin-bottom:7px; border-radius:5px; background:#ffffff;
+}
+
+.report_update_form label {
+    text-align:left; margin-bottom:2px; font-size:14px;display: block;
+}
+
+.report_update_form .selectBox-dropdown {
+    width: 208px !important;
+    margin-bottom: 7px;
+}
+
+.report_update_form textarea {
+    border: 1px solid #D4D4D4; font-size:14px; color: #616161; font-family: 'ArialNarrow';  margin-bottom:7px; width:197px; resize:none; padding-left:10px; padding-top:10px; border-radius:5px; height:72px;
+}
+
+.report_update_form .little {font-size:11px;  overflow: hidden; margin-top: 12px;}
+.report_update_form .little span {text-decoration:underline; color:#616161; cursor:pointer;}
+.report_update_form .little .left {text-align:left; margin-left: 22px; letter-spacing: -0.5px; float:left; color:#fa6a0a; font-size:14px;}
+.report_update_form .little .left span {color:#F96909;}
+.report_update_form .little .left img {position:relative; top:3px; margin-right: 8px;}
+.report_update_form .little .right {float:left; width:39px;margin-left: 10px; height:17px; color:#ffffff; font-size:14px; background:#83ba0b; border-radius:3px; text-decoration:none; text-align:center; margin-top: 5px;}
+.update_report_submit_wrapper {
+    padding-left: 10px;
+}
+
+
+.report_update_form .qq-upload-list {
+    float: none !important;
+}
+
+.report_update_form .qq-upload-list li {
+    float: none !important;
+}
+
+.report_update_form .leftAndRight {
+    float: right;
+    position: absolute;
+    right: -129px;
+}
+
+.report_update_form .form_label_radio {
+    color: #616161;
 }

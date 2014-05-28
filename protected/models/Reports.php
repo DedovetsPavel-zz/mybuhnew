@@ -127,16 +127,14 @@ class Reports extends CActiveRecord
 
     protected function afterSave() {
         parent::afterSave();
-        if($this->isNewRecord){
-            if(count($this->file)) {
-                foreach($this->file as $file) {
-                    $modelFile = new Files();
-                    $modelFile->file = $file;
-                    $modelFile->type = $this->type;
-                    $modelFile->entrepreneur_id = $this->entrepreneur_id;
-                    $modelFile->parent = $this->id;
-                    $modelFile->save();
-                }
+        if(count($this->file)) {
+            foreach($this->file as $file) {
+                $modelFile = new Files();
+                $modelFile->file = $file;
+                $modelFile->type = $this->type;
+                $modelFile->entrepreneur_id = $this->entrepreneur_id;
+                $modelFile->parent = $this->id;
+                $modelFile->save();
             }
         }
     }

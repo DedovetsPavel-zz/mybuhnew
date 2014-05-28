@@ -44,23 +44,62 @@
             ),
             array('class' => 'delete','confirm'=>'Вы уверены, что хотите удалить данного работника?', 'id' => 'worker_' . $worker->id)
         );
+        $edit_link = CHtml::link('Редактировать запись', '#', array('class' => 'edit_link_worker', 'id' => 'edit_link_worker_' . $worker->id));
 
         echo '
-                <tr>
-                    <td width="38" height="95">'.$key.'</td>
-                    <td>'.$worker->fullname.'</td>
-                    <td>'.$worker->post.'</td>
-                    <td>'.$date_of_birth.'</td>
-                    <td>'.$gender.'</td>
-                    <td>'.$worker->inn.'</td>
-                    <td>'.$worker->snils.'</td>
-                    <td>' . $hire_date . $termination_date . '</td>
-                    <td>'.number_format($worker->pay, 0, ',', ' ').'</td>
-                    <td>'.$delete_link.'</td>
-                </tr>
-                ';
+            <tr class="worker_row_'.$worker->id.'">
+                <td width="38" height="95">'.$key.'</td>
+                <td>'.$worker->fullname.'</td>
+                <td>'.$worker->post.'</td>
+                <td>'.$date_of_birth.'</td>
+                <td>'.$gender.'</td>
+                <td>'.$worker->inn.'</td>
+                <td>'.$worker->snils.'</td>
+                <td>' . $hire_date . $termination_date . '</td>
+                <td>'.number_format($worker->pay, 0, ',', ' ').'</td>
+                <td>'.$edit_link.$delete_link.'</td>
+            </tr>
+            ';
+        echo '<tr id="worker_edit_row_'.$worker->id.'" class="hide_form_edit_worker"><td colspan="10">';
+        $this->renderPartial('_form_edit_worker', array('model'=>$worker, 'entrepreneur_id' => $entrepreneur_id));
+        echo '</td></tr>';
         $key++;
     }
-
     ?>
 </table>
+<?php Yii::app()->clientScript->registerScriptFile('/themes/buhland/jqueryui.custom.js'); ?>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.edit_link_worker').on('click', function() {
+            var link_id = $(this).attr('id');
+            var worker_id = link_id.substr(17);
+            $('.worker_row_' + worker_id).hide();
+            $('#worker_edit_row_' + worker_id).show();
+            return false;
+        });
+        $(".calendar input").datepicker();
+
+        $(".calendar img").click(function(){
+            $(this).closest(".calendar").find("input").focus();
+        });
+    });
+
+    $.datepicker.regional['ru'] = {
+        closeText: 'Закрыть',
+        prevText: '&#x3c;Пред',
+        nextText: 'След&#x3e;',
+        currentText: 'Сегодня',
+        monthNames: ['Январь','Февраль','Март','Апрель','Май','Июнь',
+            'Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь'],
+        monthNamesShort: ['Янв','Фев','Мар','Апр','Май','Июн',
+            'Июл','Авг','Сен','Окт','Ноя','Дек'],
+        dayNames: ['воскресенье','понедельник','вторник','среда','четверг','пятница','суббота'],
+        dayNamesShort: ['вск','пнд','втр','срд','чтв','птн','сбт'],
+        dayNamesMin: ['Вс','Пн','Вт','Ср','Чт','Пт','Сб'],
+        dateFormat: 'dd.mm.yy',
+        firstDay: 1,
+        isRTL: false
+    };
+    $.datepicker.setDefaults($.datepicker.regional['ru']);
+
+</script>

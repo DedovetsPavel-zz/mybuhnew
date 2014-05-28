@@ -15,6 +15,22 @@ $(document).ready(function(){
         return false;
     });
 
+    $('.edit_link_worker').on('click', function() {
+        var link_id = $(this).attr('id');
+        var worker_id = link_id.substr(17);
+        $('.worker_row_' + worker_id).hide();
+        $('#worker_edit_row_' + worker_id).show();
+        return false;
+    });
+
+    $('.edit_link_report').on('click', function() {
+        var link_id = $(this).attr('id');
+        var report_id = link_id.substr(17);
+        $('.report_row_' + report_id).hide();
+        $('#report_edit_row_' + report_id).show();
+        return false;
+    });
+
 
     $('.drop_down_select_head').selectBox();
     $('.drop_down_list').selectBox();
@@ -106,7 +122,7 @@ $(document).ready(function(){
         btnPrev: ".left"
     });
 
-    $(".carousel ul li a").lightbox();
+    //$(".carousel ul li a").lightbox();
 
     $(".tarifBlock .filds .button").click(function(){
         $(".tarifBg").fadeIn(500);

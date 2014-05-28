@@ -51,20 +51,38 @@
             ),
             array('class' => 'delete','confirm'=>'Вы уверены, что хотите удалить данный прогноз?', 'id' => 'report_' . $report->id)
         );
+        $edit_link = CHtml::link('Редактировать запись', '#', array('class' => 'edit_link_report', 'id' => 'edit_link_report_' . $report->id));
 
         echo '
-            <tr>
+            <tr class="report_row_'.$report->id.'">
                 <td width="38" height="95">'.$key.'</td>
                 <td width="140">'.$report->name.'</td>
                 <td width="140">'.$report->comment.'</td>
                 <td width="140">'.$files_str.'</td>
                 <td width="140">'.$update.'</td>
                 <td width="140">
-                   '.$status_text.'
+                   '.$status_text.$edit_link.'
                 </td>
             </tr>
             ';
+        echo '<tr id="report_edit_row_'.$report->id.'" class="hide_form_edit_report"><td colspan="6">';
+        $this->renderPartial('_form_edit_report', array('model'=>$report, 'entrepreneur_id' => $entrepreneur_id));
+        echo '</td></tr>';
         $key++;
     }
     ?>
 </table>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.edit_link_report').on('click', function() {
+            var link_id = $(this).attr('id');
+            var report_id = link_id.substr(17);
+            $('.report_row_' + report_id).hide();
+            $('#report_edit_row_' + report_id).show();
+            return false;
+        });
+        $(".span_load_doc").on("click", function(){
+            $(this).parent().parent().next().find('input[type="file"]').click();
+        });
+    });
+</script>

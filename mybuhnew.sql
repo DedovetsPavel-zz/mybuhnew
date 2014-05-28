@@ -4,7 +4,7 @@ Source Host: localhost
 Source Database: mybuhnew
 Target Host: localhost
 Target Database: mybuhnew
-Date: 27.05.2014 16:29:13
+Date: 28.05.2014 11:23:43
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -19,7 +19,7 @@ CREATE TABLE `buh_account_comments` (
   `createdon` int(20) DEFAULT NULL,
   `author` int(1) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for buh_accounting
@@ -33,7 +33,7 @@ CREATE TABLE `buh_accounting` (
   `parent` int(11) DEFAULT NULL,
   `ready` int(1) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for buh_entrepreneurs
@@ -78,7 +78,7 @@ CREATE TABLE `buh_files` (
   `parent` int(11) DEFAULT NULL,
   `entrepreneur_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for buh_prognozes
@@ -91,7 +91,7 @@ CREATE TABLE `buh_prognozes` (
   `comment` mediumtext,
   `parent` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=58 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=60 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for buh_reports
@@ -106,7 +106,7 @@ CREATE TABLE `buh_reports` (
   `parent` int(11) DEFAULT NULL,
   `entrepreneur_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for buh_users
@@ -173,6 +173,11 @@ INSERT INTO `buh_account_comments` VALUES ('25', 'sdfffff', '6', '16', '14011813
 INSERT INTO `buh_account_comments` VALUES ('26', 'asdasd', '4', '5', '1401190596', '1');
 INSERT INTO `buh_account_comments` VALUES ('27', 'новая задача, первый комментарий', '6', '17', '1401191678', '2');
 INSERT INTO `buh_account_comments` VALUES ('28', 'коммент', '4', '17', '1401192123', '1');
+INSERT INTO `buh_account_comments` VALUES ('29', 'asdasdasd', '4', '17', '1401200230', '1');
+INSERT INTO `buh_account_comments` VALUES ('30', 'asfasdfasdf', '6', '18', '1401200875', '2');
+INSERT INTO `buh_account_comments` VALUES ('31', 'asвафывафыва', '6', '18', '1401200926', '2');
+INSERT INTO `buh_account_comments` VALUES ('32', 'фывфыв', '6', '18', '1401200932', '2');
+INSERT INTO `buh_account_comments` VALUES ('33', 'фывфыв', '6', '19', '1401200969', '2');
 INSERT INTO `buh_accounting` VALUES ('1', '1123', '8', '1401181833', '', '5', null);
 INSERT INTO `buh_accounting` VALUES ('2', 'тест', '2', '1400502975', 'коммент', '5', null);
 INSERT INTO `buh_accounting` VALUES ('5', 'asdasdasd11', '6', '1401190596', 'asdasd', '5', null);
@@ -183,9 +188,11 @@ INSERT INTO `buh_accounting` VALUES ('12', 'тест123123123123123', '1', '1401
 INSERT INTO `buh_accounting` VALUES ('13', '111', '1', '1401176922', 'еще новее коммент', '5', '1');
 INSERT INTO `buh_accounting` VALUES ('14', 'новая задача11', '1', '1401192339', '', '5', null);
 INSERT INTO `buh_accounting` VALUES ('15', 'фываа', '8', '1401177810', 'sdfasf', '5', null);
-INSERT INTO `buh_accounting` VALUES ('16', '111', '4', '1401181536', '', '5', null);
-INSERT INTO `buh_accounting` VALUES ('17', 'Новая задача1', '7', '1401192123', 'коммент', '5', null);
-INSERT INTO `buh_entrepreneurs` VALUES ('5', '6', 'Павел', 'Организация \"Три руки\"', 'фывфыв111', 'фывфывфы111', 'вфыв', 'фыв111', '1401134400', 'фыввфыв', '12321', '3123', '123123', '123213', '1231', '23123', '123213', '123', '213213', '213', '23213', '1232', '131232', '3123123', '1400702400', '1400788800');
+INSERT INTO `buh_accounting` VALUES ('16', '111', '4', '1401206886', '', '5', null);
+INSERT INTO `buh_accounting` VALUES ('17', 'Новая задача1', '7', '1401200230', 'asdasdasd', '5', '1');
+INSERT INTO `buh_accounting` VALUES ('18', 'asdfasdf', '3', '1401200932', 'фывфыв', '5', null);
+INSERT INTO `buh_accounting` VALUES ('19', 'фывфывфы', '1', '1401200978', '', '5', null);
+INSERT INTO `buh_entrepreneurs` VALUES ('5', '6', 'Павел', 'Организация \"Три руки\"', 'фывфыв111', 'фывфывфы111', 'вфыв', 'фыв111', '1401134400', 'фыввфыв', '12321', '3123111', '123123', '123213', '1231', '23123', '123213', '123', '213213', '213', '23213', '1232', '131232', '3123123', '1400702400', '1400788800');
 INSERT INTO `buh_entrepreneurs` VALUES ('6', '23', 'asdfasdf', null, null, null, null, null, '0', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, '0', '0');
 INSERT INTO `buh_entrepreneurs` VALUES ('7', '24', 'Второй нормальный ', 'asdf', 'asdfasdf', '123123123', '123123213', '123123123', '1398888000', '123 213 ', '213213213', '123123', '3123', '213213', '12321312', '21323', '12312', '3123123', '12312', '3213', '21321', '321323', '123213', '123213', '1400184000', '1401480000');
 INSERT INTO `buh_entrepreneurs` VALUES ('8', '25', 'Тест', null, null, null, null, null, '0', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, '0', '0');
@@ -229,15 +236,23 @@ INSERT INTO `buh_files` VALUES ('37', 'infiniti-)))))))43.jpg', '1', '17', '5');
 INSERT INTO `buh_files` VALUES ('38', 'infiniti-)))))))8323.jpg', '1', '18', '5');
 INSERT INTO `buh_files` VALUES ('39', 'infiniti-)))))))7275.jpg', '1', '19', '5');
 INSERT INTO `buh_files` VALUES ('40', 'infiniti-)))))))6087.jpg', '1', '20', '5');
+INSERT INTO `buh_files` VALUES ('41', 'IMAG008476.jpg', '1', '21', '5');
+INSERT INTO `buh_files` VALUES ('42', 'infiniti-)))))))4362.jpg', '2', '17', '5');
+INSERT INTO `buh_files` VALUES ('43', 'infiniti-)))))))8148.jpg', '2', '18', '5');
+INSERT INTO `buh_files` VALUES ('44', 'infiniti-)))))))95.jpg', '2', '19', '5');
+INSERT INTO `buh_files` VALUES ('45', 'infiniti-)))))))70.jpg', '1', '21', '5');
+INSERT INTO `buh_files` VALUES ('46', 'infiniti-)))))))7290.jpg', '1', '21', '5');
 INSERT INTO `buh_prognozes` VALUES ('56', '123213', '1399579200', '123123', '123 13 23', '5');
 INSERT INTO `buh_prognozes` VALUES ('57', '123123213', '1399579200', '1232', '123123', '5');
+INSERT INTO `buh_prognozes` VALUES ('58', 'фавппа', '1399406400', '123123123', '123 213 23 ', '5');
+INSERT INTO `buh_prognozes` VALUES ('59', 'фавппа', '1399406400', '123123123', '123 213 23 ', '5');
 INSERT INTO `buh_reports` VALUES ('7', '123123123', '123123123123123', '1401183703', '1', null, '5', null);
 INSERT INTO `buh_reports` VALUES ('8', 'sdfasdf', 'sadfasdfsadfsdf', '1401192746', '1', null, '5', null);
 INSERT INTO `buh_reports` VALUES ('9', 'sdfasdfas', 'dfasdfasdf', '1401192745', '1', null, '5', null);
 INSERT INTO `buh_reports` VALUES ('10', 'asdasd', 'asdasdasd', '1400234213', '2', null, '5', null);
 INSERT INTO `buh_reports` VALUES ('11', 'asdfasdfasdfasdfa', 'sdfasdfasd', '1400239402', '2', '1', '5', '5');
 INSERT INTO `buh_reports` VALUES ('12', 'тест файлов', 'тест файлов', '1401192620', '2', '1', '5', '5');
-INSERT INTO `buh_reports` VALUES ('13', 'много файлов ', 'sadfasdfasdf', '1401183697', '2', null, '5', '5');
+INSERT INTO `buh_reports` VALUES ('13', 'много файлов ', 'sadfasdfasdf', '1401201037', '1', null, '5', '5');
 INSERT INTO `buh_reports` VALUES ('14', 'выафыва', 'фывфыв', '1401192851', '2', null, '5', '5');
 INSERT INTO `buh_reports` VALUES ('15', '123123', '123123', '1401192893', '1', null, '5', '5');
 INSERT INTO `buh_reports` VALUES ('16', 'фывфыв', 'фsdasdasd', '1401192985', '2', null, '5', '5');
@@ -245,11 +260,11 @@ INSERT INTO `buh_reports` VALUES ('17', 'asdasd', 'asdasdasd', '1401193296', '1'
 INSERT INTO `buh_reports` VALUES ('18', 'asdasdasd', 'asdasdas', '1401193312', '1', null, '5', '5');
 INSERT INTO `buh_reports` VALUES ('19', 'asdasd', 'asdasdasd', '1401193321', '2', null, '5', '5');
 INSERT INTO `buh_reports` VALUES ('20', 'asdasdasdd', 'asdasdasd', '1401193332', '1', null, '5', '5');
+INSERT INTO `buh_reports` VALUES ('21', '22222111', '1111111111', '1401265148', '1', '1', '5', '5');
 INSERT INTO `buh_users` VALUES ('4', 'admin1', '202cb962ac59075b964b07152d234b70', 'test@mail.ru', '1399384642', '0', '1', '0', 'Иван');
 INSERT INTO `buh_users` VALUES ('5', 'admin', '21232f297a57a5a743894a0e4a801fc3', 'Dedovets_pavel@mail.ru', '0', '0', '0', '0', 'Павел');
 INSERT INTO `buh_users` VALUES ('6', 'booker', '202cb962ac59075b964b07152d234b70', 'test1@mail.ru', '1399384642', '0', '2', '4', 'Павел');
 INSERT INTO `buh_users` VALUES ('8', 'admin31', 'd41d8cd98f00b204e9800998ecf8427e', 'test31@mail.ru', '1400589700', '0', '1', '0', 'Павел31');
-INSERT INTO `buh_users` VALUES ('10', '11111111111', 'bbb8aae57c104cda40c93843ad5e6db8', '111@mail.ru', '1400592203', '0', '2', '0', '111111111');
 INSERT INTO `buh_users` VALUES ('11', '22222222', '79d886010186eb60e3611cd4a5d0bcae', '222222@mail.ru', '1400592250', '0', '2', '0', '22222222');
 INSERT INTO `buh_users` VALUES ('12', '444444444441', 'd41d8cd98f00b204e9800998ecf8427e', '4444444441@mail.ru', '1400592473', '0', '2', '0', '44444444444441');
 INSERT INTO `buh_users` VALUES ('13', 'Первый нормальный', '202cb962ac59075b964b07152d234b70', 'first_normal@mail.ru', '1400593484', '0', '2', '0', 'first_normal');
@@ -276,5 +291,4 @@ INSERT INTO `buh_workers` VALUES ('29', '222222222222', '22222222222', '13988880
 INSERT INTO `buh_workers` VALUES ('30', '44444444', '44444444444', '1399579200', '1', '11111111', '1111111111', '1400097600', '1400788800', '2147483647', '5');
 INSERT INTO `buh_workers` VALUES ('32', '123213', '123213', '1400184000', '1', '123213', '123123213', '1399579200', '1400788800', '123213', '5');
 INSERT INTO `buh_workers` VALUES ('33', 'тетс ', '123', '1398888000', '1', '12312', '3123123', '1398888000', '1398974400', '123213', '5');
-INSERT INTO `buh_workers` VALUES ('34', '123', '1232', '1399406400', '1', '123', '23213', '1399492800', '0', '123123', '5');
-INSERT INTO `buh_workers` VALUES ('35', '123123', '123', '1399579200', '1', '12312', '1231', '1398974400', '0', '123123', '5');
+INSERT INTO `buh_workers` VALUES ('35', '1', '1', '1398974400', '1', '1', '1', '1399579200', '1401480000', '3', '5');

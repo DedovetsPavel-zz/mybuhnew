@@ -30,7 +30,7 @@ class EntrepreneursController extends Controller
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
 				'actions'=>array('create','update','workers', 'createworker', 'prognozes', 'createevent', 'deleteprognoz',
                 'reporting', 'createreport', 'deletereport', 'accounting', 'createaccount', 'deleteaccount', 'deleteworker',
-                'updateaccount'),
+                'updateaccount', 'updateworker', 'updatereport'),
 				'roles'=>array('0', '1'),
 			),
 			array('deny',  // deny all users
@@ -123,6 +123,30 @@ class EntrepreneursController extends Controller
             }
         }
     }
+
+
+    public function actionUpdateworker($id) {
+        $model = Workers::model()->findByPk($id);
+        if($model === null) {
+            throw new CHttpException(404,'The requested page does not exist.');
+        }
+        if(isset($_POST['Workers'])) {
+            if(Yii::app()->request->isAjaxRequest) {
+                $model->attributes = $_POST['Workers'];
+                $parent = $model->attributes['parent'];
+
+                if($model->save()) {
+                    $workers = Workers::model()->findAll('parent=:parent', array(':parent' => $parent));
+                    $this->layout = null;
+                    $this->renderPartial('_view_new_workers',array(
+                        'workers' =>  $workers,
+                        'entrepreneur_id' => $parent
+                    ), false, true);
+                }
+            }
+        }
+    }
+
 
 
     public function actionPrognozes($id) {
@@ -331,6 +355,36 @@ class EntrepreneursController extends Controller
         }
     }
 
+
+    public function actionUpdatereport($id) {
+        $model = Reports::model()->findByPk($id);
+        if($model === null) {
+            throw new CHttpException(404,'The requested page does not exist.');
+        }
+        if(isset($_POST['Reports'])) {
+            if(Yii::app()->request->isAjaxRequest) {
+                $model->attributes = $_POST['Reports'];
+                $parent = $model->attributes['parent'];
+                if(isset($_POST['Reports']['file'])) {
+                    $model->file = $_POST['Reports']['file'];
+                    $model->entrepreneur_id = $parent;
+                    $model->type = 1;
+                }
+
+
+                if($model->save()) {
+                    $reports = Reports::model()->findAll('parent=:parent', array(':parent' => $parent));
+                    $this->layout = null;
+                    $this->renderPartial('_view_new_reports',array(
+                        'reports' =>  $reports,
+                        'entrepreneur_id' => $parent
+                    ), false, true);
+                }
+            }
+        }
+    }
+
+
     public function actionAccounting($id) {
 
         $entrepreuner = Entrepreneurs::model()->findByPk($id);
@@ -499,6 +553,7 @@ class EntrepreneursController extends Controller
             }
         }
     }
+
 
 
 
