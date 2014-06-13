@@ -7,6 +7,7 @@ class EntrepreneursController extends Controller
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
 	 */
 	public $layout='/layouts/column2';
+    public $entrepreuner_name;
 
 	/**
 	 * @return array action filters
@@ -47,6 +48,7 @@ class EntrepreneursController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->loadModel($id);
+        $this->entrepreuner_name = $model->name;
 
         // Uncomment the following line if AJAX validation is needed
         // $this->performAjaxValidation($model);
@@ -99,6 +101,9 @@ class EntrepreneursController extends Controller
 
     public function actionWorkers($id) {
         $user_id = Yii::app()->user->id;
+        $model_entrepreuner = Entrepreneurs::model()->findByPk($id);
+        $this->entrepreuner_name = $model_entrepreuner->name;
+
         $workers = Workers::model()->findAll('parent=:parent', array(':parent' => $id));
         $modelWorkers = new Workers;
         $modelWorkers->gender = 1;
@@ -171,6 +176,11 @@ class EntrepreneursController extends Controller
 
 
     public function actionPrognozes($id) {
+
+        $model_entrepreuner = Entrepreneurs::model()->findByPk($id);
+        $this->entrepreuner_name = $model_entrepreuner->name;
+
+
 
         $criteria = new CDbCriteria;
         $criteria->condition = 'parent=:parent';
@@ -268,6 +278,10 @@ class EntrepreneursController extends Controller
     }
 
     public function actionReporting($id) {
+
+        $model_entrepreuner = Entrepreneurs::model()->findByPk($id);
+        $this->entrepreuner_name = $model_entrepreuner->name;
+
         $modelReports = new Reports();
         $criteria = new CDbCriteria;
         $criteria->condition = 'parent=:parent';
@@ -342,9 +356,11 @@ class EntrepreneursController extends Controller
             if(Yii::app()->request->isAjaxRequest) {
                 $model->attributes = $_POST['Reports'];
                 $parent = $model->attributes['parent'];
-                $model->file = $_POST['Reports']['file'];
-                $model->entrepreneur_id = $parent;
-                $model->type = 1;
+                if(isset($_POST['Reports']['file'])) {
+                    $model->file = $_POST['Reports']['file'];
+                    $model->entrepreneur_id = $parent;
+                    $model->type = 1;
+                }
 
                 if($model->save()) {
                     $response['success'] = 1;
@@ -410,6 +426,7 @@ class EntrepreneursController extends Controller
 
         $entrepreuner = Entrepreneurs::model()->findByPk($id);
         $entrepreuner_name = $entrepreuner->name;
+        $this->entrepreuner_name = $entrepreuner->name;
 
         $modelAccounting = new Accounting();
         $criteria = new CDbCriteria;

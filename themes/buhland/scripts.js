@@ -6,6 +6,14 @@
  * To change this template use File | Settings | File Templates.
  */
 $(document).ready(function(){
+
+    jQuery('.reset_form').on('click', function() {
+        //$(this).parents('form').reset();
+        jQuery('#accounting-form-filter').trigger("reset");
+       // return false;
+    });
+
+
     $('.edit_link_account').on('click', function() {
         var link_id = $(this).attr('id');
         var account_id = link_id.substr(18);

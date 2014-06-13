@@ -32,9 +32,11 @@
         }
 
         switch($report->status) {
-            case '1' : $status_text = 'Отправлено на оплату';
+            case '1' : $status_text = 'Согласовано';
                 break;
             case '2' : $status_text = 'Ожидает подтверждения ';
+                break;
+            case '3' : $status_text = 'Отправлено в налоговую';
                 break;
         }
 

@@ -71,8 +71,9 @@
                 <input id="status_text" class="report_form_text_input" type="text" name="status_text">
                 <img src="<?php echo Yii::app()->request->baseUrl; ?>/themes/buhland/images/select.png">
                 <ul class="checkme">
-                    <li data-value="1">Отправлено на оплату</li>
+                    <li data-value="1">Согласовано</li>
                     <li data-value="2">Ожидает подтверждения</li>
+                    <li data-value="3">Отправлено в налоговую</li>
                 </ul>
             </div>
         </div>

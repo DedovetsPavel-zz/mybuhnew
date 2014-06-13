@@ -56,7 +56,7 @@
     <?php echo $form->labelEx($model,'status'); ?>
     <?php echo $form->error($model,'status'); ?>
     <div class="select-wrap">
-        <?php echo $form->dropDownList($model,'type', array('1' => 'Отправлено на оплату', '2' => 'Ожидает подтверждения'), array('width' => '206px;', 'class' => 'drop_down_list')); ?>
+        <?php echo $form->dropDownList($model,'type', array('1' => 'Согласовано', '2' => 'Ожидает подтверждения', '3' => 'Отправлено в налоговую'), array('width' => '206px;', 'class' => 'drop_down_list')); ?>
     </div>
 </div>
 <div class="row">

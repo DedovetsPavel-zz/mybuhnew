@@ -79,7 +79,13 @@ input {outline:none;}
 .header .center  .regBlock li a {color:#616161;}
 .header .center  .regBlock li.enter {width:104px; height:38px; font-size:15px; background:url(images/enterButton.png) no-repeat; text-align:center; margin-left: 19px; cursor:pointer;}
 .header .center  .regBlock li.enter:hover {background-position:0px -82px;}
-.header .center  .regBlock li.enter a {color:#ffffff; text-decoration:none;}
+.header .center  .regBlock li.enter a {
+    color: #FFFFFF;
+    display: block;
+    height: 36px;
+    text-decoration: none;
+    width: 103px;
+}
 
 
 /******logout block start css****/
@@ -88,7 +94,13 @@ input {outline:none;}
 .header .center  .logoutBlock li a {color:#616161;}
 .header .center  .logoutBlock li.enter {width:104px; height:38px; font-size:15px; background:url(images/enterButton.png) no-repeat; text-align:center; margin-left: 19px; cursor:pointer;}
 .header .center  .logoutBlock li.enter:hover {background-position:0px -82px;}
-.header .center  .logoutBlock li.enter a {color:#ffffff; text-decoration:none;}
+.header .center  .logoutBlock li.enter a {
+    color: #FFFFFF;
+    display: block;
+    height: 36px;
+    text-decoration: none;
+    width: 103px;
+}
 /******logout block start css****/
 
 
@@ -858,14 +870,15 @@ padding-left: 10px;
 }
 
 .comment_item {
-
+    max-width: 140px;
+    word-break: break-all;
 }
 
 .download_file {
-    background: url("images/download_file.png") no-repeat scroll right center rgba(0, 0, 0, 0);
+    /*background: url("images/download_file.png") no-repeat scroll right center rgba(0, 0, 0, 0);*/
     display: block;
     margin-bottom: 5px;
-    padding-right: 37px;
+    /*padding-right: 37px;*/
 }
 
 .hide_form_edit_worker {
@@ -1010,4 +1023,30 @@ padding-left: 10px;
     padding-bottom: 20px;
     padding-left: 26px;
     padding-top: 20px;
+}
+
+.lk_text {
+    float:left;
+}
+
+.entrepreuner_name {
+    font-size: 24px;
+    letter-spacing: -0.5px;
+    float: right;
+}
+
+#accounting_control_panel {
+    height: 70px;
+}
+
+.reset_form {
+    color: #FFFFFF;
+    display: block;
+    margin-left: 12px;
+    margin-top: 3px;
+}
+
+.account_name {
+    /*max-width: 140px;*/
+    word-break: break-all;
 }

@@ -15,6 +15,7 @@
         <td class="headerTd" width="140">Дата изменения</td>
         <td class="headerTd" width="140">Комментарий</td>
         <td class="headerTd" width="140">Файл документа</td>
+        <td class="headerTd" width="120">Состояние</td>
     </tr>
     <?php
     $key = 1;
@@ -57,9 +58,9 @@
         if(count($account->comments)) {
             foreach($account->comments as $comment) {
                 if($comment->author == 1) {
-                    $comments_str .= '<div class="comment_item"><span>'.$user_name.':</span>';
+                    $comments_str .= '<div class="comment_item"><span>'.$user_name.': </span>';
                 } elseif($comment->author == 2) {
-                    $comments_str .= '<div class="comment_item"><span>'.$entrepreuner_name.':</span>';
+                    $comments_str .= '<div class="comment_item"><span>'.$entrepreuner_name.': </span>';
                 }
                 $comments_str .= $comment->comment . '</div>';
             }
@@ -67,12 +68,13 @@
 
         echo '
         <tr id="account_row_'.$account->id.'">
-            <td width="38" height="95">'.$key.'</td>
-            <td width="140">'.$account->name.'</td>
-            <td width="140">'.$type[$account->type].'</td>
-            <td width="140">'.$update.'</td>
-            <td width="140">'.$comments_str.'</td>
-            <td width="140">'.$ready_txt.$files_str.'<br>' . $edit_link .'</td>
+            <td height="95">'.$key.'</td>
+            <td><p class="account_name">'.$account->name.'</p></td>
+            <td>'.$type[$account->type].'</td>
+            <td>'.$update.'</td>
+            <td>'.$comments_str.'</td>
+            <td>'.$files_str.'</td>
+            <td>'.$ready_txt. '<br>' . $edit_link .'</td>
         </tr>
         ';
         echo '<tr id="account_edit_row_'.$account->id.'" class="hide_form_edit_account"><td colspan="6">';

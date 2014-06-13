@@ -29,7 +29,7 @@ $this->menu = array(
         ?>
         <input type="hidden" name="filter" value="1"/>
         <div class="select-wrap">
-                <?php echo $form->dropDownList($reportsModel,'status', array('' => '', '1' => 'Отправлено на оплату', '2' => 'Ожидает подтверждения'), array('class' => 'drop_down_select_head')); ?>
+                <?php echo $form->dropDownList($reportsModel,'status', array('' => '', '1' => 'Согласовано', '2' => 'Ожидает подтверждения', '3' => 'Отправлено в налоговую'), array('class' => 'drop_down_select_head')); ?>
         </div>
         <div class="date">
             <span>Дата изменения с</span>
@@ -73,9 +73,11 @@ $this->menu = array(
 
                     $update = date('d.m.Y', $report->date_update);
                     switch($report->status) {
-                        case '1' : $status_text = 'Отправлено на оплату';
+                        case '1' : $status_text = 'Согласовано';
                             break;
                         case '2' : $status_text = 'Ожидает подтверждения';
+                            break;
+                        case '3' : $status_text = 'Отправлено в налоговую';
                             break;
                     }
 

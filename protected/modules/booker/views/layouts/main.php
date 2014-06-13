@@ -54,7 +54,13 @@
 <div class="body">
     <div class="center">
         <div class="accountBlock">
-            <p class="accHead">Личный кабинет</p>
+            <p class="accHead lk_text">Личный кабинет</p>
+            <?php
+            if($this->entrepreuner_name) {
+                echo '<p class="entrepreuner_name">' . $this->entrepreuner_name . '</p>';
+            }
+            ?>
+            <div class="clear"></div>
             <?php echo $content; ?>
         </div>
     </div>
