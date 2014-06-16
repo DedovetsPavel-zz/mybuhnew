@@ -18,7 +18,7 @@ $this->menu = array(
 ?>
 <div class="tableBlock">
     <div class="buttonAim2">Добавить отчетность</div>
-    <div class="controlPanel">
+    <div class="controlPanel reporting_control_panel">
 
         <?php $form=$this->beginWidget('CActiveForm', array(
             'id'=>'reports-form-filter',
@@ -47,6 +47,11 @@ $this->menu = array(
         <div class="searchInput">
             <input type="text" name="search" value="<?php echo $search ?>"/>
             <button type="submit" class="search_button" title="Поиск"></button>
+        </div>
+        <div>
+            <?php
+                echo CHtml::link('Показать все', array('/booker/entrepreneurs/reporting/', 'id' => $entrepreneur_id), array('class' => 'reset_form'))
+            ?>
         </div>
         <?php $this->endWidget(); ?>
     </div>

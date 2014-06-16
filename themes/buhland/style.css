@@ -1042,7 +1042,7 @@ padding-left: 10px;
 .reset_form {
     color: #FFFFFF;
     display: block;
-    margin-left: 12px;
+    margin-left: 14px;
     margin-top: 3px;
 }
 
@@ -1050,3 +1050,33 @@ padding-left: 10px;
     /*max-width: 140px;*/
     word-break: break-all;
 }
+
+.reporting_control_panel {
+    min-height: 70px;
+}
+
+.prognozes_control_panel {
+    min-height: 70px;
+}
+
+
+.prognoz_update_form input[type="text"] {
+    width:198px; height:25px; font-size:14px; color: #616161; font-family: 'ArialNarrow';  border:1px solid #d4d4d4; padding-left:10px; margin-bottom:7px; border-radius:5px; background:#ffffff;
+}
+
+.prognoz_update_form label {
+    text-align:left; margin-bottom:2px; font-size:14px;display: block;
+}
+
+.prognoz_update_form .selectBox-dropdown {
+    width: 208px !important;
+    margin-bottom: 7px;
+}
+
+.prognoz_update_form textarea {
+    border: 1px solid #D4D4D4; font-size:14px; color: #616161; font-family: 'ArialNarrow';  margin-bottom:7px; width:197px; resize:none; padding-left:10px; padding-top:10px; border-radius:5px; height:72px;
+}
+
+.prognoz_update_form div.input {margin: 0 auto 7px 0;  background:#ffffff; width:208px; position:relative;  border-radius:5px;  border:1px solid #d4d4d4; height:25px; text-align:left;}
+.prognoz_update_form div.input input {width:165px; background:none; border:0px; font-size:14px; color: #616161; font-family: 'ArialNarrow'; }
+.prognoz_update_form div.input img {right:3px; position:absolute; top:2px; cursor:pointer;}

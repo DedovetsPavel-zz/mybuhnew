@@ -31,7 +31,7 @@ class EntrepreneursController extends Controller
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
 				'actions'=>array('create','update','workers', 'createworker', 'prognozes', 'createevent', 'deleteprognoz',
                 'reporting', 'createreport', 'deletereport', 'accounting', 'createaccount', 'deleteaccount', 'deleteworker',
-                'updateaccount', 'updateworker', 'updatereport'),
+                'updateaccount', 'updateworker', 'updatereport', 'updateevent'),
 				'roles'=>array('0', '1'),
 			),
 			array('deny',  // deny all users
@@ -249,7 +249,6 @@ class EntrepreneursController extends Controller
                 $parent = $model->attributes['parent'];
 
                 if($model->save()) {
-                    $response['success'] = 1;
                     $this->layout = null;
                     $prognozes = Prognozes::model()->findAll('parent=:parent', array(':parent' => $parent));
                     $this->renderPartial('_view_new_prognozes',array(
@@ -260,6 +259,29 @@ class EntrepreneursController extends Controller
             }
         }
     }
+
+    public function actionUpdateevent($id) {
+        $model = Prognozes::model()->findByPk($id);
+        if($model === null) {
+            throw new CHttpException(404,'The requested page does not exist.');
+        }
+        if(isset($_POST['Prognozes'])) {
+            if(Yii::app()->request->isAjaxRequest) {
+                $model->attributes = $_POST['Prognozes'];
+                $parent = $model->attributes['parent'];
+
+                if($model->save()) {
+                    $prognozes = Prognozes::model()->findAll('parent=:parent', array(':parent' => $parent));
+                    $this->renderPartial('_view_new_prognozes',array(
+                        'prognozes' =>  $prognozes,
+                        'entrepreneur_id' => $parent
+                    ), false, true);
+                }
+            }
+        }
+    }
+
+
 
     public function actionDeleteprognoz($id, $entrepreneur_id) {
         if(Yii::app()->request->isAjaxRequest) {

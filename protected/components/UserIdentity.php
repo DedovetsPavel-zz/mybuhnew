@@ -8,7 +8,8 @@ class UserIdentity extends CUserIdentity {
     // Данный метод вызывается один раз при аутентификации пользователя.
     public function authenticate(){
         // Производим стандартную аутентификацию, описанную в руководстве.
-        $user = Users::model()->find('LOWER(username)=?', array(strtolower($this->username)));
+        //$user = Users::model()->find('LOWER(username)=?', array(strtolower($this->username)));
+        $user = Users::model()->find('LOWER(username    )=:name OR LOWER(email)=:name', array(':name'=>strtolower($this->username)));
         if(($user===null) || (md5($this->password)!==$user->password)) {
 
             $this->errorCode = self::ERROR_USERNAME_INVALID;

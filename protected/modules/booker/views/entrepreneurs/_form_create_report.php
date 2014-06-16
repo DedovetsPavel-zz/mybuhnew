@@ -90,7 +90,7 @@
                 'id'=>'uploadFile',
                 'config'=>array(
                     'action'=>Yii::app()->createUrl('/site/upload'),
-                    'allowedExtensions'=>array("jpg","jpeg","gif","exe","mov","mp4","txt","doc","pdf","xls","3gp","php","ini","avi","rar","zip","png"),//array("jpg","jpeg","gif","exe","mov" and etc...
+                    'allowedExtensions'=>array("jpg","jpeg","gif","txt","doc","docx","pdf","xls","xlsx","png"),//array("jpg","jpeg","gif","exe","mov" and etc...
                     'sizeLimit'=>1000*1024*1024,// maximum file size in bytes
                     'minSizeLimit'=>1*1024,
                     'auto'=>false,

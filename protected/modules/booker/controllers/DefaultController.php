@@ -2,6 +2,8 @@
 
 class DefaultController extends Controller {
 
+    public $entrepreuner_name;
+
     public function filters()
     {
         return array(

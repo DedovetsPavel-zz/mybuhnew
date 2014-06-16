@@ -54,7 +54,6 @@ $this->menu = array(
             <?php
                 echo CHtml::link('Показать все', array('/booker/entrepreneurs/accounting/', 'id' => $entrepreneur_id), array('class' => 'reset_form'))
             ?>
-
         </div>
         <?php $this->endWidget(); ?>
     </div>

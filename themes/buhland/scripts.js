@@ -39,6 +39,14 @@ $(document).ready(function(){
         return false;
     });
 
+    $('.edit_link_prognoz').on('click', function() {
+        var link_id = $(this).attr('id');
+        var prognoz_id = link_id.substr(18);
+        $('#prognoz_row_' + prognoz_id).hide();
+        $('#prognoz_edit_row_' + prognoz_id).show();
+        return false;
+    });
+
 
     $('.drop_down_select_head').selectBox();
     $('.drop_down_list').selectBox();

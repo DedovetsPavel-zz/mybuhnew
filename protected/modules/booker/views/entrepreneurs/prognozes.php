@@ -18,7 +18,7 @@ $this->menu = array(
 
 <div class="tableBlock">
     <div class="buttonAim3">Добавить событие</div>
-    <div class="controlPanel">
+    <div class="controlPanel prognozes_control_panel">
         <?php $form=$this->beginWidget('CActiveForm', array(
             'id'=>'events-form-filter',
             'action'=>$this->createUrl('/booker/entrepreneurs/prognozes/', array('id' => $entrepreneur_id)),
@@ -43,6 +43,11 @@ $this->menu = array(
         <div class="searchInput">
             <input type="text" name="search" value="<?php echo $search ?>"/>
             <button type="submit" class="search_button" title="Поиск"></button>
+        </div>
+        <div>
+            <?php
+            echo CHtml::link('Показать все', array('/booker/entrepreneurs/prognozes/', 'id' => $entrepreneur_id), array('class' => 'reset_form'))
+            ?>
         </div>
         <?php $this->endWidget(); ?>
     </div>
@@ -74,15 +79,22 @@ $this->menu = array(
                 ),
                 array('class' => 'delete','confirm'=>'Вы уверены, что хотите удалить данное событие?', 'id' => 'prognoz_' . $prognoz->id)
             );
+
+            $edit_link = CHtml::link('Редактировать запись', '#', array('class' => 'edit_link_prognoz', 'id' => 'edit_link_prognoz_' . $prognoz->id));
+
+
             echo '
-                <tr>
+                <tr id="prognoz_row_'.$prognoz->id.'">
                     <td width="38" height="95">'.$key.'</td>
                     <td width="140">'.$prognoz->event.'</td>
                     <td width="140">'.$deadline.'</td>
                     <td width="140">'.$prognoz->consumption.'</td>
-                    <td width="280">'.$prognoz->comment.$delete_link.'</td>
+                    <td width="280">'.$prognoz->comment.$delete_link . $edit_link .'</td>
                 </tr>
                 ';
+            echo '<tr id="prognoz_edit_row_'.$prognoz->id.'" class="hide_form_edit_account"><td colspan="5">';
+            $this->renderPartial('_form_edit_prognoz', array('model'=>$prognoz, 'entrepreneur_id' => $entrepreneur_id));
+            echo '</td></tr>';
             $key++;
             $summ = $summ + $prognoz->consumption;
         }
